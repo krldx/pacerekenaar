@@ -170,6 +170,13 @@ td.mono{font-family:var(--f-mono);font-size:13px}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0}
 [hidden]{display:none!important}
+/* Startseite: nur ein Passwortfeld */
+#gate{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:16px}
+#gateForm{width:min(320px,100%)}
+#gateIn{display:block;width:100%;font:inherit;font-size:18px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--fg);text-align:center}
+#gateIn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+#gateIn.bad{border-color:var(--warn);animation:gateShake .3s}
+@keyframes gateShake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 /* Kopfzeile: Sprache und Bearbeitungssperre */
 .hctl{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .lock .ico{color:var(--fg);font-size:14px}
@@ -192,7 +199,9 @@ input:disabled{opacity:.55;cursor:not-allowed}
 </head>
 <body>
 
-<div class="wrap">
+<div id="gate"><form id="gateForm"><input type="password" id="gateIn" aria-label="Passwort / Wachtwoord" autocomplete="current-password" required></form></div>
+
+<div class="wrap" hidden>
   <header>
     <div>
       <div class="eyebrow" data-i="eyebrow"></div>
@@ -908,7 +917,7 @@ function updateNow(){if(!map)return;const nowL=nowLocal();
 function nowHM(){return clock(nowLocal())}
 setInterval(()=>{COURSES.forEach(c=>{const ti=$("lt-"+c.id);if(ti&&!ti.dataset.edited&&document.activeElement!==ti)ti.value=nowHM()})},20000);
 setInterval(()=>{COURSES.forEach(c=>c.on&&c.pts&&renderFocus(c))},60000);
-setInterval(()=>{const nowL=nowLocal();if(document.hidden||nowL<T0-H||nowL>T1+H)return;drawChart();updateNow()},60000);
+setInterval(()=>{const nowL=nowLocal();if(!STARTED||document.hidden||nowL<T0-H||nowL>T1+H)return;drawChart();updateNow()},60000);
 
 // ---------- Gesamtablauf
 function render(){
@@ -924,11 +933,23 @@ COURSES.forEach(c=>{const cb=$("on-"+c.id);cb.checked=c.on;cb.addEventListener("
   try{localStorage.setItem("pr-on",JSON.stringify(Object.fromEntries(COURSES.map(x=>[x.id,x.on]))))}catch(e){}
   render();updateMapVisibility(true)})});
 ["fUp","fDown","fFat"].forEach(id=>{$(id).addEventListener("input",render);$(id).addEventListener("change",saveModel)});
-initMap();
-applyLang();
-initLive();
-// km des Infofensters pro Browser merken
-try{const v=localStorage.getItem("pr-pin");if(v!=null&&v!==""&&!isNaN(+v))setPin(+v)}catch(e){}
+// ---------- Startseite: der Pacerechner startet erst nach dem Seitenpasswort (SHA-256, Prüfung im Browser); der Browser merkt sich die Freigabe
+const GATE_HASH="0ae2f6c706cff60bff7c0125b99cae8c53e1a1702f02316848bc99e597d084db";
+let STARTED=false;
+function startApp(){
+  if(STARTED)return;STARTED=true;$("gate").remove();document.querySelector(".wrap").hidden=false;
+  initMap();
+  applyLang();
+  initLive();
+  // km des Infofensters pro Browser merken
+  try{const v=localStorage.getItem("pr-pin");if(v!=null&&v!==""&&!isNaN(+v))setPin(+v)}catch(e){}
+}
+$("gateForm").addEventListener("submit",async e=>{e.preventDefault();const inp=$("gateIn");let h="";
+  try{const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(inp.value));h=[...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,"0")).join("")}catch(x){}
+  if(h===GATE_HASH){try{localStorage.setItem("pr-gate",h)}catch(x){}startApp();return}
+  inp.classList.remove("bad");void inp.offsetWidth;inp.classList.add("bad");inp.select()});
+let gateOk=false;try{gateOk=localStorage.getItem("pr-gate")===GATE_HASH}catch(e){}
+if(gateOk)startApp();else $("gateIn").focus();
 </script>
 </body>
 </html>
