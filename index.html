@@ -173,6 +173,8 @@ td.mono{font-family:var(--f-mono);font-size:13px}
 .runner,.me{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:21px;line-height:1;cursor:default}
 .runner{border:3px solid var(--rc,#000);box-shadow:0 2px 6px rgba(0,0,0,.4);z-index:3}
 .me{z-index:4}
+.me.num{font:700 17px var(--f-mono);color:#222}
+.emob:disabled{opacity:.35;cursor:not-allowed}
 .maplibregl-ctrl-group button.fitall{width:auto;padding:0 10px;font:600 13px var(--f-body);color:#222;white-space:nowrap}
 /* Livedaten-Eingabe: groß und orange, damit sie unterwegs gut zu treffen ist */
 :root{--lv-bg:#fff3e6;--lv-bd:#ee7a14;--lv-fg:#8a3d00;--lv-btn:#e86f0c}
@@ -291,7 +293,7 @@ input:disabled{opacity:.55;cursor:not-allowed}
     <div class="legend" id="mapLegend" style="margin-bottom:10px"></div>
     <div class="locbar" id="locBar" hidden>
       <button type="button" class="btn" id="locBtn"></button>
-      <span class="locgrp" id="locEmo" role="group"><span data-i="locAs"></span><button type="button" class="emob" data-e="koala">🐨</button><button type="button" class="emob" data-e="pig">🐷</button><button type="button" class="emob" data-e="dog">🐕‍🦺</button></span>
+      <span class="locgrp" id="locEmo" role="group"><span data-i="locAs"></span><button type="button" class="emob" data-e="koala">🐨</button><button type="button" class="emob" data-e="pig">🐷</button><button type="button" class="emob" data-e="dog">🐕‍🦺</button><button type="button" class="emob" data-e="panda">🐼</button><button type="button" class="emob" data-e="monkey">🐒</button></span>
       <span class="locgrp" role="radiogroup"><label><input type="radio" name="locShare" value="0"><span data-i="locPriv"></span></label><label><input type="radio" name="locShare" value="1"><span data-i="locPub"></span></label></span>
       <span class="lst" id="locSt" role="status"></span>
     </div>
@@ -351,9 +353,9 @@ de:{eyebrow:"Mallorca · 100 Miles Serra de Tramuntana & Els Tres Mils",h1:"Pace
  tipPlan:"Plan",tipPace:"Pace km {0}",hmUp:"Hm↑",hmDn:"Hm↓",ownRoute:"eigene Route",support:"Support",
  etmNote:"Die ETM-Linie ist auf der SDT-Distanzachse eingezeichnet: Von Lluc bis kurz nach Cúber und ab kurz vor Fornalutx laufen beide Strecken auf demselben Weg. Wo die ETM eine eigene Route hat (Selva–Lluc und der Bogen über Coll d'en Poma), ist ihre Linie gestrichelt und die Distanz auf die SDT-Achse umgerechnet. Die echten ETM-Kilometer zeigt das Infofenster.",
  map:"Streckenkarte",mapAid:"Verpflegungspunkt",mapSup:"mit Support",mapKm:"km-Marke alle 10 km",
- mapNote:"3D-Geländekarte: Ziehen verschiebt, Strg + Mausrad bzw. zwei Finger zoomen, rechte Maustaste bzw. zwei Finger neigen und drehen. Fahr mit der Maus über die Strecke oder das Diagramm, um Position und Plan-Zeit zu sehen. Während des Rennens zeigen 🐐 (SDT) und 🐯 (ETM) die geschätzte Position.",
- mapTopo:"Topo",mapSat:"Satellit",mapTrails:"Wanderwege",mapNow:"geschätzte Position im Rennen",coopWin:"Strg + Mausrad zum Zoomen",coopMac:"⌘ + Mausrad zum Zoomen",coopMob:"Mit zwei Fingern bewegen",
- locShow:"📍 Meinen Standort zeigen",locHide:"📍 Standort ausblenden",locAs:"Anzeigen als",locPriv:"nur für mich",locPub:"für alle freigeben",locKoala:"Koala",locPig:"Schweinchen",locDog:"Schäferhund",
+ mapNote:"3D-Geländekarte: Ziehen verschiebt, Mausrad bzw. zwei Finger zoomen, rechte Maustaste bzw. zwei Finger neigen und drehen. Fahr mit der Maus über die Strecke oder das Diagramm, um Position und Plan-Zeit zu sehen. Während des Rennens zeigen 🐐 (SDT) und 🐯 (ETM) die geschätzte Position.",
+ mapTopo:"Topo",mapSat:"Satellit",mapTrails:"Wanderwege",mapNow:"geschätzte Position im Rennen",
+ locShow:"📍 Meinen Standort zeigen",locHide:"📍 Standort ausblenden",locAs:"Anzeigen als",locPriv:"nur für mich",locPub:"für alle freigeben",locKoala:"Koala",locPig:"Schweinchen",locDog:"Schäferhund",locPanda:"Panda",locMonkey:"Affe",locTaken:"bereits vergeben",locAsOther:"{0} ist vergeben – du erscheinst als {1}",
  locWait:"Standort wird bestimmt …",locOn:"Standort aktiv (± {0} m)",locShared:" · für alle sichtbar",locShareErr:"Freigeben nicht möglich – sind die Datenbankregeln aktuell?",
  locUnsup:"Dieser Browser kann den Standort nicht bestimmen.",locInsecure:"Der Standort ist nur über https verfügbar.",locDenied:"Standortzugriff ist blockiert. Bitte in den Website-Einstellungen des Browsers erlauben.",locUnavail:"Standort derzeit nicht verfügbar.",
  locMine:"Mein Standort",locOther:"Geteilter Standort",locAgo:"vor {0} min",
@@ -390,9 +392,9 @@ nl:{eyebrow:"Mallorca · 100 Miles Serra de Tramuntana & Els Tres Mils",h1:"Pace
  tipPlan:"Plan",tipPace:"Pace km {0}",hmUp:"hm↑",hmDn:"hm↓",ownRoute:"eigen route",support:"Support",
  etmNote:"De ETM-lijn staat op de afstandsas van de SDT: van Lluc tot kort na Cúber en vanaf kort voor Fornalutx lopen beide parcoursen over hetzelfde pad. Waar de ETM een eigen route heeft (Selva–Lluc en de lus via Coll d'en Poma), is de lijn gestippeld en is de afstand omgerekend naar de SDT-as. De echte ETM-kilometers staan in het infovenster.",
  map:"Parcourskaart",mapAid:"Verzorgingspost",mapSup:"met support",mapKm:"km-markering elke 10 km",
- mapNote:"3D-terreinkaart: slepen verschuift, Ctrl + muiswiel of twee vingers zoomen, rechtermuisknop of twee vingers kantelen en draaien. Beweeg over het parcours of de grafiek om positie en geplande tijd te zien. Tijdens de race tonen 🐐 (SDT) en 🐯 (ETM) de geschatte positie.",
- mapTopo:"Topo",mapSat:"Satelliet",mapTrails:"Wandelroutes",mapNow:"geschatte positie in de race",coopWin:"Ctrl + muiswiel om te zoomen",coopMac:"⌘ + muiswiel om te zoomen",coopMob:"Gebruik twee vingers om te bewegen",
- locShow:"📍 Mijn locatie tonen",locHide:"📍 Locatie verbergen",locAs:"Tonen als",locPriv:"alleen voor mij",locPub:"met iedereen delen",locKoala:"Koala",locPig:"Biggetje",locDog:"Herdershond",
+ mapNote:"3D-terreinkaart: slepen verschuift, muiswiel of twee vingers zoomen, rechtermuisknop of twee vingers kantelen en draaien. Beweeg over het parcours of de grafiek om positie en geplande tijd te zien. Tijdens de race tonen 🐐 (SDT) en 🐯 (ETM) de geschatte positie.",
+ mapTopo:"Topo",mapSat:"Satelliet",mapTrails:"Wandelroutes",mapNow:"geschatte positie in de race",
+ locShow:"📍 Mijn locatie tonen",locHide:"📍 Locatie verbergen",locAs:"Tonen als",locPriv:"alleen voor mij",locPub:"met iedereen delen",locKoala:"Koala",locPig:"Biggetje",locDog:"Herdershond",locPanda:"Panda",locMonkey:"Aap",locTaken:"al in gebruik",locAsOther:"{0} is al in gebruik – je verschijnt als {1}",
  locWait:"Locatie wordt bepaald …",locOn:"Locatie actief (± {0} m)",locShared:" · zichtbaar voor iedereen",locShareErr:"Delen niet mogelijk – zijn de databaseregels bijgewerkt?",
  locUnsup:"Deze browser kan de locatie niet bepalen.",locInsecure:"De locatie is alleen via https beschikbaar.",locDenied:"Locatietoegang is geblokkeerd. Sta het toe in de website-instellingen van de browser.",locUnavail:"Locatie momenteel niet beschikbaar.",
  locMine:"Mijn locatie",locOther:"Gedeelde locatie",locAgo:"{0} min geleden",
@@ -805,8 +807,7 @@ function initMap(){
   if(!$("map")||map)return;
   if(!window.maplibregl){window.addEventListener("maplibre-ready",initMap,{once:true});return}
   map=new maplibregl.Map({container:"map",bounds:courseBounds(COURSES),fitBoundsOptions:{padding:30},pitch:45,maxPitch:80,
-    cooperativeGestures:true,attributionControl:false,
-    locale:{"CooperativeGesturesHandler.WindowsHelpText":t("coopWin"),"CooperativeGesturesHandler.MacHelpText":t("coopMac"),"CooperativeGesturesHandler.MobileHelpText":t("coopMob")}});
+    attributionControl:false});
   map.addControl(new maplibregl.NavigationControl({visualizePitch:true}),"top-right");
   // Knopf: ganze Strecke von oben, nach Norden ausgerichtet
   map.addControl({onAdd(){const d=divEl("maplibregl-ctrl maplibregl-ctrl-group"),b=document.createElement("button");b.type="button";b.className="fitall";
@@ -879,12 +880,21 @@ document.querySelectorAll("#baseSw button").forEach(b=>b.addEventListener("click
   try{localStorage.setItem("pr-basemap",basemap)}catch(e){}if(map)loadBasemap()}));
 
 // ---------- Eigener Standort (nur im Bearbeitungsmodus), wahlweise für alle freigegeben
-const EMO={koala:"🐨",pig:"🐷",dog:"🐕‍🦺"},EMO_T={koala:"locKoala",pig:"locPig",dog:"locDog"};
+const EMO={koala:"🐨",pig:"🐷",dog:"🐕‍🦺",panda:"🐼",monkey:"🐒"},EMO_T={koala:"locKoala",pig:"locPig",dog:"locDog",panda:"locPanda",monkey:"locMonkey"};
 const LOC={watch:null,mk:null,last:null,sentAt:0,sentPos:null,msg:"",first:true};
 let locEmo="koala",locShare=false,SHARED=null;const sharedMk={};
 try{const v=localStorage.getItem("pr-loc-emo");if(EMO[v])locEmo=v;locShare=localStorage.getItem("pr-loc-share")==="1"}catch(e){}
 // zufällige Kennung dieses Browsers für den geteilten Standort (kein Name, keine Anmeldung)
 const LOC_ID=(()=>{const n=()=>Math.random().toString(36).slice(2,12);try{let v=localStorage.getItem("pr-loc-id");if(!v){v=n();localStorage.setItem("pr-loc-id",v)}return v}catch(e){return n()}})();
+// Jedes Symbol ist unter den geteilten Standorten nur einmal aktiv; sind alle vergeben, gibt es Nummern (#1, #2 …)
+const locActive=v=>!!v&&(!!EMO[v.e]||/^#\d+$/.test(v.e||""))&&Date.now()-(+v.at||0)<30*60e3&&isFinite(v.lat)&&isFinite(v.lng);
+function takenEmos(){const tk=new Set();Object.entries(SHARED||{}).forEach(([id,v])=>{if(id===LOC_ID||!locActive(v))return;
+  // gleichzeitig dieselbe Wahl: die kleinere Kennung behält das Symbol, die andere weicht aus
+  if(locShare&&LOC.watch!=null&&v.e===LOC.eff&&id>LOC_ID)return;tk.add(v.e)});return tk}
+function effEmo(){const tk=takenEmos();if(!tk.has(locEmo))return locEmo;const f=Object.keys(EMO).find(k=>!tk.has(k));if(f)return f;let n=1;while(tk.has("#"+n))n++;return "#"+n}
+const emoTxt=e=>EMO[e]||String(e||"").slice(1);
+function setEmoEl(el,e){el.textContent=emoTxt(e);el.classList.toggle("num",!EMO[e])}
+function syncOwnEmo(){if(LOC.watch==null)return;const e=effEmo();if(e===LOC.eff)return;LOC.eff=e;if(LOC.mk)setEmoEl(LOC.mk.getElement(),e);locSend(true);syncLoc()}
 const distM=(a,b)=>{const dx=(a.lng-b.lng)*111320*Math.cos(a.lat*Math.PI/180),dy=(a.lat-b.lat)*110540;return Math.hypot(dx,dy)};
 function locPatch(val){if(!DB||!PW)return Promise.resolve(!DB);
   return fetch(DB_ROOT+".json?print=silent",{method:"PATCH",body:JSON.stringify({["pub/loc/"+LOC_ID]:val,key:{pw:PW,at:{".sv":"timestamp"}}})}).then(r=>r.ok).catch(()=>false)}
@@ -892,15 +902,15 @@ function locPatch(val){if(!DB||!PW)return Promise.resolve(!DB);
 function locSend(force){const p=LOC.last;if(!p||!locShare||RO)return;const now=Date.now();
   if(!force&&(now-LOC.sentAt<15000||(LOC.sentPos&&distM(p,LOC.sentPos)<25&&now-LOC.sentAt<60000)))return;
   LOC.sentAt=now;LOC.sentPos=p;
-  locPatch({e:locEmo,lat:+p.lat.toFixed(5),lng:+p.lng.toFixed(5),acc:Math.round(p.acc),at:{".sv":"timestamp"}}).then(ok=>{LOC.msg=ok?"":t("locShareErr");syncLoc()})}
+  locPatch({e:LOC.eff||locEmo,lat:+p.lat.toFixed(5),lng:+p.lng.toFixed(5),acc:Math.round(p.acc),at:{".sv":"timestamp"}}).then(ok=>{LOC.msg=ok?"":t("locShareErr");syncLoc()})}
 function locUnshare(){LOC.sentAt=0;LOC.sentPos=null;return locPatch(null)}
 async function startLoc(){
   if(!("geolocation" in navigator)){LOC.msg=t("locUnsup");syncLoc();return}
   if(window.isSecureContext===false){LOC.msg=t("locInsecure");syncLoc();return}
   try{const s=await navigator.permissions?.query({name:"geolocation"});if(s?.state==="denied"){LOC.msg=t("locDenied");syncLoc();return}}catch(e){}
-  LOC.first=true;LOC.msg=t("locWait");
+  LOC.first=true;LOC.msg=t("locWait");LOC.eff=effEmo();
   LOC.watch=navigator.geolocation.watchPosition(pos=>{const {latitude:lat,longitude:lng,accuracy:acc}=pos.coords;LOC.last={lat,lng,acc};LOC.msg="";
-      if(map){if(!LOC.mk)LOC.mk=new maplibregl.Marker({element:divEl("me"),anchor:"center"});LOC.mk.getElement().textContent=EMO[locEmo];
+      if(map){if(!LOC.mk)LOC.mk=new maplibregl.Marker({element:divEl("me"),anchor:"center"});setEmoEl(LOC.mk.getElement(),LOC.eff);
         LOC.mk.getElement().title=t("locMine")+" (± "+Math.round(acc)+" m)";LOC.mk.setLngLat([lng,lat]).addTo(map);
         if(LOC.first){LOC.first=false;map.flyTo({center:[lng,lat],zoom:Math.max(map.getZoom(),14),duration:1200})}}
       locSend();syncLoc()},
@@ -913,20 +923,23 @@ function stopLoc(){if(LOC.watch==null)return;navigator.geolocation.clearWatch(LO
 function syncLoc(){
   const bar=$("locBar");if(!bar)return;bar.hidden=RO;
   $("locBtn").textContent=t(LOC.watch!=null?"locHide":"locShow");$("locBtn").setAttribute("aria-pressed",LOC.watch!=null);
-  document.querySelectorAll("#locEmo button").forEach(b=>{b.setAttribute("aria-pressed",b.dataset.e===locEmo);b.setAttribute("aria-label",t(EMO_T[b.dataset.e]));b.title=t(EMO_T[b.dataset.e])});
+  const tk=takenEmos();
+  document.querySelectorAll("#locEmo button").forEach(b=>{const k=b.dataset.e,taken=tk.has(k);b.setAttribute("aria-pressed",k===locEmo);b.disabled=taken&&k!==locEmo;
+    b.classList.toggle("taken",taken);b.setAttribute("aria-label",t(EMO_T[k])+(taken?" ("+t("locTaken")+")":""));b.title=b.getAttribute("aria-label")});
   document.querySelectorAll("input[name=locShare]").forEach(r=>r.checked=(r.value==="1")===locShare);
-  $("locSt").textContent=LOC.msg||(LOC.last?t("locOn",Math.round(LOC.last.acc))+(locShare?t("locShared"):""):"");
+  const alt=LOC.watch!=null&&LOC.eff&&LOC.eff!==locEmo?t("locAsOther",EMO[locEmo],emoTxt(LOC.eff))+" · ":"";
+  $("locSt").textContent=LOC.msg||(LOC.last?alt+t("locOn",Math.round(LOC.last.acc))+(locShare?t("locShared"):""):"");
 }
 $("locBtn").addEventListener("click",()=>LOC.watch!=null?stopLoc():startLoc());
 document.querySelectorAll("#locEmo button").forEach(b=>b.addEventListener("click",()=>{locEmo=b.dataset.e;try{localStorage.setItem("pr-loc-emo",locEmo)}catch(e){}
-  if(LOC.mk)LOC.mk.getElement().textContent=EMO[locEmo];locSend(true);syncLoc()}));
+  syncOwnEmo();syncLoc()}));
 document.querySelectorAll("input[name=locShare]").forEach(r=>r.addEventListener("change",()=>{locShare=r.value==="1";try{localStorage.setItem("pr-loc-share",locShare?"1":"0")}catch(e){}
-  if(locShare)locSend(true);else{LOC.msg="";locUnshare()}syncLoc()}));
+  if(locShare){LOC.eff=null;syncOwnEmo()}else{LOC.msg="";locUnshare()}syncLoc()}));
 // geteilte Standorte der anderen (älter als 30 min werden ausgeblendet)
-function renderShared(all){SHARED=all||null;if(!map)return;const now=Date.now(),seen={};
-  Object.entries(SHARED||{}).forEach(([id,v])=>{if(id===LOC_ID||!v||!EMO[v.e]||!(now-(+v.at||0)<30*60e3)||!isFinite(v.lat)||!isFinite(v.lng))return;seen[id]=1;
+function renderShared(all){SHARED=all||null;syncOwnEmo();syncLoc();if(!map)return;const now=Date.now(),seen={};
+  Object.entries(SHARED||{}).forEach(([id,v])=>{if(id===LOC_ID||!locActive(v))return;seen[id]=1;
     const mk=sharedMk[id]||(sharedMk[id]=new maplibregl.Marker({element:divEl("me other"),anchor:"center"}));const el=mk.getElement();
-    el.textContent=EMO[v.e];el.title=t("locOther")+" · "+t("locAgo",Math.max(0,Math.round((now-v.at)/60e3)))+" (± "+(v.acc||"?")+" m)";mk.setLngLat([v.lng,v.lat]).addTo(map)});
+    setEmoEl(el,v.e);el.title=t("locOther")+" · "+t("locAgo",Math.max(0,Math.round((now-v.at)/60e3)))+" (± "+(v.acc||"?")+" m)";mk.setLngLat([v.lng,v.lat]).addTo(map)});
   Object.keys(sharedMk).forEach(id=>{if(!seen[id]){sharedMk[id].remove();delete sharedMk[id]}});
 }
 setInterval(()=>renderShared(SHARED),60000);
