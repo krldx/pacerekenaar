@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pacerechner Mallorca by UTMB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+<style>
+/* Layout: Arbeitsblatt – Streckenwahl & Sprache, je Strecke ein Zielzeit-Regler, gemeinsames Zeit-Distanz-Diagramm mit Pace-Streifen, Karte, Tabellen je Strecke */
+:root{
+  --bg:#f7f7f4; --panel:#ffffff; --fg:#151714; --fg2:#53564f; --muted:#8a8d85; --grid:#e3e4de; --line:#c9cbc3;
+  --fast:#2a78d6; --cut:#eb6834; --plan:#0f8a5f; --elev:#b9bcb2; --night:#24345e; --nightop:.13; --sun:#b7791f; --support:#7b3fc4;
+  --c-sdt:#0f8a5f; --c-etm:#c13584; --warn:#c2410c; --ok:#0f7a52;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141613; --panel:#1c1f1b; --fg:#eeefe9; --fg2:#bfc2b8; --muted:#8d9088; --grid:#2c302a; --line:#3d4239;
+  --fast:#4f95ea; --cut:#f07a4a; --plan:#2fbf86; --elev:#4a4f46; --night:#7f9be0; --nightop:.10; --sun:#e0a84a; --support:#b48cf0;
+  --c-sdt:#2fbf86; --c-etm:#e66aaa; --warn:#fb923c; --ok:#34d399; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141613; --panel:#1c1f1b; --fg:#eeefe9; --fg2:#bfc2b8; --muted:#8d9088; --grid:#2c302a; --line:#3d4239;
+  --fast:#4f95ea; --cut:#f07a4a; --plan:#2fbf86; --elev:#4a4f46; --night:#7f9be0; --nightop:.10; --sun:#e0a84a; --support:#b48cf0;
+  --c-sdt:#2fbf86; --c-etm:#e66aaa; --warn:#fb923c; --ok:#34d399; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;align-items:flex-start}
+header>div{min-width:0;flex:1 1 420px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,4vw,40px);letter-spacing:.01em;margin:0;line-height:1.05;text-wrap:balance}
+.sub{color:var(--fg2);margin:4px 0 0;max-width:70ch}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--grid);border-radius:10px;padding:16px 18px;min-width:0}
+/* Sprache */
+.lang{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:13px;font-weight:600}
+.lang span{color:var(--muted)} .lang span.on{color:var(--fg)}
+.switch{position:relative;width:46px;height:26px;border-radius:13px;border:1px solid var(--line);background:var(--grid);cursor:pointer;padding:0}
+.switch::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--panel);box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .15s}
+.switch[aria-checked="true"]::after{left:22px}
+.switch:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+/* Streckenwahl */
+.courses{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center}
+.courses label{display:flex;align-items:center;gap:8px;font-weight:600;cursor:pointer}
+.courses input{width:18px;height:18px;accent-color:var(--fg)}
+.cdot{display:inline-block;width:12px;height:12px;border-radius:3px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:20px}
+.control{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 24px;align-items:center;align-content:start;border-top:4px solid var(--cc)}
+.control h2{grid-column:1/-1;font-family:var(--f-display);font-weight:700;font-size:22px;margin:0}
+.control h2 small{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-weight:400;margin-left:8px;letter-spacing:.04em}
+.control label.gl{font-weight:600}
+.goal{font-family:var(--f-display);font-weight:700;font-size:40px;line-height:1;font-variant-numeric:tabular-nums;color:var(--cc)}
+.goalBox{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.goalIn{font:inherit;color:inherit;width:3.4em;text-align:right;border:1px solid var(--line);border-radius:8px;background:var(--bg);padding:2px 6px;font-variant-numeric:tabular-nums}
+.goalIn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.goalSteps{display:flex;gap:6px}
+.goal small{font-size:17px;color:var(--fg2);font-weight:600;margin-left:6px}
+input[type=range]{width:100%;height:28px}
+input[type=range]:focus-visible,input[type=number]:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.rangeLab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 24px;grid-column:1/-1;font-variant-numeric:tabular-nums}
+.stat{display:flex;flex-direction:column}
+.stat b{font-family:var(--f-mono);font-weight:600;font-size:15px}
+.stat span{font-size:12px;color:var(--muted)}
+.model{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:13px;color:var(--fg2)}
+.model input{width:64px;font:inherit;font-family:var(--f-mono);padding:2px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.pubbar{flex-basis:100%;order:9;font-size:12.5px;color:var(--fg2);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.live{grid-column:1/-1;border-top:1px solid var(--grid);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.liveHead{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.lst{font-size:12px;color:var(--muted)}
+.liveForm{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-size:13px;color:var(--fg2)}
+.liveForm input{font:inherit;font-family:var(--f-mono);padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.liveForm input[type=number]{width:6em}
+.btn{font:inherit;font-weight:600;font-size:13px;padding:4px 12px;border-radius:6px;border:1px solid var(--fg);background:var(--fg);color:var(--panel);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--fg2);border-color:var(--line)}
+.btn.warn{background:var(--warn);border-color:var(--warn);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.chip button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.lerr{color:var(--warn);font-size:12px}
+.focus{border:1px solid var(--line);border-left:5px solid var(--cc);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
+.focus .fh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.focus .fn{font-family:var(--f-display);font-weight:700;font-size:24px;line-height:1.1}
+.focus .fsub{font-size:12px;color:var(--muted)}
+.focus .fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px 16px}
+.focus .fv{display:flex;flex-direction:column;min-width:0}
+.focus .fv b{font-family:var(--f-mono);font-weight:600;font-size:15px;font-variant-numeric:tabular-nums}
+.focus .fv b.big{font-size:20px;color:var(--cc)}
+.focus .fv span{font-size:12px;color:var(--muted)}
+.focus details.nut{border-top:1px dashed var(--grid);padding-top:6px}
+.focus details.nut summary{cursor:pointer;font-weight:600;font-size:13.5px;color:var(--fg);list-style-position:inside}
+.focus details.nut summary:focus-visible{outline:2px solid var(--fg);outline-offset:2px;border-radius:4px}
+.nutT{font-size:12px;color:var(--fg2);margin:6px 0 4px}
+.nutG{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px 18px;margin:4px 0}
+.nutG h4{margin:0 0 2px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.nutG ul{margin:0;padding-left:16px;font-size:13px;line-height:1.45}
+.nutN{font-size:11.5px;color:var(--muted);margin-top:4px}
+.focus .fthen{font-size:12.5px;color:var(--fg2);border-top:1px dashed var(--grid);padding-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:2px 4px 2px 9px;border:1px solid var(--line);border-radius:999px;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.chip button{border:0;background:transparent;color:var(--fg2);cursor:pointer;font-size:14px;line-height:1;padding:2px 5px;border-radius:50%}
+.chips .hint{color:var(--muted);font-size:12px}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline;margin-bottom:6px}
+.chart-head h2{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--fg2);align-items:center}
+.legend i{display:inline-block;width:22px;height:0;border-top:2.5px solid;vertical-align:middle;margin-right:6px}
+.legend i.grad{width:90px;height:8px;border:0;border-radius:4px;margin:0 4px;background:linear-gradient(90deg,#2fa36b,#e3b23c,#d9572b,#8e1b2b)}
+.legend b.mono{font-family:var(--f-mono);font-weight:600;color:var(--fg)}
+.cpill{display:inline-block;padding:0 7px;border-radius:999px;font-size:11.5px;font-weight:700;color:#fff;line-height:18px;font-family:var(--f-mono)}
+.scroll{overflow-x:auto}
+svg{display:block;font-family:var(--f-body)}
+#main{touch-action:manipulation} /* kein Doppeltipp-Zoom des Browsers, Wischen und Seitenzoom bleiben */
+.zoombar{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:4px 0 8px}
+.zb{font:inherit;font-family:var(--f-mono);font-weight:600;font-size:14px;min-width:34px;height:32px;padding:0 10px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+.zb.wide{font-family:var(--f-body);font-size:13px}
+.zb:disabled{opacity:.35;cursor:default}
+.zb:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+/* Vollbild: echtes Vollbild, wo der Browser es erlaubt; sonst (z. B. iPhone) füllt das Diagramm das ganze Fenster */
+#chartPanel:fullscreen{overflow:auto;border-radius:0;padding-block:12px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
+#chartPanel:-webkit-full-screen{overflow:auto;border-radius:0;width:100%;height:100%}
+#chartPanel.fs{position:fixed;inset:0;z-index:1000;margin:0;border-radius:0;border:0;overflow:auto;padding-top:max(12px,env(safe-area-inset-top,0px));padding-bottom:max(12px,env(safe-area-inset-bottom,0px));padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
+body.fsLock{overflow:hidden}
+#chartPanel:fullscreen .zoombar,#chartPanel.fs .zoombar{position:sticky;left:0;top:0;z-index:6;background:var(--panel);padding-block:4px}
+.kmPin{display:inline-flex;align-items:center;gap:6px;margin-right:10px;font-size:13px;color:var(--fg2)}
+.kmPin .zb{touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.kmPin input{font:inherit;font-family:var(--f-mono);width:5.5em;height:32px;padding:0 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);text-align:right;box-sizing:border-box}
+.kmPin input:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.zrange{font-family:var(--f-mono);font-size:12px;color:var(--fg2)}
+.zhint{font-size:12px;color:var(--muted)}
+svg text{fill:var(--fg2);font-size:11px}
+svg text.kmlabel{paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+svg text.fglab{font-size:10.5px;font-weight:600;paint-order:stroke;stroke:var(--panel);stroke-width:3.5px;stroke-linejoin:round}
+svg text.suplab{font-size:10.5px;font-weight:700;fill:var(--support);paint-order:stroke;stroke:var(--panel);stroke-width:3.5px;stroke-linejoin:round}
+svg text.ptlab{font-size:10.5px;font-weight:700;paint-order:stroke;stroke:var(--panel);stroke-width:3.5px;stroke-linejoin:round}
+.empty{padding:40px 12px;text-align:center;color:var(--fg2)}
+.tip{position:absolute;pointer-events:none;background:var(--panel);background:color-mix(in srgb,var(--panel) 40%,transparent);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.12);font-variant-numeric:tabular-nums;white-space:nowrap;z-index:5}
+.tip b{font-family:var(--f-mono)}
+.tip .row+.row{margin-top:6px;padding-top:6px;border-top:1px solid var(--grid)}
+.rel{position:relative}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:14px}
+th,td{padding:6px 10px;text-align:right;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.mono{font-family:var(--f-mono);font-size:13px}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;font-family:var(--f-mono)}
+.pill.ok{color:var(--ok);border:1px solid currentColor}
+.pill.tight{color:var(--cut);border:1px solid currentColor}
+.pill.out{color:#fff;background:var(--warn)}
+.pill.sup{color:var(--support);border:1px solid currentColor;margin-left:6px;font-family:var(--f-body)}
+.sup-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--support);vertical-align:middle;margin-right:5px}
+.tin.fc{font-style:italic;color:var(--tc,var(--plan))} /* Prognose in Streckenfarbe */
+.tin.ist{font-style:normal;color:var(--fg);font-weight:600}
+.tin{font:inherit;font-family:var(--f-mono);font-size:13px;padding:1px 4px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);width:7.2em}
+.lt{display:inline-block;width:1.4em;color:var(--fg2)}
+#map{height:560px;border-radius:8px;border:1px solid var(--grid);background:var(--grid);z-index:0}
+.leaflet-container{font-family:var(--f-body)}
+.leaflet-tooltip.aid{font-size:12px;line-height:1.35;font-variant-numeric:tabular-nums}
+.leaflet-tooltip.aid b{font-family:var(--f-mono)}
+.kmlab{font-family:var(--f-mono);font-size:10px;font-weight:600;color:#1d2b22;background:rgba(255,255,255,.85);border:1px solid #1d2b22;border-radius:3px;padding:0 3px;white-space:nowrap;line-height:14px;text-align:center}
+.maplab{position:absolute;color:#fff;font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.maplab.r{left:14px;top:-10px}
+.maplab.tl{right:10px;bottom:10px}
+.mapnote,.note{font-size:13px;color:var(--fg2);max-width:85ch}
+.mapnote{font-size:12px;color:var(--muted);margin-top:6px}
+@media (max-width:640px){#map{height:440px}.goal{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+/* Kopfzeile: Sprache und Bearbeitungssperre */
+.hctl{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.lock .ico{color:var(--fg);font-size:14px}
+#lockSw[aria-checked="true"]{background:var(--ok);border-color:var(--ok)}
+#lockLbl{min-width:7ch}
+input:disabled{opacity:.55;cursor:not-allowed}
+/* Passwortdialog */
+#pwDlg{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--fg);padding:20px 22px;width:min(420px,calc(100vw - 32px));box-shadow:0 12px 40px rgba(0,0,0,.25)}
+#pwDlg::backdrop{background:rgba(0,0,0,.4)}
+#pwDlg h2{font-family:var(--f-display);font-weight:700;font-size:24px;margin:0 0 6px}
+#pwDlg p{margin:0 0 14px;color:var(--fg2);font-size:14px}
+#pwDlg label{display:block;font-weight:600;margin-bottom:4px}
+#pwIn{width:100%;font:inherit;font-size:16px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
+#pwIn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.pwErr{min-height:1.4em;margin:6px 0 10px;font-size:13px;color:var(--warn)}
+.pwBtns{display:flex;justify-content:flex-end;gap:8px}
+.pwBtns .btn{font-size:14px;padding:6px 14px}
+@media (max-width:640px){.hctl{flex-direction:row;align-items:center;gap:16px;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow" data-i="eyebrow"></div>
+      <h1 data-i="h1"></h1>
+      <p class="sub" data-i="sub"></p>
+    </div>
+    <div class="hctl">
+      <div class="lang"><span id="lDE">DE</span><button class="switch" id="langSw" role="switch" aria-checked="false" aria-label="Deutsch / Nederlands"></button><span id="lNL">NL</span></div>
+      <div class="lang lock"><span class="ico" id="lockIco" aria-hidden="true">🔒</span><button class="switch" id="lockSw" role="switch" aria-checked="false"></button><span id="lockLbl"></span></div>
+    </div>
+  </header>
+
+  <section class="panel courses" aria-label="Strecken">
+    <span class="eyebrow" data-i="courses"></span>
+    <label for="on-sdt"><input type="checkbox" id="on-sdt" checked><span class="cdot" style="background:var(--c-sdt)"></span><span>100 Miles Serra de Tramuntana (SDT) · 138,4 km</span></label>
+    <label for="on-etm"><input type="checkbox" id="on-etm" checked><span class="cdot" style="background:var(--c-etm)"></span><span>Els Tres Mils (ETM) · 55,9 km</span></label>
+  </section>
+
+  <div class="controls" id="controls"></div>
+
+  <section class="panel model" aria-label="Modell">
+    <span class="eyebrow" data-i="model"></span>
+    <label for="fUp"><span data-i="mUp1"></span> <input type="number" id="fUp" min="50" max="200" step="5" value="100"> <span data-i="mUp2"></span></label>
+    <label for="fDown"><span data-i="mDn1"></span> <input type="number" id="fDown" min="100" max="2000" step="50" value="500"> <span data-i="mDn2"></span></label>
+    <label for="fFat"><span data-i="mFat"></span> <input type="number" id="fFat" min="0" max="150" step="5" value="50"> %</label>
+  </section>
+
+  <section class="panel" id="chartPanel">
+    <div class="chart-head">
+      <h2 data-i="chart"></h2>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="zoombar"><span class="kmPin" id="kmBar"><label for="kmIn" id="kmLbl"></label><button type="button" class="zb" id="kmM" aria-label="−1 km">−</button><input type="number" id="kmIn" min="0" step="1" inputmode="decimal" placeholder="–"><button type="button" class="zb" id="kmP" aria-label="+1 km">+</button><button type="button" class="zb" id="kmX">✕</button></span><button type="button" class="zb wide" id="fsBtn"></button></div>
+    <div class="scroll"><div class="rel" id="mainWrap" style="min-width:720px"><svg id="main" viewBox="0 0 1100 800" width="100%" role="img"></svg><div class="tip" id="tip" hidden></div></div></div>
+    <p class="mapnote" id="etmNote" data-i="etmNote"></p>
+  </section>
+
+  <section class="panel">
+    <div class="chart-head">
+      <h2 data-i="map"></h2>
+      <div class="legend" id="mapLegend"></div>
+    </div>
+    <div id="map" role="region" aria-label="Topografische Karte"></div>
+    <div class="mapnote" data-i="mapNote"></div>
+  </section>
+
+  <div id="tables" style="display:flex;flex-direction:column;gap:20px"></div>
+
+  <p class="note" data-i="note"></p>
+</div>
+
+<dialog id="pwDlg" aria-labelledby="pwH">
+  <form id="pwForm">
+    <h2 id="pwH" data-i="pwTitle"></h2>
+    <p data-i="pwText"></p>
+    <label for="pwIn" data-i="pwLabel"></label>
+    <input type="password" id="pwIn" autocomplete="current-password" required>
+    <div class="pwErr" id="pwErr" role="alert"></div>
+    <div class="pwBtns"><button type="button" class="btn ghost" id="pwCancel" data-i="pwCancel"></button><button type="submit" class="btn" id="pwOk" data-i="pwOk"></button></div>
+  </form>
+</dialog>
+<script>
+const DATA = {"sdt":{"seg":[[1.0,99.2,15.9],[1.0,60.1,21.7],[1.0,42.5,4.7],[1.0,73.2,0.2],[1.0,15.6,17.7],[1.0,65.1,7.5],[1.0,47.1,2.0],[1.0,14.8,1.8],[1.0,11.7,13.6],[1.0,67.7,14.2],[1.0,38.2,10.2],[1.0,11.5,30.9],[1.0,0,108.0],[1.0,0,70.1],[1.0,29.0,62.6],[1.0,38.7,25.8],[1.0,69.8,1.9],[1.0,71.0,0.0],[1.0,81.9,0],[1.0,131.7,0.1],[1.0,23.1,46.9],[1.0,86.8,71.8],[1.0,120.7,37.1],[1.0,0,212.3],[1.0,19.9,42.8],[1.0,23.2,22.5],[1.0,8.5,3.5],[1.0,52.6,34.7],[1.0,9.9,25.1],[1.0,0.4,72.4],[1.0,0.2,57.3],[1.0,0,71.6],[1.0,0,34.1],[1.0,0,30.9],[1.0,8.1,14.3],[1.0,10.9,0.2],[1.0,5.6,2.5],[1.0,34.0,0],[1.0,89.7,0],[1.0,159.6,0],[1.0,136.3,0],[1.0,37.2,4.1],[1.0,34.4,12.4],[1.0,8.9,20.2],[1.0,0,65.6],[1.0,1.2,59.0],[1.0,143.1,2.2],[1.0,20.9,90.0],[1.0,7.4,64.2],[1.0,49.5,111.9],[1.0,102.5,37.2],[1.0,3.4,43.1],[1.0,19.3,2.7],[1.0,108.8,0],[1.0,119.2,15.9],[1.0,0,145.9],[1.0,0,152.0],[1.0,3.4,112.6],[1.0,0,68.7],[1.0,0.8,20.9],[1.0,4.7,7.5],[1.0,6.1,1.8],[1.0,17.1,1.9],[1.0,56.4,0],[1.0,73.2,0],[1.0,27.5,5.3],[1.0,54.1,0],[1.0,17.9,53.7],[1.0,33.0,38.9],[1.0,166.3,0],[1.0,76.2,5.2],[1.0,8.5,92.6],[1.0,0,84.7],[1.0,38.2,29.8],[1.0,1.0,72.8],[1.0,0.1,126.5],[1.0,5.9,53.8],[1.0,64.9,0],[1.0,118.0,0],[1.0,96.7,0],[1.0,136.7,0],[1.0,140.1,0],[1.0,31.3,56.5],[1.0,0,116.0],[1.0,1.5,46.5],[1.0,4.1,50.0],[1.0,8.9,39.7],[1.0,81.3,0],[1.0,81.0,5.3],[1.0,21.8,39.1],[1.0,0.3,64.2],[1.0,6.3,37.5],[1.0,0.5,61.5],[1.0,33.3,9.4],[1.0,14.2,48.0],[1.0,41.7,19.5],[1.0,14.1,46.4],[1.0,143.0,0],[1.0,120.9,0],[1.0,74.5,2.4],[1.0,203.0,0],[1.0,106.4,6.6],[1.0,32.9,81.7],[1.0,124.5,23.1],[1.0,0,148.3],[1.0,0,141.7],[1.0,0,110.5],[1.0,40.6,18.2],[1.0,0.1,53.4],[1.0,0.3,1.3],[1.0,3.1,0.5],[1.0,8.5,10.8],[1.0,6.7,5.5],[1.0,26.0,0],[1.0,43.3,0.1],[1.0,57.2,81.7],[1.0,0,136.9],[1.0,0.7,160.0],[1.0,0.1,177.9],[1.0,0,154.0],[1.0,3.8,75.2],[1.0,27.7,34.2],[1.0,61.2,9.9],[1.0,43.6,9.5],[1.0,93.4,1.9],[1.0,25.6,12.7],[1.0,14.4,21.2],[1.0,0,134.6],[1.0,7.8,60.2],[1.0,0.1,66.9],[1.0,1.7,9.5],[1.0,77.5,3.2],[1.0,73.8,4.8],[1.0,42.4,24.1],[1.0,11.2,80.9],[1.0,4.5,53.3],[1.0,0.5,48.2],[1.0,1.8,4.3],[0.4,0.0,0.9]],"prof":[[0.0,21],[0.2,63],[0.4,73],[0.6,80],[0.8,96],[1.0,104],[1.2,117],[1.4,140],[1.6,148],[1.8,149],[2.0,142],[2.2,152],[2.4,161],[2.6,169],[2.8,173],[3.0,180],[3.2,197],[3.4,226],[3.6,245],[3.8,251],[4.0,253],[4.2,254],[4.4,243],[4.6,248],[4.8,254],[5.0,251],[5.2,283],[5.4,311],[5.6,314],[5.8,311],[6.0,309],[6.2,308],[6.4,321],[6.6,334],[6.8,343],[7.0,354],[7.2,361],[7.4,360],[7.6,361],[7.8,364],[8.0,367],[8.2,374],[8.4,377],[8.6,376],[8.8,372],[9.0,365],[9.2,355],[9.4,352],[9.6,370],[9.8,391],[10.0,418],[10.2,425],[10.4,437],[10.6,456],[10.8,456],[11.0,446],[11.2,443],[11.4,440],[11.6,429],[11.8,439],[12.0,427],[12.2,404],[12.4,393],[12.6,375],[12.8,342],[13.0,319],[13.2,300],[13.4,282],[13.6,273],[13.8,254],[14.0,249],[14.2,232],[14.4,241],[14.6,257],[14.8,253],[15.0,215],[15.2,191],[15.4,190],[15.6,196],[15.8,209],[16.0,228],[16.2,249],[16.4,276],[16.6,293],[16.8,297],[17.0,296],[17.2,301],[17.4,309],[17.6,326],[17.8,346],[18.0,367],[18.2,388],[18.4,410],[18.6,425],[18.8,434],[19.0,449],[19.2,468],[19.4,520],[19.6,542],[19.8,569],[20.0,581],[20.2,582],[20.4,590],[20.6,602],[20.8,593],[21.0,557],[21.2,516],[21.4,498],[21.6,490],[21.8,532],[22.0,572],[22.2,625],[22.4,666],[22.6,684],[22.8,689],[23.0,655],[23.2,638],[23.4,587],[23.6,516],[23.8,467],[24.0,443],[24.2,419],[24.4,404],[24.6,406],[24.8,414],[25.0,420],[25.2,413],[25.4,405],[25.6,398],[25.8,404],[26.0,421],[26.2,425],[26.4,422],[26.6,422],[26.8,423],[27.0,426],[27.2,434],[27.4,468],[27.6,474],[27.8,449],[28.0,444],[28.2,445],[28.4,437],[28.6,439],[28.8,432],[29.0,429],[29.2,420],[29.4,405],[29.6,380],[29.8,360],[30.0,357],[30.2,349],[30.4,333],[30.6,328],[30.8,321],[31.0,300],[31.2,276],[31.4,259],[31.6,244],[31.8,234],[32.0,228],[32.2,224],[32.4,217],[32.6,207],[32.8,201],[33.0,194],[33.2,186],[33.4,179],[33.6,173],[33.8,168],[34.0,163],[34.2,154],[34.4,150],[34.6,150],[34.8,153],[35.0,157],[35.2,161],[35.4,165],[35.6,167],[35.8,167],[36.0,168],[36.2,170],[36.4,172],[36.6,171],[36.8,171],[37.0,171],[37.2,176],[37.4,186],[37.6,193],[37.8,202],[38.0,205],[38.2,216],[38.4,235],[38.6,268],[38.8,285],[39.0,295],[39.2,325],[39.4,360],[39.6,388],[39.8,428],[40.0,454],[40.2,493],[40.4,522],[40.6,547],[40.8,566],[41.0,590],[41.2,615],[41.4,618],[41.6,622],[41.8,627],[42.0,623],[42.2,617],[42.4,615],[42.6,623],[42.8,645],[43.0,645],[43.2,654],[43.4,649],[43.6,643],[43.8,641],[44.0,634],[44.2,628],[44.4,612],[44.6,597],[44.8,584],[45.0,568],[45.2,543],[45.4,528],[45.6,519],[45.8,513],[46.0,511],[46.2,510],[46.4,526],[46.6,573],[46.8,619],[47.0,651],[47.2,671],[47.4,649],[47.6,616],[47.8,596],[48.0,582],[48.2,556],[48.4,559],[48.6,561],[48.8,545],[49.0,526],[49.2,480],[49.4,416],[49.6,431],[49.8,458],[50.0,463],[50.2,477],[50.4,508],[50.6,555],[50.8,554],[51.0,529],[51.2,509],[51.4,500],[51.6,486],[51.8,489],[52.0,489],[52.2,486],[52.4,487],[52.6,493],[52.8,499],[53.0,505],[53.2,512],[53.4,520],[53.6,533],[53.8,566],[54.0,614],[54.2,659],[54.4,695],[54.6,722],[54.8,708],[55.0,718],[55.2,690],[55.4,663],[55.6,633],[55.8,597],[56.0,572],[56.2,530],[56.4,504],[56.6,486],[56.8,455],[57.0,420],[57.2,399],[57.4,383],[57.6,366],[57.8,347],[58.0,311],[58.2,296],[58.4,277],[58.6,261],[58.8,252],[59.0,242],[59.2,240],[59.4,233],[59.6,226],[59.8,223],[60.0,222],[60.2,220],[60.4,218],[60.6,217],[60.8,216],[61.0,219],[61.2,223],[61.4,224],[61.6,225],[61.8,225],[62.0,223],[62.2,222],[62.4,223],[62.6,227],[62.8,233],[63.0,239],[63.2,243],[63.4,250],[63.6,262],[63.8,275],[64.0,295],[64.2,312],[64.4,329],[64.6,346],[64.8,362],[65.0,368],[65.2,363],[65.4,366],[65.6,371],[65.8,382],[66.0,390],[66.2,401],[66.4,416],[66.6,427],[66.8,437],[67.0,444],[67.2,456],[67.4,456],[67.6,436],[67.8,422],[68.0,409],[68.2,395],[68.4,382],[68.6,373],[68.8,377],[69.0,403],[69.2,438],[69.4,470],[69.6,506],[69.8,539],[70.0,569],[70.2,596],[70.4,620],[70.6,639],[70.8,645],[71.0,640],[71.2,647],[71.4,614],[71.6,579],[71.8,560],[72.0,556],[72.2,541],[72.4,526],[72.6,498],[72.8,482],[73.0,471],[73.2,451],[73.4,472],[73.6,486],[73.8,481],[74.0,480],[74.2,476],[74.4,453],[74.6,438],[74.8,428],[75.0,408],[75.2,396],[75.4,383],[75.6,345],[75.8,314],[76.0,282],[76.2,261],[76.4,243],[76.6,230],[76.8,230],[77.0,234],[77.2,242],[77.4,249],[77.6,263],[77.8,282],[78.0,299],[78.2,321],[78.4,349],[78.6,367],[78.8,395],[79.0,417],[79.2,436],[79.4,453],[79.6,473],[79.8,489],[80.0,513],[80.2,535],[80.4,563],[80.6,587],[80.8,619],[81.0,650],[81.2,675],[81.4,709],[81.6,737],[81.8,762],[82.0,790],[82.2,816],[82.4,819],[82.6,796],[82.8,782],[83.0,765],[83.2,737],[83.4,712],[83.6,689],[83.8,660],[84.0,649],[84.2,642],[84.4,641],[84.6,638],[84.8,627],[85.0,604],[85.2,590],[85.4,575],[85.6,574],[85.8,569],[86.0,558],[86.2,549],[86.4,529],[86.6,530],[86.8,524],[87.0,527],[87.2,540],[87.4,559],[87.6,580],[87.8,597],[88.0,609],[88.2,637],[88.4,669],[88.6,688],[88.8,688],[89.0,684],[89.2,671],[89.4,651],[89.6,652],[89.8,651],[90.0,667],[90.2,661],[90.4,652],[90.6,630],[90.8,620],[91.0,603],[91.2,591],[91.4,592],[91.6,591],[91.8,580],[92.0,572],[92.2,553],[92.4,530],[92.6,517],[92.8,515],[93.0,511],[93.2,523],[93.4,521],[93.6,528],[93.8,536],[94.0,535],[94.2,545],[94.4,545],[94.6,524],[94.8,507],[95.0,501],[95.2,506],[95.4,530],[95.6,542],[95.8,539],[96.0,523],[96.2,484],[96.4,480],[96.6,478],[96.8,478],[97.0,491],[97.2,513],[97.4,546],[97.6,568],[97.8,597],[98.0,634],[98.2,654],[98.4,668],[98.6,695],[98.8,728],[99.0,755],[99.2,775],[99.4,779],[99.6,784],[99.8,807],[100.0,827],[100.2,848],[100.4,881],[100.6,929],[100.8,979],[101.0,1030],[101.2,1072],[101.4,1083],[101.6,1101],[101.8,1131],[102.0,1130],[102.2,1129],[102.4,1099],[102.6,1068],[102.8,1052],[103.0,1081],[103.2,1111],[103.4,1156],[103.6,1197],[103.8,1203],[104.0,1182],[104.2,1155],[104.4,1122],[104.6,1090],[104.8,1056],[105.0,1034],[105.2,1016],[105.4,995],[105.6,976],[105.8,941],[106.0,892],[106.2,865],[106.4,839],[106.6,822],[106.8,800],[107.0,782],[107.2,766],[107.4,770],[107.6,783],[107.8,797],[108.0,804],[108.2,779],[108.4,753],[108.6,752],[108.8,751],[109.0,751],[109.2,751],[109.4,750],[109.6,750],[109.8,750],[110.0,750],[110.2,750],[110.4,750],[110.6,750],[110.8,750],[111.0,753],[111.2,760],[111.4,757],[111.6,752],[111.8,752],[112.0,750],[112.2,749],[112.4,751],[112.6,751],[112.8,749],[113.0,752],[113.2,755],[113.4,758],[113.6,763],[113.8,768],[114.0,778],[114.2,785],[114.4,789],[114.6,797],[114.8,806],[115.0,821],[115.2,840],[115.4,868],[115.6,866],[115.8,831],[116.0,796],[116.2,761],[116.4,733],[116.6,713],[116.8,672],[117.0,659],[117.2,646],[117.4,616],[117.6,574],[117.8,545],[118.0,500],[118.2,452],[118.4,409],[118.6,377],[118.8,355],[119.0,322],[119.2,297],[119.4,266],[119.6,236],[119.8,198],[120.0,168],[120.2,151],[120.4,129],[120.6,106],[120.8,106],[121.0,97],[121.2,71],[121.4,65],[121.6,63],[121.8,70],[122.0,90],[122.2,117],[122.4,141],[122.6,141],[122.8,143],[123.0,142],[123.2,143],[123.4,147],[123.6,156],[123.8,163],[124.0,176],[124.2,203],[124.4,242],[124.6,256],[124.8,258],[125.0,267],[125.2,282],[125.4,292],[125.6,292],[125.8,285],[126.0,280],[126.2,271],[126.4,280],[126.6,281],[126.8,285],[127.0,273],[127.2,246],[127.4,209],[127.6,181],[127.8,164],[128.0,139],[128.2,115],[128.4,91],[128.6,79],[128.8,80],[129.0,86],[129.2,70],[129.4,52],[129.6,39],[129.8,24],[130.0,20],[130.2,17],[130.4,14],[130.6,11],[130.8,13],[131.0,12],[131.2,9],[131.4,12],[131.6,22],[131.8,48],[132.0,86],[132.2,109],[132.4,133],[132.6,147],[132.8,156],[133.0,155],[133.2,177],[133.4,186],[133.6,195],[133.8,193],[134.0,173],[134.2,148],[134.4,118],[134.6,122],[134.8,116],[135.0,104],[135.2,103],[135.4,101],[135.6,79],[135.8,62],[136.0,55],[136.2,54],[136.4,45],[136.6,29],[136.8,13],[137.0,7],[137.2,5],[137.4,6],[137.6,6],[137.8,5],[138.0,5],[138.2,4],[138.4,4],[138.4,4]],"track":[[39.65817,2.47104,0.0],[39.65839,2.47206,0.092],[39.65815,2.47261,0.147],[39.65808,2.47318,0.201],[39.6578,2.474,0.282],[39.65731,2.47437,0.347],[39.65707,2.4749,0.4],[39.65694,2.47546,0.452],[39.65651,2.47565,0.504],[39.65615,2.4761,0.562],[39.65602,2.47682,0.626],[39.65594,2.47748,0.683],[39.65619,2.47797,0.735],[39.65657,2.47852,0.799],[39.65693,2.47903,0.858],[39.65697,2.4796,0.91],[39.65663,2.48004,0.965],[39.65615,2.47974,1.037],[39.65578,2.47991,1.09],[39.65541,2.48024,1.149],[39.65487,2.47991,1.216],[39.65448,2.48026,1.271],[39.65409,2.48048,1.333],[39.65382,2.4809,1.389],[39.65371,2.48131,1.44],[39.65332,2.48167,1.494],[39.65341,2.48227,1.547],[39.65353,2.48302,1.613],[39.65342,2.48362,1.669],[39.6541,2.48377,1.77],[39.65457,2.48379,1.824],[39.65507,2.48389,1.88],[39.65538,2.4844,1.94],[39.65559,2.48503,2.001],[39.65599,2.48499,2.051],[39.65647,2.48495,2.105],[39.65699,2.48471,2.169],[39.65757,2.48494,2.243],[39.65814,2.4846,2.326],[39.65855,2.48406,2.394],[39.65886,2.48417,2.449],[39.65932,2.48389,2.507],[39.66018,2.48462,2.623],[39.66046,2.48509,2.674],[39.6607,2.48564,2.729],[39.66117,2.48581,2.786],[39.66165,2.48609,2.845],[39.66198,2.48655,2.9],[39.6622,2.48716,2.958],[39.6622,2.48779,3.013],[39.6625,2.48811,3.063],[39.66326,2.48761,3.159],[39.6638,2.48733,3.224],[39.66399,2.48755,3.297],[39.66375,2.48825,3.366],[39.66403,2.48839,3.426],[39.66449,2.48851,3.482],[39.66488,2.48887,3.539],[39.66546,2.48889,3.604],[39.66587,2.48851,3.66],[39.66669,2.48885,3.763],[39.6674,2.48944,3.858],[39.66794,2.48996,3.933],[39.66827,2.49042,3.987],[39.66859,2.49088,4.041],[39.66866,2.49159,4.103],[39.66927,2.49176,4.175],[39.66955,2.49224,4.231],[39.66936,2.49282,4.289],[39.67002,2.49333,4.379],[39.67045,2.4934,4.429],[39.67067,2.49424,4.511],[39.67096,2.49469,4.563],[39.67107,2.49531,4.622],[39.67068,2.49587,4.687],[39.6708,2.49644,4.738],[39.67091,2.497,4.788],[39.6707,2.49792,4.875],[39.67036,2.49878,4.96],[39.67046,2.49945,5.022],[39.67082,2.49963,5.077],[39.67109,2.49982,5.143],[39.67158,2.4993,5.214],[39.67177,2.49951,5.265],[39.67228,2.49972,5.327],[39.67281,2.49973,5.386],[39.67332,2.49964,5.444],[39.67384,2.49987,5.508],[39.67451,2.49943,5.593],[39.67542,2.49901,5.704],[39.67593,2.49889,5.765],[39.67677,2.49919,5.862],[39.67722,2.4993,5.914],[39.67773,2.49964,5.978],[39.67828,2.50015,6.057],[39.67889,2.50024,6.125],[39.67958,2.50039,6.204],[39.67975,2.50121,6.285],[39.68039,2.50177,6.373],[39.68065,2.50218,6.446],[39.68027,2.50263,6.508],[39.67988,2.50334,6.585],[39.67954,2.50377,6.642],[39.6796,2.50492,6.743],[39.67985,2.5057,6.816],[39.67981,2.50662,6.897],[39.67953,2.5072,6.957],[39.67998,2.50772,7.029],[39.68056,2.50772,7.096],[39.68105,2.50751,7.156],[39.6813,2.5079,7.213],[39.68096,2.5087,7.291],[39.68065,2.50914,7.343],[39.68006,2.50934,7.411],[39.6793,2.50966,7.501],[39.67866,2.50979,7.581],[39.67849,2.51029,7.642],[39.67877,2.51129,7.737],[39.67845,2.51202,7.81],[39.6787,2.51275,7.884],[39.67914,2.51318,7.946],[39.67928,2.51421,8.046],[39.67898,2.51479,8.114],[39.67921,2.51602,8.247],[39.68007,2.51597,8.343],[39.68003,2.51656,8.406],[39.6801,2.51727,8.468],[39.67947,2.51817,8.578],[39.67897,2.5186,8.646],[39.67882,2.5195,8.727],[39.67917,2.52005,8.788],[39.67951,2.52061,8.85],[39.67988,2.52137,8.927],[39.67985,2.5227,9.045],[39.67976,2.52346,9.112],[39.67956,2.52437,9.195],[39.67929,2.52508,9.264],[39.67938,2.52565,9.315],[39.67915,2.52623,9.374],[39.6797,2.52696,9.464],[39.67961,2.52778,9.537],[39.6796,2.52841,9.594],[39.68018,2.5285,9.671],[39.68042,2.5293,9.756],[39.68046,2.53035,9.85],[39.6805,2.53094,9.917],[39.68056,2.53154,9.97],[39.68053,2.53236,10.042],[39.68022,2.53297,10.105],[39.67979,2.5336,10.178],[39.6796,2.53484,10.287],[39.67957,2.53574,10.368],[39.67986,2.5363,10.426],[39.68014,2.53686,10.484],[39.68031,2.53751,10.548],[39.68045,2.53809,10.603],[39.68065,2.53901,10.686],[39.6804,2.54049,10.817],[39.68018,2.54127,10.891],[39.6801,2.54226,10.982],[39.67968,2.54284,11.06],[39.67975,2.54373,11.137],[39.68008,2.54441,11.206],[39.68013,2.54516,11.271],[39.67985,2.54586,11.339],[39.67965,2.54648,11.397],[39.67921,2.54662,11.45],[39.67875,2.54692,11.507],[39.67811,2.54731,11.588],[39.67777,2.54762,11.651],[39.6775,2.54808,11.702],[39.67722,2.54855,11.752],[39.67736,2.54947,11.834],[39.67689,2.5499,11.899],[39.67662,2.55093,12.006],[39.67699,2.55079,12.057],[39.67679,2.55196,12.162],[39.67635,2.55199,12.22],[39.67567,2.55263,12.321],[39.67537,2.55309,12.374],[39.67491,2.55355,12.44],[39.67466,2.55436,12.515],[39.6741,2.55454,12.581],[39.67363,2.55471,12.639],[39.67355,2.55522,12.692],[39.67363,2.55581,12.743],[39.67339,2.55645,12.818],[39.67351,2.55723,12.887],[39.67362,2.55787,12.948],[39.67328,2.55845,13.019],[39.67296,2.55893,13.074],[39.67237,2.55946,13.154],[39.67191,2.55996,13.222],[39.67188,2.56046,13.28],[39.67213,2.56069,13.332],[39.67253,2.56055,13.383],[39.67265,2.56105,13.435],[39.67223,2.56159,13.502],[39.67117,2.56186,13.624],[39.67066,2.56215,13.688],[39.67033,2.56289,13.762],[39.67029,2.56347,13.812],[39.6705,2.56452,13.906],[39.67006,2.56545,14.001],[39.6696,2.56667,14.131],[39.66924,2.56707,14.196],[39.66895,2.56761,14.253],[39.66869,2.56806,14.305],[39.66854,2.56871,14.371],[39.66885,2.56925,14.43],[39.66861,2.57056,14.549],[39.66856,2.57119,14.604],[39.66856,2.57185,14.661],[39.66841,2.5724,14.713],[39.66858,2.57331,14.794],[39.6684,2.57387,14.852],[39.66855,2.5744,14.903],[39.66884,2.57506,14.969],[39.66889,2.57567,15.024],[39.66874,2.57646,15.095],[39.66866,2.5775,15.185],[39.66925,2.57805,15.274],[39.66968,2.57866,15.346],[39.66985,2.57933,15.412],[39.67009,2.58026,15.498],[39.67033,2.58098,15.566],[39.67071,2.58131,15.617],[39.67091,2.58181,15.679],[39.67098,2.58261,15.749],[39.67128,2.58315,15.807],[39.67152,2.58372,15.863],[39.67196,2.5837,15.916],[39.67229,2.58433,15.982],[39.67257,2.58495,16.05],[39.67273,2.58563,16.112],[39.67307,2.58626,16.178],[39.67344,2.587,16.254],[39.67381,2.58637,16.327],[39.6748,2.58673,16.458],[39.67518,2.58633,16.514],[39.67527,2.58561,16.577],[39.67614,2.58496,16.691],[39.67678,2.58419,16.793],[39.67704,2.58357,16.854],[39.67729,2.58295,16.914],[39.67774,2.58268,16.97],[39.6783,2.58247,17.035],[39.67887,2.58212,17.106],[39.67928,2.58187,17.162],[39.68017,2.58229,17.27],[39.68061,2.58251,17.323],[39.68049,2.58306,17.386],[39.68113,2.5841,17.51],[39.68167,2.58504,17.612],[39.68183,2.58573,17.674],[39.68176,2.58636,17.729],[39.68146,2.58741,17.825],[39.68148,2.58809,17.887],[39.68191,2.58822,17.937],[39.68246,2.58837,18.001],[39.6827,2.58911,18.073],[39.683,2.59001,18.157],[39.68318,2.59098,18.243],[39.68335,2.59196,18.33],[39.6834,2.59258,18.384],[39.68398,2.59346,18.484],[39.68419,2.59425,18.556],[39.68425,2.59487,18.61],[39.68483,2.59581,18.717],[39.6853,2.59604,18.78],[39.68573,2.59577,18.833],[39.68608,2.59538,18.887],[39.68611,2.59569,18.943],[39.68585,2.59614,18.993],[39.68538,2.5963,19.05],[39.68466,2.59678,19.142],[39.68492,2.59725,19.202],[39.68547,2.59765,19.275],[39.68603,2.59786,19.349],[39.68648,2.59772,19.402],[39.68683,2.59753,19.458],[39.68726,2.59795,19.521],[39.68784,2.59826,19.591],[39.688,2.59874,19.645],[39.68763,2.59952,19.728],[39.68795,2.60016,19.805],[39.68797,2.60084,19.864],[39.68811,2.60165,19.944],[39.68851,2.60154,20.034],[39.68908,2.60126,20.103],[39.68956,2.60091,20.168],[39.69034,2.60056,20.261],[39.69077,2.60038,20.312],[39.69113,2.59994,20.368],[39.69152,2.59955,20.424],[39.69196,2.59909,20.489],[39.6924,2.59875,20.554],[39.69288,2.59898,20.613],[39.69346,2.59938,20.687],[39.69372,2.60005,20.753],[39.69366,2.60101,20.836],[39.69328,2.60181,20.917],[39.69343,2.60226,20.975],[39.69374,2.6028,21.034],[39.69445,2.60318,21.123],[39.69481,2.60374,21.2],[39.69507,2.60443,21.267],[39.69543,2.6048,21.32],[39.69641,2.60489,21.43],[39.69718,2.60484,21.521],[39.69778,2.60467,21.592],[39.69822,2.60406,21.665],[39.69851,2.60421,21.726],[39.69891,2.60385,21.789],[39.69941,2.60368,21.848],[39.6995,2.60401,21.899],[39.69977,2.60366,21.968],[39.70016,2.60326,22.024],[39.70051,2.60272,22.086],[39.70102,2.60292,22.158],[39.70099,2.60374,22.238],[39.70111,2.60446,22.302],[39.70118,2.60517,22.367],[39.70113,2.60588,22.429],[39.70111,2.60648,22.48],[39.70146,2.60744,22.572],[39.70178,2.60801,22.644],[39.70195,2.60854,22.694],[39.70239,2.60949,22.791],[39.70291,2.61017,22.874],[39.70315,2.61074,22.93],[39.70351,2.61083,22.981],[39.70363,2.6114,23.032],[39.70371,2.61218,23.1],[39.70362,2.61284,23.158],[39.70416,2.61282,23.232],[39.70445,2.61367,23.312],[39.70488,2.6135,23.377],[39.70516,2.61372,23.438],[39.70519,2.61425,23.498],[39.70541,2.61486,23.563],[39.70567,2.61525,23.616],[39.70613,2.61541,23.673],[39.70658,2.61589,23.739],[39.70714,2.61622,23.81],[39.70757,2.6166,23.869],[39.70771,2.61723,23.925],[39.70811,2.61768,23.984],[39.70858,2.6182,24.054],[39.70873,2.61879,24.109],[39.70877,2.61943,24.164],[39.70893,2.61992,24.222],[39.70922,2.62039,24.275],[39.7094,2.62102,24.333],[39.70988,2.62095,24.388],[39.71035,2.61996,24.489],[39.71115,2.62048,24.59],[39.71223,2.62119,24.726],[39.71278,2.62101,24.788],[39.71263,2.62179,24.881],[39.71202,2.62232,24.965],[39.71194,2.6235,25.091],[39.71196,2.62439,25.168],[39.71199,2.62527,25.244],[39.71201,2.62616,25.32],[39.71246,2.62688,25.4],[39.71247,2.62781,25.483],[39.71236,2.62857,25.549],[39.71225,2.62947,25.638],[39.71221,2.63007,25.69],[39.71263,2.63035,25.743],[39.71291,2.63115,25.819],[39.71294,2.63145,25.887],[39.71232,2.63114,25.961],[39.71197,2.63159,26.02],[39.71123,2.63161,26.103],[39.71066,2.63116,26.178],[39.71022,2.63049,26.254],[39.70973,2.63075,26.321],[39.70921,2.63074,26.38],[39.70874,2.63064,26.433],[39.70827,2.63058,26.486],[39.70772,2.63057,26.548],[39.7073,2.63031,26.6],[39.70692,2.63004,26.65],[39.70654,2.63048,26.707],[39.706,2.63066,26.77],[39.70549,2.63102,26.84],[39.70493,2.63124,26.906],[39.70441,2.63119,26.965],[39.70392,2.63146,27.028],[39.70344,2.63207,27.105],[39.70296,2.63211,27.159],[39.70266,2.63256,27.214],[39.70318,2.63309,27.294],[39.70343,2.6336,27.347],[39.70337,2.63421,27.4],[39.70331,2.63484,27.463],[39.70271,2.63524,27.538],[39.70218,2.63563,27.607],[39.70149,2.63536,27.689],[39.70094,2.63605,27.777],[39.70058,2.6365,27.855],[39.70075,2.63749,27.942],[39.70109,2.63804,28.003],[39.70122,2.6388,28.071],[39.70102,2.63987,28.167],[39.70086,2.64056,28.229],[39.70082,2.64138,28.3],[39.7015,2.64226,28.411],[39.70186,2.64269,28.466],[39.70231,2.64318,28.532],[39.70279,2.64349,28.592],[39.70322,2.64394,28.654],[39.70376,2.64419,28.72],[39.70423,2.64476,28.794],[39.70463,2.64504,28.846],[39.70509,2.6451,28.902],[39.70549,2.64592,28.986],[39.70593,2.64624,29.044],[39.70638,2.64628,29.094],[39.70686,2.64671,29.161],[39.70725,2.64727,29.226],[39.70729,2.64751,29.282],[39.70803,2.64798,29.374],[39.70804,2.64855,29.442],[39.70816,2.64887,29.503],[39.70775,2.64904,29.576],[39.70759,2.64963,29.63],[39.70727,2.65004,29.684],[39.70643,2.65061,29.794],[39.70559,2.65077,29.889],[39.70479,2.65126,29.994],[39.70394,2.65141,30.09],[39.70355,2.65197,30.156],[39.70322,2.65182,30.206],[39.70288,2.6522,30.257],[39.70255,2.65183,30.316],[39.70281,2.65132,30.376],[39.70322,2.65079,30.442],[39.70375,2.65078,30.502],[39.70329,2.65027,30.578],[39.70277,2.65027,30.639],[39.70235,2.65083,30.707],[39.70206,2.65088,30.757],[39.70193,2.65172,30.832],[39.70167,2.65268,30.924],[39.7014,2.65322,30.983],[39.70094,2.65326,31.034],[39.7003,2.65343,31.108],[39.69978,2.65355,31.167],[39.6993,2.65386,31.23],[39.69861,2.65409,31.311],[39.69786,2.65379,31.399],[39.6973,2.65371,31.463],[39.69668,2.65414,31.542],[39.69639,2.65492,31.619],[39.69585,2.6552,31.685],[39.6953,2.65514,31.747],[39.69491,2.65547,31.803],[39.69467,2.65603,31.859],[39.69429,2.65658,31.926],[39.69409,2.65708,31.976],[39.6937,2.65745,32.031],[39.6931,2.65801,32.113],[39.6926,2.65827,32.174],[39.69188,2.65832,32.255],[39.69141,2.65934,32.362],[39.69121,2.66,32.423],[39.6908,2.66077,32.504],[39.69032,2.66115,32.567],[39.69014,2.66177,32.627],[39.69015,2.66252,32.692],[39.68992,2.66313,32.75],[39.68942,2.66401,32.845],[39.68894,2.6645,32.912],[39.68847,2.66498,32.98],[39.68799,2.66547,33.048],[39.68726,2.66594,33.139],[39.68668,2.66622,33.209],[39.68609,2.66642,33.277],[39.68549,2.66662,33.346],[39.68489,2.6669,33.418],[39.6843,2.66757,33.506],[39.68393,2.66806,33.565],[39.68359,2.66863,33.627],[39.68326,2.66923,33.691],[39.68286,2.66965,33.749],[39.68246,2.67007,33.806],[39.68202,2.67048,33.867],[39.68153,2.67114,33.946],[39.68104,2.6718,34.025],[39.68044,2.6718,34.099],[39.67992,2.67224,34.169],[39.6795,2.67246,34.219],[39.67881,2.67262,34.298],[39.67831,2.6728,34.356],[39.67782,2.67319,34.421],[39.67779,2.67345,34.49],[39.67838,2.67397,34.57],[39.67897,2.67449,34.649],[39.67956,2.67501,34.729],[39.68,2.67537,34.787],[39.68089,2.6763,34.916],[39.6815,2.67653,34.987],[39.68195,2.67652,35.037],[39.68242,2.67674,35.101],[39.68328,2.67673,35.198],[39.68387,2.67702,35.268],[39.68453,2.67715,35.343],[39.68519,2.67729,35.418],[39.68595,2.67748,35.505],[39.68652,2.67778,35.574],[39.68704,2.67811,35.638],[39.68756,2.67844,35.703],[39.68816,2.67885,35.779],[39.68876,2.67926,35.855],[39.68929,2.67971,35.926],[39.68965,2.6801,35.978],[39.69001,2.68048,36.03],[39.69041,2.68085,36.085],[39.69081,2.68121,36.14],[39.69124,2.68153,36.195],[39.6918,2.68218,36.279],[39.69235,2.68283,36.362],[39.69277,2.68354,36.44],[39.69316,2.68422,36.513],[39.69354,2.68485,36.582],[39.69391,2.68548,36.65],[39.69436,2.68594,36.714],[39.69482,2.68655,36.788],[39.69535,2.68709,36.867],[39.69537,2.68761,36.924],[39.69567,2.68841,37.001],[39.69589,2.68893,37.052],[39.69611,2.68944,37.103],[39.69646,2.6905,37.202],[39.69692,2.69142,37.297],[39.69715,2.69271,37.411],[39.69749,2.69378,37.511],[39.69764,2.69436,37.563],[39.69753,2.69565,37.675],[39.69745,2.69637,37.738],[39.69733,2.69694,37.789],[39.69721,2.6975,37.839],[39.69704,2.69826,37.907],[39.69754,2.69846,37.966],[39.69703,2.69835,38.031],[39.69703,2.69925,38.109],[39.69662,2.69949,38.159],[39.69603,2.69975,38.229],[39.69617,2.70071,38.313],[39.69582,2.70112,38.39],[39.69562,2.70152,38.451],[39.6953,2.7018,38.51],[39.69536,2.70208,38.56],[39.69539,2.70243,38.627],[39.69511,2.70284,38.679],[39.69549,2.70387,38.778],[39.69594,2.70464,38.861],[39.69639,2.705,38.92],[39.6972,2.70507,39.012],[39.69766,2.70521,39.065],[39.69821,2.70573,39.141],[39.69853,2.70621,39.196],[39.69887,2.70709,39.281],[39.69899,2.70743,39.333],[39.69958,2.70781,39.409],[39.6995,2.70819,39.467],[39.70008,2.70851,39.537],[39.70054,2.70868,39.59],[39.70099,2.70885,39.643],[39.70073,2.70939,39.713],[39.70093,2.70988,39.766],[39.7015,2.71031,39.84],[39.70194,2.71049,39.892],[39.7023,2.71084,39.943],[39.7027,2.71119,39.997],[39.70203,2.7111,40.079],[39.7019,2.71138,40.143],[39.70168,2.71165,40.221],[39.70199,2.71209,40.272],[39.70239,2.71242,40.326],[39.70285,2.7131,40.405],[39.70295,2.71398,40.503],[39.70304,2.71466,40.564],[39.70317,2.71618,40.696],[39.70336,2.71665,40.748],[39.70379,2.71717,40.814],[39.70437,2.71776,40.897],[39.70469,2.7182,40.95],[39.70514,2.71857,41.009],[39.70542,2.71906,41.062],[39.70577,2.7195,41.117],[39.70608,2.71988,41.178],[39.70567,2.72014,41.229],[39.70511,2.72057,41.302],[39.70533,2.72137,41.379],[39.70533,2.72237,41.465],[39.70535,2.72296,41.516],[39.70568,2.72353,41.578],[39.70628,2.72406,41.66],[39.70674,2.72422,41.719],[39.7071,2.72481,41.784],[39.70782,2.72536,41.878],[39.70828,2.72587,41.946],[39.70881,2.72637,42.02],[39.70931,2.72652,42.079],[39.70973,2.7269,42.138],[39.71014,2.72715,42.189],[39.7104,2.72776,42.251],[39.71081,2.72803,42.302],[39.71084,2.72852,42.363],[39.71035,2.72841,42.42],[39.70965,2.7283,42.5],[39.70913,2.72813,42.56],[39.70825,2.72833,42.662],[39.7076,2.72821,42.736],[39.70759,2.72857,42.787],[39.70761,2.72918,42.841],[39.70759,2.7297,42.907],[39.70773,2.73081,43.005],[39.70776,2.73147,43.062],[39.70757,2.73256,43.158],[39.70765,2.73319,43.227],[39.70787,2.73368,43.283],[39.70841,2.73394,43.349],[39.70913,2.73424,43.434],[39.70948,2.7347,43.49],[39.71014,2.73504,43.569],[39.71058,2.73519,43.623],[39.71099,2.73524,43.673],[39.71139,2.73476,43.734],[39.71159,2.73405,43.799],[39.71212,2.73377,43.871],[39.7126,2.73393,43.927],[39.71307,2.73414,43.986],[39.71337,2.73462,44.042],[39.71393,2.73472,44.105],[39.71398,2.73529,44.184],[39.71365,2.73583,44.246],[39.71356,2.73708,44.357],[39.7132,2.73785,44.435],[39.71317,2.73875,44.513],[39.71301,2.73942,44.573],[39.71285,2.74072,44.689],[39.7133,2.74092,44.748],[39.71412,2.74054,44.845],[39.71481,2.73941,44.972],[39.71515,2.73891,45.03],[39.71518,2.73952,45.089],[39.71502,2.74024,45.154],[39.71495,2.74073,45.206],[39.71549,2.74024,45.283],[39.71589,2.73984,45.343],[39.71632,2.74002,45.393],[39.71619,2.74048,45.446],[39.71631,2.74104,45.497],[39.71636,2.74188,45.569],[39.71661,2.74265,45.641],[39.71675,2.74347,45.718],[39.71683,2.74422,45.783],[39.71729,2.74434,45.847],[39.71762,2.7438,45.91],[39.71798,2.74339,45.964],[39.7186,2.74327,46.036],[39.71914,2.74231,46.141],[39.71951,2.74197,46.192],[39.72021,2.74145,46.286],[39.72071,2.74068,46.374],[39.72106,2.74015,46.435],[39.72136,2.73961,46.493],[39.72148,2.73901,46.548],[39.72143,2.73834,46.607],[39.72162,2.73765,46.673],[39.7218,2.73688,46.742],[39.72197,2.73626,46.8],[39.7221,2.73575,46.871],[39.72226,2.73518,46.928],[39.72226,2.73476,47.016],[39.72264,2.73434,47.074],[39.72284,2.73387,47.129],[39.72325,2.73359,47.184],[39.72356,2.73313,47.241],[39.72383,2.7334,47.347],[39.72405,2.73408,47.41],[39.72412,2.73299,47.508],[39.72449,2.73236,47.577],[39.72457,2.73255,47.631],[39.72494,2.73264,47.685],[39.72531,2.73219,47.749],[39.72553,2.73242,47.804],[39.72521,2.73294,47.869],[39.72501,2.73347,47.923],[39.7253,2.73392,47.978],[39.72535,2.73487,48.065],[39.72583,2.7353,48.139],[39.72615,2.73571,48.192],[39.72597,2.73634,48.26],[39.72607,2.73734,48.352],[39.72603,2.73808,48.417],[39.72607,2.73871,48.472],[39.72563,2.73968,48.57],[39.72547,2.74038,48.642],[39.72526,2.74095,48.696],[39.72496,2.74164,48.775],[39.72467,2.74215,48.831],[39.72491,2.74256,48.884],[39.72547,2.74305,48.977],[39.72539,2.74366,49.031],[39.72557,2.74428,49.089],[39.72597,2.74494,49.167],[39.72589,2.74553,49.221],[39.72585,2.74614,49.276],[39.72566,2.74673,49.333],[39.72517,2.7471,49.406],[39.72463,2.74706,49.468],[39.72431,2.74774,49.539],[39.72376,2.74792,49.602],[39.72431,2.74808,49.685],[39.72354,2.7485,49.783],[39.72371,2.74917,49.848],[39.72368,2.74994,49.922],[39.72409,2.75041,49.985],[39.72422,2.75096,50.039],[39.72474,2.75203,50.152],[39.72486,2.75267,50.209],[39.72528,2.75336,50.286],[39.72556,2.75425,50.371],[39.72583,2.75498,50.441],[39.7261,2.75548,50.494],[39.72662,2.75605,50.572],[39.72711,2.75645,50.64],[39.72736,2.75691,50.69],[39.72751,2.75772,50.763],[39.7279,2.75849,50.842],[39.72832,2.75897,50.905],[39.72884,2.75944,50.976],[39.72916,2.75952,51.038],[39.72962,2.75977,51.11],[39.73002,2.76017,51.168],[39.7305,2.76094,51.254],[39.73112,2.76143,51.336],[39.73151,2.76195,51.4],[39.73205,2.76204,51.461],[39.73227,2.76265,51.53],[39.73233,2.76289,51.594],[39.73229,2.76368,51.662],[39.73262,2.76452,51.744],[39.7331,2.76514,51.82],[39.73348,2.76568,51.889],[39.73369,2.76678,51.987],[39.73373,2.76738,52.039],[39.73378,2.76799,52.092],[39.73408,2.76895,52.181],[39.73449,2.76966,52.257],[39.7349,2.77037,52.334],[39.73515,2.77101,52.396],[39.73532,2.77158,52.448],[39.73567,2.7723,52.522],[39.73583,2.7729,52.577],[39.73603,2.7736,52.641],[39.73626,2.77414,52.694],[39.7365,2.77468,52.748],[39.73645,2.77531,52.807],[39.73635,2.77578,52.866],[39.7365,2.77672,52.949],[39.73681,2.77745,53.021],[39.7369,2.77826,53.092],[39.73693,2.77901,53.161],[39.7371,2.7797,53.229],[39.73723,2.78033,53.286],[39.73722,2.78096,53.341],[39.73734,2.78152,53.392],[39.73747,2.78221,53.453],[39.73748,2.78287,53.51],[39.73766,2.7835,53.57],[39.73762,2.78413,53.625],[39.73769,2.78476,53.683],[39.73785,2.78546,53.747],[39.73768,2.78605,53.805],[39.73721,2.78652,53.872],[39.73716,2.78595,53.943],[39.7368,2.78615,54.008],[39.73637,2.78574,54.073],[39.73636,2.78624,54.13],[39.73623,2.78641,54.193],[39.73613,2.78728,54.271],[39.7357,2.78698,54.33],[39.73503,2.78675,54.411],[39.735,2.78785,54.506],[39.73462,2.7885,54.577],[39.73425,2.78879,54.628],[39.73399,2.78938,54.686],[39.73358,2.78973,54.742],[39.73344,2.79058,54.818],[39.73318,2.79163,54.915],[39.73283,2.792,54.966],[39.73251,2.79243,55.018],[39.73259,2.79193,55.097],[39.73215,2.79225,55.158],[39.73224,2.79197,55.219],[39.73246,2.79142,55.273],[39.73196,2.79186,55.344],[39.73156,2.79237,55.406],[39.7312,2.79297,55.472],[39.73075,2.79342,55.536],[39.73004,2.79395,55.627],[39.72961,2.79416,55.679],[39.72974,2.79377,55.732],[39.73012,2.79268,55.835],[39.73037,2.79197,55.902],[39.73053,2.79133,55.961],[39.73075,2.7908,56.015],[39.7303,2.7909,56.08],[39.72991,2.79114,56.171],[39.72945,2.79155,56.248],[39.72942,2.79122,56.316],[39.72913,2.79166,56.367],[39.72937,2.79068,56.465],[39.72922,2.79059,56.522],[39.72861,2.79133,56.616],[39.7282,2.79176,56.676],[39.72758,2.79208,56.751],[39.72709,2.79202,56.808],[39.72673,2.7923,56.86],[39.72642,2.79183,56.918],[39.72601,2.79143,56.977],[39.72586,2.79204,57.036],[39.72557,2.79155,57.09],[39.72547,2.79144,57.145],[39.72534,2.79193,57.202],[39.7254,2.79138,57.255],[39.72508,2.79172,57.306],[39.72508,2.79226,57.358],[39.72489,2.7918,57.409],[39.72501,2.79126,57.468],[39.72541,2.79072,57.533],[39.72498,2.7906,57.592],[39.72451,2.79129,57.674],[39.72423,2.79177,57.726],[39.7239,2.79222,57.779],[39.72344,2.79259,57.84],[39.72311,2.79297,57.891],[39.72284,2.79309,57.944],[39.72218,2.79376,58.04],[39.7219,2.79435,58.1],[39.72122,2.79513,58.202],[39.72111,2.79559,58.275],[39.72076,2.79586,58.328],[39.7201,2.79657,58.425],[39.71966,2.79676,58.487],[39.71916,2.7969,58.544],[39.71866,2.79705,58.601],[39.71834,2.79646,58.664],[39.71756,2.79598,58.764],[39.71691,2.79643,58.851],[39.71648,2.79676,58.907],[39.71608,2.797,58.962],[39.71548,2.79672,59.033],[39.71488,2.79644,59.105],[39.71395,2.79542,59.241],[39.71358,2.79482,59.311],[39.71303,2.79469,59.373],[39.71229,2.7942,59.466],[39.71116,2.79436,59.614],[39.70999,2.79509,59.759],[39.70726,2.79845,60.18],[39.70999,2.79526,60.591],[39.71055,2.79635,60.704],[39.71084,2.79685,60.758],[39.71113,2.79735,60.811],[39.7115,2.79809,60.888],[39.71198,2.79864,60.96],[39.71254,2.79905,61.031],[39.71307,2.7995,61.102],[39.71366,2.80011,61.187],[39.71392,2.80062,61.24],[39.7149,2.8013,61.364],[39.71561,2.80186,61.458],[39.71633,2.80243,61.552],[39.71669,2.80278,61.602],[39.71715,2.80298,61.656],[39.71773,2.80349,61.735],[39.71868,2.80398,61.85],[39.71944,2.80435,61.94],[39.7202,2.80471,62.031],[39.72073,2.80512,62.1],[39.72126,2.80553,62.169],[39.72183,2.80606,62.247],[39.72259,2.80626,62.334],[39.72332,2.80645,62.419],[39.72375,2.80665,62.47],[39.72497,2.80661,62.606],[39.7257,2.80654,62.688],[39.72633,2.80658,62.759],[39.72687,2.80648,62.82],[39.7274,2.80637,62.88],[39.72811,2.80628,62.96],[39.72862,2.80612,63.019],[39.72924,2.80625,63.089],[39.72971,2.80638,63.143],[39.73054,2.80613,63.241],[39.73116,2.80584,63.316],[39.73208,2.80562,63.421],[39.73263,2.80568,63.483],[39.73307,2.80534,63.54],[39.73406,2.8055,63.653],[39.73497,2.80529,63.757],[39.73548,2.8051,63.817],[39.73627,2.80484,63.909],[39.73691,2.80492,63.981],[39.73758,2.80481,64.058],[39.73859,2.80493,64.172],[39.73939,2.80489,64.262],[39.73985,2.80495,64.314],[39.74035,2.80526,64.376],[39.74078,2.80583,64.445],[39.74092,2.8053,64.511],[39.74062,2.80414,64.62],[39.7406,2.80342,64.684],[39.74086,2.80297,64.734],[39.74155,2.80288,64.812],[39.74212,2.80261,64.88],[39.74241,2.80215,64.935],[39.74299,2.80192,65.003],[39.74365,2.80164,65.081],[39.74418,2.80156,65.141],[39.74512,2.80132,65.249],[39.74574,2.80129,65.319],[39.7464,2.80134,65.393],[39.74709,2.80158,65.473],[39.74705,2.80076,65.553],[39.7469,2.80015,65.608],[39.74713,2.79967,65.662],[39.74793,2.80011,65.759],[39.74852,2.80079,65.852],[39.74933,2.80074,65.948],[39.74978,2.80101,66.017],[39.75019,2.80118,66.071],[39.74984,2.80147,66.128],[39.74941,2.80132,66.179],[39.749,2.80171,66.236],[39.74937,2.80195,66.288],[39.74988,2.80209,66.347],[39.75048,2.80167,66.425],[39.75105,2.80123,66.499],[39.75178,2.80087,66.586],[39.75234,2.80097,66.651],[39.75287,2.80106,66.711],[39.75342,2.80135,66.778],[39.7545,2.80174,66.903],[39.75532,2.80187,66.996],[39.75588,2.80198,67.059],[39.75652,2.80241,67.14],[39.75695,2.80271,67.195],[39.75745,2.80285,67.252],[39.75786,2.80309,67.303],[39.75831,2.80373,67.383],[39.75862,2.80417,67.437],[39.75896,2.80483,67.509],[39.75922,2.80533,67.567],[39.75956,2.80526,67.617],[39.75966,2.80566,67.672],[39.7602,2.806,67.74],[39.76082,2.80622,67.826],[39.7608,2.8064,67.879],[39.761,2.80684,67.935],[39.76136,2.80729,67.994],[39.76175,2.80815,68.082],[39.76208,2.80862,68.144],[39.76223,2.80945,68.224],[39.76295,2.81071,68.36],[39.76306,2.81142,68.423],[39.7633,2.81195,68.477],[39.76368,2.8124,68.535],[39.7642,2.81287,68.607],[39.76448,2.81339,68.665],[39.76486,2.81347,68.739],[39.76488,2.81398,68.793],[39.76462,2.81459,68.852],[39.76482,2.81503,68.905],[39.76515,2.81548,68.959],[39.7654,2.81597,69.009],[39.76576,2.81643,69.077],[39.76565,2.81684,69.128],[39.76582,2.81693,69.185],[39.76604,2.81728,69.238],[39.76638,2.81731,69.293],[39.76635,2.81755,69.344],[39.76699,2.81756,69.417],[39.76714,2.81777,69.468],[39.76755,2.818,69.523],[39.76766,2.81837,69.574],[39.76802,2.81866,69.634],[39.76858,2.81897,69.703],[39.76907,2.81892,69.774],[39.76931,2.81917,69.825],[39.76914,2.81996,69.898],[39.76955,2.81946,69.971],[39.76991,2.81952,70.024],[39.76972,2.82004,70.075],[39.76947,2.82058,70.132],[39.76931,2.82114,70.194],[39.76897,2.82155,70.248],[39.76905,2.82224,70.313],[39.76909,2.8228,70.364],[39.76954,2.82326,70.43],[39.77021,2.82373,70.516],[39.77042,2.82421,70.575],[39.77042,2.82486,70.634],[39.77016,2.82544,70.694],[39.77034,2.8264,70.78],[39.77008,2.82744,70.875],[39.76976,2.82799,70.935],[39.76991,2.82903,71.027],[39.77002,2.82959,71.086],[39.76931,2.82974,71.167],[39.76895,2.82982,71.22],[39.76827,2.82981,71.307],[39.76808,2.83015,71.36],[39.76829,2.83072,71.416],[39.76805,2.83077,71.469],[39.76813,2.83147,71.53],[39.76824,2.83204,71.581],[39.76811,2.83267,71.637],[39.76834,2.83325,71.694],[39.76839,2.83382,71.745],[39.76814,2.83444,71.806],[39.76811,2.83509,71.862],[39.76792,2.83592,71.938],[39.76778,2.8367,72.007],[39.76737,2.83728,72.075],[39.76703,2.83834,72.178],[39.76696,2.83928,72.259],[39.76697,2.83999,72.32],[39.76697,2.84071,72.382],[39.76663,2.84109,72.45],[39.76677,2.84188,72.531],[39.76698,2.84267,72.604],[39.76655,2.84367,72.704],[39.76634,2.84418,72.756],[39.76618,2.84513,72.84],[39.76596,2.84573,72.898],[39.76569,2.84644,72.967],[39.76546,2.847,73.023],[39.76513,2.84745,73.078],[39.76463,2.84758,73.14],[39.76431,2.84795,73.191],[39.76423,2.84853,73.251],[39.76452,2.84932,73.326],[39.7646,2.8501,73.394],[39.76474,2.85075,73.453],[39.7647,2.85133,73.504],[39.76464,2.85193,73.56],[39.76425,2.85277,73.645],[39.76396,2.85356,73.725],[39.7634,2.85362,73.79],[39.76296,2.85385,73.844],[39.76294,2.85451,73.903],[39.7624,2.85475,73.967],[39.76194,2.85475,74.018],[39.76217,2.8555,74.094],[39.76184,2.85587,74.145],[39.76187,2.85644,74.205],[39.76157,2.85668,74.298],[39.76157,2.85743,74.375],[39.76152,2.85809,74.433],[39.7606,2.85809,74.537],[39.76042,2.85856,74.595],[39.76055,2.85918,74.651],[39.76089,2.86017,74.747],[39.76125,2.86062,74.803],[39.76132,2.86124,74.858],[39.76154,2.86119,74.924],[39.76157,2.86021,75.01],[39.76188,2.86016,75.06],[39.76223,2.86016,75.117],[39.76232,2.861,75.196],[39.76229,2.86064,75.264],[39.7622,2.85997,75.338],[39.76163,2.8596,75.409],[39.76216,2.85947,75.476],[39.76263,2.85946,75.528],[39.76304,2.85918,75.581],[39.76329,2.85887,75.639],[39.76371,2.85862,75.691],[39.76431,2.8587,75.761],[39.76476,2.85886,75.813],[39.76518,2.85931,75.877],[39.76574,2.85934,75.945],[39.76619,2.85941,75.999],[39.76693,2.85979,76.089],[39.76729,2.86015,76.141],[39.76752,2.86057,76.192],[39.76781,2.86092,76.248],[39.76807,2.8614,76.299],[39.76794,2.86208,76.359],[39.76782,2.86271,76.418],[39.76775,2.86346,76.484],[39.76755,2.86429,76.559],[39.76757,2.86487,76.61],[39.76772,2.86543,76.663],[39.76828,2.86463,76.77],[39.7688,2.86373,76.866],[39.7692,2.8631,76.937],[39.76959,2.86246,77.007],[39.7701,2.86209,77.073],[39.7706,2.86163,77.141],[39.7709,2.86113,77.196],[39.77138,2.86053,77.27],[39.77191,2.8602,77.336],[39.77232,2.85984,77.393],[39.77257,2.85922,77.454],[39.77321,2.85885,77.534],[39.77363,2.85849,77.59],[39.77459,2.85866,77.699],[39.77515,2.85861,77.762],[39.77592,2.85768,77.881],[39.77645,2.85692,77.969],[39.77665,2.85639,78.02],[39.77677,2.85574,78.078],[39.77748,2.85538,78.165],[39.7779,2.85483,78.238],[39.77832,2.85452,78.293],[39.77891,2.85464,78.36],[39.77974,2.85485,78.456],[39.78019,2.85485,78.507],[39.78084,2.85474,78.58],[39.78139,2.85472,78.643],[39.78215,2.85416,78.741],[39.78268,2.85363,78.817],[39.7829,2.85296,78.88],[39.78334,2.85254,78.942],[39.78385,2.8523,79.003],[39.78432,2.85206,79.06],[39.78491,2.85169,79.134],[39.78533,2.85149,79.185],[39.78578,2.8521,79.259],[39.78659,2.85245,79.356],[39.7871,2.85263,79.415],[39.78774,2.8531,79.497],[39.7881,2.85356,79.554],[39.7886,2.85406,79.624],[39.78942,2.85485,79.739],[39.79001,2.85543,79.822],[39.79026,2.85545,79.873],[39.79072,2.85567,79.928],[39.79129,2.85625,80.009],[39.79167,2.85664,80.063],[39.79215,2.85727,80.139],[39.79238,2.85793,80.204],[39.79264,2.85745,80.264],[39.7929,2.85805,80.324],[39.79336,2.85881,80.407],[39.79374,2.85973,80.497],[39.79372,2.86044,80.558],[39.79396,2.86118,80.629],[39.79438,2.86183,80.704],[39.79454,2.86251,80.766],[39.79485,2.86314,80.832],[39.79518,2.86363,80.888],[39.79553,2.86419,80.95],[39.79598,2.86455,81.01],[39.79598,2.86386,81.071],[39.79635,2.86406,81.135],[39.7965,2.86525,81.24],[39.79678,2.86589,81.304],[39.7971,2.86627,81.356],[39.79743,2.8668,81.455],[39.79742,2.86735,81.512],[39.79779,2.86725,81.563],[39.79823,2.86697,81.619],[39.79837,2.86712,81.671],[39.79802,2.86789,81.748],[39.79827,2.86858,81.817],[39.79842,2.86903,81.871],[39.79894,2.86887,81.931],[39.79904,2.86845,81.985],[39.7995,2.86827,82.04],[39.79978,2.86906,82.115],[39.80011,2.86962,82.195],[39.8004,2.87067,82.292],[39.80119,2.87157,82.41],[39.80179,2.87236,82.506],[39.80192,2.87324,82.584],[39.80222,2.87378,82.642],[39.80273,2.87446,82.723],[39.80329,2.87516,82.81],[39.80356,2.8756,82.861],[39.80389,2.87607,82.916],[39.80458,2.87629,82.996],[39.80501,2.87646,83.055],[39.80494,2.87681,83.125],[39.80452,2.87709,83.184],[39.80456,2.87772,83.255],[39.80505,2.87785,83.312],[39.80556,2.87762,83.378],[39.80608,2.87767,83.438],[39.80661,2.87775,83.498],[39.80657,2.87816,83.551],[39.80716,2.87833,83.619],[39.80686,2.87902,83.701],[39.80704,2.87959,83.757],[39.80733,2.88034,83.864],[39.80721,2.88097,83.92],[39.80694,2.88182,83.999],[39.80691,2.8825,84.058],[39.8073,2.88325,84.138],[39.80824,2.88389,84.257],[39.80855,2.88444,84.32],[39.80892,2.88482,84.373],[39.80924,2.88557,84.448],[39.80943,2.88621,84.509],[39.80945,2.88693,84.581],[39.80946,2.88762,84.641],[39.8093,2.88821,84.695],[39.80951,2.88898,84.767],[39.80972,2.88962,84.827],[39.80976,2.89045,84.898],[39.80996,2.89001,84.949],[39.81017,2.89026,85.025],[39.81027,2.89119,85.106],[39.81011,2.8924,85.211],[39.81061,2.89172,85.294],[39.81086,2.89095,85.367],[39.81106,2.89021,85.445],[39.8111,2.88965,85.497],[39.81175,2.88981,85.574],[39.8127,2.88962,85.682],[39.81333,2.88946,85.754],[39.81386,2.89015,85.853],[39.81427,2.89043,85.905],[39.81464,2.89097,85.969],[39.81473,2.89154,86.019],[39.81499,2.89214,86.079],[39.81523,2.89272,86.135],[39.81537,2.89349,86.203],[39.81565,2.89335,86.254],[39.81563,2.89257,86.332],[39.81583,2.89189,86.403],[39.81658,2.89124,86.508],[39.81705,2.89131,86.562],[39.81716,2.89185,86.615],[39.81747,2.89217,86.665],[39.81714,2.893,86.746],[39.81668,2.89306,86.799],[39.81673,2.8938,86.863],[39.81643,2.89515,86.987],[39.81643,2.89581,87.055],[39.81639,2.89649,87.114],[39.8161,2.89714,87.181],[39.81611,2.89777,87.235],[39.81612,2.89852,87.3],[39.81613,2.89926,87.365],[39.81639,2.89984,87.427],[39.81672,2.90029,87.481],[39.81673,2.90074,87.545],[39.81687,2.90119,87.611],[39.81757,2.90198,87.716],[39.818,2.9024,87.776],[39.81842,2.90268,87.829],[39.819,2.9023,87.907],[39.81898,2.90316,88.003],[39.81846,2.90347,88.068],[39.81893,2.90389,88.161],[39.81937,2.9039,88.217],[39.81985,2.90386,88.272],[39.82027,2.90403,88.323],[39.82075,2.90403,88.377],[39.82112,2.90372,88.427],[39.82139,2.90378,88.49],[39.82179,2.90403,88.541],[39.82221,2.9044,88.6],[39.82282,2.90421,88.67],[39.82338,2.90416,88.734],[39.82373,2.90467,88.793],[39.82404,2.90514,88.847],[39.82461,2.90647,88.978],[39.82486,2.90738,89.062],[39.8255,2.90782,89.146],[39.826,2.90813,89.21],[39.82645,2.90808,89.272],[39.82701,2.9084,89.341],[39.82758,2.90891,89.419],[39.82782,2.90941,89.472],[39.82816,2.90991,89.529],[39.82867,2.91078,89.624],[39.82931,2.91101,89.699],[39.82975,2.91116,89.749],[39.83055,2.91132,89.84],[39.83116,2.91133,89.909],[39.83159,2.91108,89.962],[39.83219,2.91084,90.032],[39.83278,2.91105,90.102],[39.83315,2.91159,90.165],[39.83353,2.91204,90.223],[39.83399,2.91219,90.277],[39.83449,2.91203,90.335],[39.83499,2.91211,90.392],[39.83555,2.91209,90.455],[39.83616,2.91202,90.523],[39.83663,2.91194,90.576],[39.83711,2.9118,90.632],[39.83765,2.9117,90.693],[39.83689,2.91132,90.79],[39.83722,2.91114,90.862],[39.83789,2.91094,90.939],[39.8383,2.91019,91.018],[39.83855,2.90963,91.074],[39.83908,2.90905,91.156],[39.83948,2.90878,91.207],[39.84025,2.90919,91.301],[39.84098,2.90959,91.389],[39.84152,2.90989,91.455],[39.84215,2.90985,91.526],[39.84193,2.90929,91.581],[39.84159,2.9088,91.637],[39.84126,2.90832,91.693],[39.84084,2.90789,91.754],[39.84053,2.9068,91.854],[39.8409,2.90615,91.925],[39.84127,2.90572,91.982],[39.84169,2.9055,92.034],[39.84203,2.90514,92.089],[39.84248,2.90502,92.143],[39.84273,2.90447,92.199],[39.84286,2.90391,92.25],[39.84245,2.90364,92.308],[39.84207,2.90377,92.359],[39.84159,2.90373,92.414],[39.84184,2.9032,92.468],[39.84183,2.90263,92.522],[39.84161,2.90168,92.623],[39.84199,2.90089,92.703],[39.84195,2.89992,92.791],[39.84181,2.89935,92.843],[39.84141,2.89863,92.921],[39.84073,2.89841,93.011],[39.84035,2.89757,93.098],[39.83999,2.89788,93.148],[39.83965,2.89842,93.208],[39.83937,2.89786,93.28],[39.83897,2.89725,93.349],[39.83859,2.89709,93.414],[39.8383,2.89682,93.479],[39.83793,2.89699,93.53],[39.83821,2.89628,93.599],[39.83781,2.89647,93.659],[39.8375,2.89707,93.723],[39.83697,2.89721,93.784],[39.83653,2.89707,93.836],[39.83586,2.8965,93.93],[39.83597,2.89592,93.984],[39.83557,2.89611,94.049],[39.8352,2.89583,94.1],[39.83477,2.89558,94.164],[39.83433,2.89572,94.214],[39.83363,2.89534,94.304],[39.83334,2.8951,94.368],[39.83335,2.89467,94.436],[39.83368,2.89423,94.491],[39.83303,2.8937,94.588],[39.83268,2.89323,94.646],[39.83215,2.89321,94.706],[39.83229,2.89283,94.763],[39.83203,2.89246,94.82],[39.83218,2.89204,94.87],[39.83189,2.89186,94.921],[39.83155,2.89129,94.988],[39.83093,2.89074,95.072],[39.83051,2.8904,95.129],[39.83013,2.89006,95.187],[39.82975,2.88962,95.246],[39.82936,2.88916,95.306],[39.82897,2.88846,95.38],[39.82855,2.8882,95.45],[39.82856,2.88861,95.503],[39.82773,2.88883,95.605],[39.82726,2.88864,95.66],[39.82675,2.88882,95.723],[39.82613,2.88909,95.798],[39.82563,2.8893,95.858],[39.82484,2.88949,95.947],[39.82434,2.88956,96.004],[39.82384,2.8896,96.062],[39.82338,2.88959,96.114],[39.82295,2.8893,96.169],[39.82253,2.88942,96.222],[39.82232,2.8887,96.289],[39.82231,2.88759,96.384],[39.82242,2.88697,96.449],[39.82253,2.88589,96.544],[39.82236,2.88464,96.653],[39.8224,2.88414,96.707],[39.82223,2.88427,96.76],[39.82165,2.88445,96.827],[39.82139,2.8843,96.882],[39.82073,2.88416,96.96],[39.82009,2.88378,97.038],[39.81946,2.88341,97.117],[39.81892,2.88312,97.183],[39.81933,2.88298,97.234],[39.81938,2.88244,97.292],[39.81928,2.88178,97.351],[39.81958,2.88108,97.426],[39.82,2.88026,97.511],[39.82029,2.87977,97.566],[39.82041,2.8794,97.622],[39.82081,2.87881,97.691],[39.8211,2.87831,97.746],[39.82119,2.8777,97.801],[39.82136,2.87693,97.871],[39.82093,2.87724,97.932],[39.82087,2.87671,98.01],[39.82081,2.87588,98.082],[39.82136,2.87486,98.191],[39.82112,2.87421,98.257],[39.82081,2.87319,98.352],[39.82065,2.8726,98.407],[39.82032,2.87243,98.474],[39.81976,2.87237,98.539],[39.81933,2.87287,98.605],[39.81949,2.8734,98.658],[39.81917,2.87394,98.718],[39.81856,2.87349,98.799],[39.8183,2.873,98.851],[39.81853,2.87207,98.936],[39.81819,2.87175,98.994],[39.81812,2.87107,99.054],[39.81776,2.87144,99.106],[39.81721,2.87139,99.17],[39.8172,2.87049,99.27],[39.81741,2.8698,99.334],[39.8178,2.86941,99.39],[39.81809,2.86884,99.449],[39.81827,2.86812,99.517],[39.81844,2.86755,99.571],[39.81827,2.86668,99.648],[39.81851,2.86597,99.716],[39.81862,2.8651,99.793],[39.81822,2.86534,99.849],[39.81809,2.86453,99.943],[39.81771,2.86361,100.033],[39.81742,2.86313,100.09],[39.81713,2.86272,100.146],[39.81688,2.86208,100.218],[39.81675,2.8612,100.295],[39.81684,2.86046,100.361],[39.81662,2.85992,100.435],[39.81653,2.85975,100.486],[39.81658,2.85918,100.542],[39.81637,2.85925,100.592],[39.8162,2.85884,100.654],[39.81579,2.85918,100.709],[39.81562,2.85917,100.766],[39.81545,2.85922,100.818],[39.81529,2.85908,100.874],[39.81524,2.85879,100.928],[39.81489,2.85914,100.979],[39.815,2.85851,101.037],[39.81535,2.85805,101.104],[39.8156,2.8576,101.163],[39.81578,2.85698,101.22],[39.81575,2.85634,101.277],[39.81546,2.8559,101.329],[39.81548,2.85528,101.386],[39.81526,2.8547,101.444],[39.81511,2.85472,101.499],[39.81467,2.8553,101.576],[39.81439,2.85579,101.628],[39.81408,2.85624,101.687],[39.81387,2.85646,101.74],[39.81374,2.85732,101.819],[39.81378,2.85797,101.877],[39.8137,2.85853,101.928],[39.81363,2.85923,101.996],[39.81349,2.86003,102.068],[39.81348,2.86061,102.118],[39.81328,2.86113,102.18],[39.81291,2.86084,102.232],[39.81259,2.86032,102.296],[39.81227,2.85971,102.362],[39.81213,2.85896,102.431],[39.81185,2.85889,102.483],[39.81164,2.8582,102.55],[39.81152,2.8576,102.606],[39.81137,2.85687,102.672],[39.811,2.85638,102.731],[39.81062,2.85671,102.796],[39.81054,2.85625,102.861],[39.81061,2.85559,102.919],[39.81073,2.85499,102.974],[39.81095,2.85432,103.037],[39.81125,2.85374,103.103],[39.81149,2.85337,103.153],[39.81154,2.85266,103.217],[39.81126,2.85242,103.277],[39.81082,2.85223,103.342],[39.81059,2.85181,103.401],[39.81016,2.85195,103.452],[39.80984,2.85201,103.518],[39.80964,2.85224,103.593],[39.80921,2.85225,103.646],[39.80855,2.85208,103.722],[39.80817,2.85167,103.78],[39.80774,2.85127,103.839],[39.80732,2.85076,103.905],[39.80701,2.85043,103.971],[39.80656,2.84991,104.04],[39.80686,2.84968,104.104],[39.80691,2.84931,104.161],[39.80643,2.84905,104.22],[39.80613,2.84857,104.275],[39.80589,2.84802,104.339],[39.80582,2.84774,104.39],[39.80584,2.84735,104.448],[39.80537,2.84708,104.517],[39.80493,2.84674,104.577],[39.80473,2.8464,104.638],[39.80433,2.84601,104.694],[39.80387,2.84538,104.769],[39.80339,2.84472,104.849],[39.80309,2.84418,104.907],[39.80283,2.84354,104.969],[39.80232,2.84264,105.066],[39.8018,2.84206,105.144],[39.80143,2.84168,105.198],[39.80093,2.841,105.281],[39.80077,2.84043,105.333],[39.80142,2.84083,105.417],[39.80075,2.83984,105.532],[39.80019,2.83966,105.597],[39.80008,2.83929,105.659],[39.79958,2.83946,105.718],[39.79902,2.83909,105.804],[39.79845,2.83906,105.869],[39.79804,2.83903,105.919],[39.7976,2.83835,106.001],[39.79689,2.83776,106.096],[39.79618,2.83716,106.191],[39.79578,2.83683,106.247],[39.79487,2.83616,106.364],[39.79435,2.83573,106.433],[39.79384,2.83531,106.501],[39.79339,2.83506,106.555],[39.79284,2.83466,106.626],[39.79232,2.83439,106.689],[39.79207,2.8338,106.748],[39.79109,2.83312,106.875],[39.79058,2.83262,106.946],[39.79007,2.83213,107.018],[39.78956,2.83163,107.089],[39.78954,2.83076,107.164],[39.78899,2.83027,107.239],[39.78869,2.8299,107.294],[39.78838,2.82928,107.358],[39.78789,2.82855,107.442],[39.78762,2.82842,107.499],[39.78777,2.82802,107.55],[39.7879,2.82683,107.656],[39.78756,2.82731,107.713],[39.78774,2.82635,107.799],[39.78793,2.82569,107.86],[39.78842,2.8254,107.921],[39.78895,2.82533,107.981],[39.78945,2.82496,108.045],[39.78993,2.82501,108.1],[39.79038,2.82486,108.172],[39.79088,2.82454,108.236],[39.79165,2.82415,108.335],[39.79207,2.82382,108.39],[39.7926,2.82291,108.488],[39.79296,2.82246,108.544],[39.79327,2.82169,108.619],[39.79354,2.82062,108.716],[39.79362,2.81999,108.771],[39.7937,2.81936,108.826],[39.79415,2.81856,108.911],[39.79363,2.81792,109.005],[39.79311,2.81737,109.086],[39.7931,2.81668,109.149],[39.79332,2.81611,109.207],[39.79313,2.8147,109.335],[39.79299,2.81414,109.386],[39.79278,2.81356,109.441],[39.79257,2.81301,109.494],[39.79235,2.81246,109.547],[39.79187,2.81227,109.605],[39.79163,2.81149,109.694],[39.79139,2.8101,109.817],[39.79134,2.80952,109.867],[39.79133,2.80882,109.929],[39.79099,2.80778,110.026],[39.79082,2.80691,110.106],[39.7906,2.80589,110.197],[39.79115,2.80503,110.3],[39.7909,2.80384,110.423],[39.79042,2.80369,110.478],[39.78971,2.80275,110.593],[39.78916,2.80184,110.693],[39.7887,2.80143,110.757],[39.78829,2.80086,110.824],[39.78796,2.80046,110.875],[39.78747,2.79959,110.967],[39.78718,2.79898,111.031],[39.78704,2.79865,111.098],[39.78679,2.79766,111.19],[39.78707,2.79703,111.258],[39.78711,2.79627,111.335],[39.78698,2.7957,111.386],[39.78639,2.79463,111.5],[39.78612,2.79407,111.556],[39.78567,2.79378,111.614],[39.78514,2.79381,111.673],[39.78462,2.79384,111.732],[39.78403,2.7935,111.805],[39.78342,2.79346,111.875],[39.78266,2.79315,111.964],[39.78189,2.79284,112.054],[39.78117,2.79253,112.139],[39.78075,2.79203,112.203],[39.78072,2.79119,112.275],[39.78068,2.79036,112.347],[39.78034,2.78935,112.442],[39.78027,2.78843,112.522],[39.78042,2.78786,112.575],[39.78057,2.78701,112.65],[39.78052,2.78579,112.755],[39.78041,2.78472,112.85],[39.78038,2.78391,112.924],[39.78015,2.78337,112.985],[39.78001,2.78267,113.05],[39.77975,2.78187,113.124],[39.77952,2.78121,113.189],[39.77895,2.78008,113.306],[39.77847,2.77925,113.396],[39.7781,2.77865,113.462],[39.77777,2.77789,113.538],[39.77738,2.77742,113.598],[39.77666,2.77687,113.693],[39.77619,2.77636,113.762],[39.77578,2.77592,113.822],[39.7752,2.77547,113.898],[39.77482,2.77523,113.951],[39.77436,2.77486,114.012],[39.77432,2.77424,114.069],[39.77413,2.77364,114.141],[39.77359,2.77286,114.232],[39.77296,2.77196,114.34],[39.77266,2.77148,114.393],[39.77237,2.77099,114.446],[39.7718,2.77064,114.517],[39.77145,2.7701,114.578],[39.77094,2.76937,114.663],[39.7705,2.76907,114.719],[39.76988,2.76834,114.813],[39.76984,2.76791,114.865],[39.76904,2.76705,114.981],[39.76856,2.76609,115.08],[39.76822,2.76568,115.132],[39.76775,2.7652,115.199],[39.76731,2.76495,115.253],[39.76694,2.76451,115.31],[39.76666,2.76396,115.367],[39.7663,2.76351,115.425],[39.76604,2.76302,115.484],[39.76564,2.76272,115.538],[39.76507,2.76257,115.617],[39.76492,2.76221,115.673],[39.76442,2.76187,115.743],[39.76366,2.76174,115.83],[39.7633,2.76139,115.883],[39.76306,2.76123,115.938],[39.76239,2.76068,116.03],[39.76218,2.7601,116.093],[39.76172,2.75983,116.151],[39.76114,2.75994,116.226],[39.76091,2.75963,116.288],[39.76094,2.7594,116.341],[39.76077,2.75877,116.408],[39.7603,2.7578,116.509],[39.76018,2.75705,116.575],[39.75976,2.7567,116.647],[39.75938,2.75635,116.7],[39.75899,2.75611,116.751],[39.75941,2.75597,116.802],[39.75985,2.75592,116.853],[39.76055,2.75613,116.935],[39.76107,2.75603,116.996],[39.76149,2.75612,117.05],[39.76198,2.75665,117.124],[39.76248,2.75681,117.193],[39.76243,2.75621,117.253],[39.76254,2.75607,117.312],[39.76272,2.75585,117.367],[39.76289,2.75548,117.422],[39.76316,2.75555,117.48],[39.76345,2.75576,117.533],[39.76367,2.75587,117.586],[39.76402,2.75575,117.646],[39.76443,2.75574,117.71],[39.76492,2.75571,117.768],[39.7653,2.75624,117.834],[39.76555,2.75628,117.887],[39.76581,2.75603,117.949],[39.76588,2.75579,118.01],[39.76542,2.75562,118.064],[39.76522,2.75513,118.124],[39.76526,2.75482,118.188],[39.76542,2.75462,118.243],[39.7654,2.75433,118.299],[39.76504,2.75393,118.352],[39.76459,2.75382,118.406],[39.76409,2.75337,118.475],[39.76474,2.75331,118.553],[39.76524,2.75307,118.615],[39.76568,2.75291,118.671],[39.76603,2.75243,118.73],[39.76633,2.75194,118.788],[39.76627,2.75151,118.838],[39.76642,2.75097,118.894],[39.76617,2.75062,118.949],[39.76622,2.75012,119.004],[39.76653,2.74963,119.062],[39.76654,2.74891,119.13],[39.76703,2.7489,119.191],[39.76734,2.74852,119.246],[39.76721,2.74779,119.311],[39.76719,2.74734,119.362],[39.7668,2.74694,119.418],[39.76672,2.7463,119.474],[39.76662,2.7457,119.53],[39.76707,2.74528,119.592],[39.76704,2.74512,119.65],[39.76703,2.74482,119.717],[39.76703,2.74443,119.777],[39.76702,2.74374,119.841],[39.76716,2.74338,119.895],[39.76725,2.7427,119.97],[39.76743,2.74211,120.025],[39.76741,2.74127,120.098],[39.76753,2.74047,120.179],[39.7674,2.73991,120.236],[39.76767,2.73932,120.31],[39.76812,2.73858,120.392],[39.76863,2.73781,120.509],[39.76946,2.73782,120.603],[39.77022,2.73729,120.701],[39.77075,2.73674,120.78],[39.77123,2.73618,120.854],[39.77128,2.73521,120.963],[39.77133,2.73452,121.038],[39.77176,2.73435,121.099],[39.77223,2.73421,121.154],[39.77227,2.73369,121.206],[39.77237,2.73281,121.283],[39.77292,2.73196,121.378],[39.77328,2.73151,121.434],[39.77363,2.73083,121.505],[39.77369,2.73011,121.573],[39.77442,2.72996,121.656],[39.77528,2.73012,121.754],[39.77587,2.7304,121.824],[39.77648,2.73053,121.894],[39.77688,2.72983,121.971],[39.77714,2.72893,122.056],[39.77731,2.72856,122.112],[39.77787,2.72957,122.219],[39.77833,2.7298,122.284],[39.77836,2.73046,122.342],[39.77874,2.73092,122.405],[39.77901,2.73152,122.467],[39.77865,2.73169,122.527],[39.77815,2.73237,122.609],[39.77836,2.73384,122.748],[39.77855,2.73455,122.815],[39.7786,2.73525,122.876],[39.77895,2.7356,122.927],[39.77935,2.73595,122.981],[39.77936,2.73674,123.056],[39.77958,2.73724,123.106],[39.78013,2.73742,123.17],[39.78071,2.73795,123.25],[39.7812,2.73856,123.327],[39.78148,2.73909,123.387],[39.78172,2.74003,123.473],[39.7821,2.74044,123.53],[39.7825,2.74071,123.599],[39.78272,2.74043,123.67],[39.78256,2.73978,123.729],[39.78228,2.73975,123.78],[39.78189,2.73932,123.839],[39.78221,2.73878,123.898],[39.78223,2.73806,123.965],[39.78272,2.73706,124.07],[39.78272,2.73638,124.139],[39.78264,2.73597,124.196],[39.78302,2.73562,124.248],[39.78318,2.73515,124.306],[39.78286,2.7345,124.373],[39.78258,2.73401,124.431],[39.78313,2.73353,124.507],[39.78372,2.73349,124.573],[39.78362,2.73295,124.623],[39.78388,2.73236,124.686],[39.78362,2.73182,124.741],[39.7838,2.73128,124.796],[39.78432,2.73098,124.865],[39.78438,2.73028,124.933],[39.78412,2.72977,124.986],[39.7837,2.72886,125.079],[39.78364,2.72769,125.186],[39.78349,2.72704,125.245],[39.78339,2.72628,125.321],[39.78345,2.7256,125.384],[39.78385,2.72506,125.449],[39.78404,2.72418,125.528],[39.78434,2.72375,125.58],[39.78443,2.72321,125.646],[39.7848,2.7228,125.702],[39.78538,2.72196,125.8],[39.78585,2.72173,125.858],[39.78607,2.72115,125.922],[39.78654,2.72088,125.98],[39.78707,2.72107,126.046],[39.78769,2.7208,126.12],[39.78834,2.72058,126.195],[39.78901,2.72037,126.275],[39.78934,2.72036,126.332],[39.78983,2.72033,126.388],[39.79031,2.71999,126.451],[39.79065,2.72071,126.526],[39.79105,2.721,126.578],[39.79148,2.72098,126.631],[39.7913,2.7205,126.683],[39.79176,2.72028,126.74],[39.79236,2.72011,126.81],[39.79289,2.71988,126.873],[39.7932,2.71934,126.937],[39.79359,2.71869,127.011],[39.79402,2.71804,127.087],[39.79386,2.71733,127.158],[39.79402,2.71664,127.221],[39.79452,2.71655,127.282],[39.79466,2.71549,127.377],[39.79406,2.71507,127.453],[39.7936,2.71488,127.512],[39.79402,2.71474,127.564],[39.79419,2.71433,127.633],[39.79423,2.71381,127.683],[39.79455,2.71284,127.774],[39.79451,2.7121,127.839],[39.79519,2.7112,127.949],[39.79503,2.71062,128.009],[39.79512,2.7096,128.098],[39.79482,2.70934,128.164],[39.79477,2.70876,128.217],[39.79492,2.70837,128.269],[39.79515,2.70796,128.324],[39.7948,2.70737,128.389],[39.79425,2.70659,128.481],[39.79354,2.70611,128.574],[39.79298,2.70607,128.64],[39.79228,2.70622,128.72],[39.7916,2.70608,128.797],[39.79115,2.7061,128.847],[39.79067,2.70601,128.901],[39.78971,2.7064,129.015],[39.78924,2.7065,129.07],[39.78862,2.70685,129.146],[39.78801,2.70685,129.22],[39.78719,2.70677,129.313],[39.78662,2.70681,129.378],[39.78619,2.70713,129.434],[39.78542,2.70642,129.543],[39.78507,2.70606,129.595],[39.78441,2.70577,129.674],[39.78381,2.70597,129.757],[39.78333,2.70567,129.818],[39.78294,2.70605,129.874],[39.78222,2.70637,129.965],[39.78168,2.70663,130.03],[39.78121,2.70704,130.093],[39.78049,2.70633,130.195],[39.77987,2.70574,130.28],[39.77925,2.70516,130.365],[39.77864,2.70458,130.45],[39.77933,2.7043,130.531],[39.77974,2.70372,130.599],[39.78013,2.70325,130.659],[39.78025,2.70253,130.723],[39.78033,2.70173,130.793],[39.78054,2.70125,130.847],[39.78098,2.70089,130.905],[39.78168,2.70044,130.993],[39.78238,2.69999,131.08],[39.78284,2.69966,131.139],[39.78311,2.69906,131.2],[39.78351,2.69852,131.264],[39.78393,2.69765,131.353],[39.78479,2.69658,131.488],[39.78521,2.6958,131.571],[39.78545,2.69513,131.634],[39.78546,2.69459,131.7],[39.78538,2.69375,131.774],[39.78509,2.69338,131.835],[39.7848,2.69243,131.923],[39.78456,2.69196,131.977],[39.78456,2.69131,132.04],[39.7845,2.6902,132.138],[39.78461,2.68961,132.192],[39.78457,2.68896,132.249],[39.78442,2.6888,132.307],[39.78424,2.68823,132.363],[39.78353,2.68793,132.447],[39.78328,2.68746,132.502],[39.78374,2.6871,132.564],[39.78418,2.68679,132.621],[39.78466,2.68646,132.683],[39.78486,2.68548,132.774],[39.78471,2.68492,132.826],[39.78456,2.68435,132.877],[39.7842,2.68392,132.933],[39.78399,2.68339,132.987],[39.78405,2.68302,133.04],[39.78397,2.68248,133.095],[39.78368,2.68169,133.175],[39.78387,2.68118,133.227],[39.78421,2.68155,133.297],[39.78472,2.68161,133.354],[39.78491,2.68112,133.404],[39.78499,2.68048,133.46],[39.78517,2.6797,133.531],[39.78565,2.67965,133.589],[39.78609,2.67972,133.64],[39.78662,2.67964,133.7],[39.78709,2.67954,133.754],[39.78757,2.67984,133.818],[39.78801,2.67951,133.878],[39.78865,2.67959,133.952],[39.78909,2.67993,134.018],[39.78971,2.67969,134.094],[39.79033,2.67973,134.165],[39.79078,2.6798,134.218],[39.79137,2.67973,134.285],[39.79185,2.67961,134.345],[39.79189,2.68012,134.398],[39.79211,2.6793,134.492],[39.79184,2.67872,134.552],[39.79241,2.6786,134.63],[39.79307,2.67882,134.707],[39.79331,2.67874,134.76],[39.79367,2.67902,134.817],[39.7941,2.67929,134.872],[39.79466,2.67987,134.958],[39.79523,2.6801,135.027],[39.79555,2.68055,135.085],[39.79593,2.68059,135.139],[39.79632,2.68034,135.194],[39.79677,2.68058,135.25],[39.79693,2.68132,135.319],[39.79684,2.68189,135.369],[39.79649,2.68227,135.421],[39.79696,2.68203,135.484],[39.79659,2.6825,135.553],[39.79557,2.68289,135.672],[39.79495,2.68317,135.746],[39.79406,2.68286,135.85],[39.79314,2.68262,135.955],[39.79287,2.6828,136.006],[39.79303,2.68335,136.056],[39.79333,2.68388,136.113],[39.79323,2.68487,136.2],[39.7931,2.68565,136.269],[39.79311,2.6865,136.342],[39.79304,2.68711,136.395],[39.7931,2.68776,136.454],[39.7931,2.68873,136.542],[39.79307,2.68829,136.596],[39.79333,2.68877,136.661],[39.79325,2.68982,136.752],[39.7926,2.69024,136.835],[39.79183,2.69016,136.923],[39.79093,2.69017,137.024],[39.79052,2.69051,137.079],[39.79026,2.69153,137.172],[39.79035,2.69225,137.235],[39.79052,2.6929,137.294],[39.7907,2.69355,137.354],[39.79109,2.69467,137.465],[39.79173,2.6952,137.55],[39.79262,2.69602,137.672],[39.79318,2.6964,137.743],[39.79363,2.69663,137.797],[39.79417,2.69677,137.859],[39.79489,2.6968,137.939],[39.79549,2.69678,138.007],[39.79606,2.69666,138.071],[39.79695,2.69612,138.181],[39.7974,2.69549,138.256],[39.79775,2.69498,138.314],[39.79714,2.69447,138.396],[39.7971,2.69447,138.4]]},"etm":{"seg":[[1.0,6.7,38.4],[1.0,5.4,4.5],[1.0,49.0,0],[1.0,91.6,0],[1.0,93.3,22.4],[1.0,83.2,0],[1.0,102.0,8.3],[1.0,59.2,19.4],[1.0,6.5,30.7],[1.0,20.2,47.8],[1.0,0.2,61.4],[1.0,108.4,0.2],[1.0,130.4,0],[1.0,84.2,2.2],[1.0,157.7,0],[1.0,164.0,0],[1.0,18.0,83.9],[1.0,156.1,4.6],[1.0,4.8,140.4],[1.0,0,112.9],[1.0,0,144.2],[1.0,24.6,47.3],[1.0,16.0,54.9],[1.0,0.1,1.4],[1.0,0.4,0.6],[1.0,12.4,9.8],[1.0,11.6,29.5],[1.0,124.7,36.9],[1.0,179.5,0],[1.0,100.6,65.2],[1.0,60.9,136.7],[1.0,88.8,145.6],[1.0,4.5,35.0],[1.0,0.1,150.4],[1.0,0.7,125.3],[1.0,0,204.3],[1.0,0.1,140.9],[1.0,0.8,141.9],[1.0,3.2,52.3],[1.0,78.8,6.1],[1.0,18.9,7.0],[1.0,107.2,6.7],[1.0,45.4,1.9],[1.0,9.3,21.6],[1.0,5.5,91.3],[1.0,0,109.5],[1.0,7.5,46.2],[1.0,0,35.0],[1.0,8.4,6.6],[1.0,121.5,0],[1.0,57.6,4.8],[1.0,10.4,83.3],[1.0,15.3,36.7],[1.0,0.5,53.7],[1.0,2.6,36.1],[0.9,0.0,2.3]],"prof":[[0.0,193],[0.2,182],[0.4,183],[0.6,182],[0.8,166],[1.0,162],[1.2,165],[1.4,166],[1.6,163],[1.8,163],[2.0,162],[2.2,169],[2.4,178],[2.6,189],[2.8,199],[3.0,212],[3.2,228],[3.4,246],[3.6,270],[3.8,292],[4.0,303],[4.2,329],[4.4,372],[4.6,396],[4.8,387],[5.0,374],[5.2,389],[5.4,409],[5.6,426],[5.8,443],[6.0,457],[6.2,482],[6.4,514],[6.6,535],[6.8,533],[7.0,551],[7.2,566],[7.4,585],[7.6,601],[7.8,606],[8.0,591],[8.2,592],[8.4,584],[8.6,573],[8.8,575],[9.0,567],[9.2,556],[9.4,542],[9.6,524],[9.8,529],[10.0,539],[10.2,507],[10.4,485],[10.6,481],[10.8,479],[11.0,478],[11.2,485],[11.4,499],[11.6,531],[11.8,556],[12.0,586],[12.2,617],[12.4,648],[12.6,666],[12.8,682],[13.0,716],[13.2,743],[13.4,765],[13.6,778],[13.8,777],[14.0,798],[14.2,823],[14.4,836],[14.6,864],[14.8,906],[15.0,956],[15.2,1012],[15.4,1060],[15.6,1077],[15.8,1091],[16.0,1120],[16.2,1136],[16.4,1130],[16.6,1114],[16.8,1070],[17.0,1054],[17.2,1068],[17.4,1097],[17.6,1138],[17.8,1187],[18.0,1206],[18.2,1193],[18.4,1167],[18.6,1135],[18.8,1104],[19.0,1070],[19.2,1046],[19.4,1024],[19.6,1003],[19.8,986],[20.0,957],[20.2,921],[20.4,878],[20.6,844],[20.8,830],[21.0,813],[21.2,791],[21.4,772],[21.6,767],[21.8,776],[22.0,790],[22.2,804],[22.4,795],[22.6,763],[22.8,752],[23.0,751],[23.2,751],[23.4,751],[23.6,751],[23.8,750],[24.0,750],[24.2,750],[24.4,750],[24.6,750],[24.8,750],[25.0,750],[25.2,750],[25.4,759],[25.6,759],[25.8,755],[26.0,752],[26.2,752],[26.4,750],[26.6,744],[26.8,742],[27.0,735],[27.2,700],[27.4,718],[27.6,758],[27.8,783],[28.0,822],[28.2,858],[28.4,897],[28.6,951],[28.8,974],[29.0,1002],[29.2,1046],[29.4,1083],[29.6,1102],[29.8,1077],[30.0,1037],[30.2,989],[30.4,1005],[30.6,1044],[30.8,1016],[31.0,961],[31.2,1000],[31.4,1030],[31.6,1038],[31.8,974],[32.0,905],[32.2,879],[32.4,872],[32.6,870],[32.8,872],[33.0,874],[33.2,852],[33.4,819],[33.6,781],[33.8,747],[34.0,724],[34.2,695],[34.4,663],[34.6,651],[34.8,639],[35.0,599],[35.2,557],[35.4,526],[35.6,480],[35.8,426],[36.0,395],[36.2,368],[36.4,347],[36.6,312],[36.8,286],[37.0,254],[37.2,220],[37.4,184],[37.6,156],[37.8,145],[38.0,113],[38.2,109],[38.4,100],[38.6,89],[38.8,66],[39.0,64],[39.2,65],[39.4,77],[39.6,97],[39.8,130],[40.0,137],[40.2,143],[40.4,145],[40.6,145],[40.8,143],[41.0,149],[41.2,166],[41.4,165],[41.6,179],[41.8,212],[42.0,249],[42.2,257],[42.4,257],[42.6,274],[42.8,285],[43.0,293],[43.2,291],[43.4,283],[43.6,276],[43.8,273],[44.0,280],[44.2,284],[44.4,285],[44.6,266],[44.8,244],[45.0,194],[45.2,175],[45.4,151],[45.6,130],[45.8,108],[46.0,85],[46.2,80],[46.4,81],[46.6,83],[46.8,64],[47.0,46],[47.2,36],[47.4,22],[47.6,18],[47.8,14],[48.0,11],[48.2,11],[48.4,13],[48.6,11],[48.8,9],[49.0,13],[49.2,26],[49.4,63],[49.6,95],[49.8,118],[50.0,134],[50.2,152],[50.4,158],[50.6,166],[50.8,180],[51.0,187],[51.2,197],[51.4,190],[51.6,162],[51.8,138],[52.0,114],[52.2,124],[52.4,111],[52.6,107],[52.8,103],[53.0,93],[53.2,76],[53.4,62],[53.6,54],[53.8,52],[54.0,40],[54.2,22],[54.4,11],[54.6,4],[54.8,4],[55.0,6],[55.2,6],[55.4,5],[55.6,5],[55.8,4],[55.9,4]],"track":[[39.75511,2.90076,0.0],[39.75577,2.90063,0.076],[39.75643,2.90028,0.156],[39.75696,2.89996,0.222],[39.75768,2.90031,0.308],[39.75828,2.90064,0.381],[39.75875,2.90113,0.451],[39.75973,2.90114,0.577],[39.75987,2.90049,0.662],[39.76039,2.89977,0.749],[39.76083,2.89906,0.828],[39.76091,2.89848,0.88],[39.76134,2.89807,0.94],[39.76169,2.89765,0.994],[39.76242,2.89706,1.091],[39.76316,2.89647,1.187],[39.76362,2.89739,1.282],[39.76417,2.89717,1.347],[39.76475,2.89757,1.422],[39.76534,2.89813,1.504],[39.7658,2.89854,1.567],[39.76617,2.89891,1.619],[39.76642,2.89939,1.67],[39.76712,2.90038,1.787],[39.76744,2.90105,1.855],[39.76788,2.90134,1.91],[39.7686,2.90193,2.006],[39.7693,2.90218,2.098],[39.76975,2.90209,2.149],[39.77061,2.90197,2.252],[39.77107,2.90172,2.308],[39.77158,2.90121,2.38],[39.77188,2.90064,2.44],[39.77227,2.89964,2.536],[39.77249,2.89902,2.595],[39.77288,2.89861,2.651],[39.77369,2.89807,2.754],[39.77422,2.89793,2.815],[39.77484,2.898,2.885],[39.7753,2.89807,2.937],[39.77593,2.8977,3.016],[39.77674,2.89765,3.109],[39.77727,2.89789,3.172],[39.77774,2.8981,3.23],[39.77853,2.89799,3.319],[39.77903,2.8979,3.376],[39.77986,2.89746,3.476],[39.7803,2.89721,3.53],[39.78075,2.89675,3.595],[39.78125,2.89656,3.653],[39.7817,2.89658,3.704],[39.78231,2.89596,3.792],[39.78284,2.89572,3.855],[39.78339,2.89606,3.924],[39.78401,2.89581,3.998],[39.78458,2.89562,4.069],[39.78502,2.89574,4.126],[39.78576,2.89526,4.219],[39.78639,2.89467,4.306],[39.78679,2.89416,4.37],[39.7872,2.89432,4.43],[39.78776,2.89439,4.493],[39.78823,2.89399,4.574],[39.78869,2.89371,4.639],[39.78958,2.89256,4.784],[39.78979,2.89189,4.847],[39.79018,2.89134,4.928],[39.79064,2.89096,4.996],[39.79115,2.89092,5.054],[39.79177,2.89108,5.125],[39.79228,2.89107,5.182],[39.79279,2.8911,5.24],[39.79335,2.89114,5.304],[39.7937,2.89075,5.357],[39.79432,2.8907,5.428],[39.7948,2.89051,5.485],[39.79528,2.89032,5.541],[39.79554,2.88985,5.597],[39.7957,2.88935,5.65],[39.79616,2.88933,5.701],[39.79647,2.88881,5.76],[39.79695,2.88839,5.825],[39.79694,2.8881,5.877],[39.79758,2.88772,5.96],[39.79789,2.88719,6.018],[39.79827,2.88742,6.071],[39.79842,2.88715,6.138],[39.79859,2.88761,6.206],[39.79881,2.88766,6.27],[39.79864,2.88812,6.32],[39.79862,2.88901,6.414],[39.79858,2.88966,6.472],[39.79878,2.88996,6.537],[39.79884,2.89044,6.614],[39.79897,2.89111,6.682],[39.79929,2.89146,6.734],[39.80001,2.89205,6.829],[39.80065,2.8926,6.915],[39.80111,2.89302,6.978],[39.80157,2.89335,7.038],[39.80185,2.89402,7.104],[39.80214,2.89454,7.159],[39.80261,2.89487,7.22],[39.8031,2.89514,7.28],[39.80336,2.89569,7.336],[39.80382,2.89643,7.42],[39.80417,2.89662,7.488],[39.80465,2.89655,7.543],[39.80499,2.8961,7.599],[39.80552,2.89678,7.686],[39.8058,2.8962,7.748],[39.80623,2.89579,7.808],[39.8067,2.89547,7.868],[39.80714,2.89516,7.926],[39.80743,2.89473,7.976],[39.80781,2.89416,8.044],[39.80845,2.89371,8.126],[39.80896,2.89372,8.185],[39.80948,2.89351,8.246],[39.81002,2.89268,8.34],[39.81041,2.89204,8.414],[39.81073,2.89131,8.487],[39.81106,2.89078,8.548],[39.81106,2.89021,8.6],[39.8111,2.88965,8.652],[39.81175,2.88981,8.729],[39.8125,2.88968,8.814],[39.81307,2.88955,8.879],[39.81355,2.88946,8.934],[39.81386,2.89015,9.008],[39.81427,2.89043,9.06],[39.81464,2.89097,9.124],[39.81473,2.89154,9.174],[39.81499,2.89214,9.234],[39.81523,2.89272,9.291],[39.81537,2.89349,9.359],[39.81565,2.89335,9.41],[39.81563,2.89257,9.488],[39.81583,2.89189,9.559],[39.81658,2.89124,9.665],[39.81705,2.89131,9.718],[39.81716,2.89185,9.771],[39.81772,2.89203,9.848],[39.8182,2.89203,9.903],[39.81856,2.89187,9.955],[39.81877,2.89172,10.006],[39.81902,2.89176,10.081],[39.8188,2.89128,10.138],[39.81925,2.89143,10.191],[39.8196,2.89095,10.254],[39.81952,2.8905,10.31],[39.82016,2.8898,10.404],[39.82056,2.88943,10.459],[39.82112,2.88856,10.557],[39.82147,2.88782,10.632],[39.82181,2.88707,10.706],[39.82221,2.88725,10.778],[39.82247,2.88677,10.83],[39.82253,2.88589,10.906],[39.82239,2.88485,10.997],[39.82173,2.88464,11.102],[39.82139,2.8843,11.163],[39.82073,2.88416,11.241],[39.82009,2.88378,11.319],[39.81946,2.88341,11.398],[39.81892,2.88312,11.464],[39.81933,2.88298,11.515],[39.81938,2.88244,11.573],[39.81928,2.88178,11.632],[39.81958,2.88108,11.707],[39.82,2.88026,11.793],[39.82029,2.87977,11.848],[39.82041,2.8794,11.903],[39.82081,2.87881,11.972],[39.8211,2.87831,12.028],[39.82119,2.8777,12.083],[39.82136,2.87693,12.153],[39.82093,2.87724,12.213],[39.82087,2.87671,12.292],[39.82081,2.87588,12.364],[39.82136,2.87486,12.473],[39.82112,2.87421,12.539],[39.82081,2.87319,12.634],[39.82065,2.8726,12.69],[39.82032,2.87243,12.756],[39.81976,2.87237,12.821],[39.81933,2.87287,12.887],[39.81949,2.8734,12.941],[39.81917,2.87394,13.0],[39.81856,2.87349,13.082],[39.8183,2.873,13.134],[39.81853,2.87207,13.218],[39.81819,2.87175,13.277],[39.81812,2.87107,13.337],[39.81776,2.87144,13.389],[39.81721,2.87139,13.453],[39.8172,2.87049,13.553],[39.81741,2.8698,13.617],[39.8178,2.86941,13.673],[39.81809,2.86884,13.732],[39.81827,2.86812,13.801],[39.81844,2.86755,13.854],[39.81827,2.86668,13.932],[39.81851,2.86597,14.0],[39.81862,2.8651,14.076],[39.81822,2.86534,14.133],[39.81809,2.86453,14.227],[39.81771,2.86361,14.317],[39.81742,2.86313,14.374],[39.81713,2.86272,14.43],[39.81688,2.86208,14.502],[39.81675,2.8612,14.58],[39.81684,2.86046,14.645],[39.81662,2.85992,14.719],[39.81653,2.85975,14.771],[39.81658,2.85918,14.824],[39.81637,2.85925,14.874],[39.8162,2.85884,14.937],[39.81579,2.85918,14.991],[39.81562,2.85917,15.048],[39.81545,2.85922,15.1],[39.81529,2.85908,15.156],[39.81524,2.85879,15.21],[39.81489,2.85914,15.261],[39.815,2.85851,15.32],[39.81535,2.85805,15.387],[39.8156,2.8576,15.446],[39.81578,2.85698,15.503],[39.81575,2.85634,15.56],[39.81546,2.8559,15.612],[39.81548,2.85528,15.669],[39.81526,2.8547,15.727],[39.81511,2.85472,15.782],[39.81467,2.8553,15.859],[39.81439,2.85579,15.912],[39.81408,2.85624,15.97],[39.81387,2.85646,16.023],[39.81374,2.85732,16.102],[39.81378,2.85797,16.16],[39.8137,2.85853,16.212],[39.81363,2.85923,16.28],[39.81349,2.86003,16.351],[39.81348,2.86061,16.402],[39.81328,2.86113,16.464],[39.81291,2.86084,16.516],[39.81259,2.86032,16.58],[39.81227,2.85971,16.646],[39.81213,2.85896,16.715],[39.81185,2.85889,16.767],[39.81164,2.8582,16.834],[39.81152,2.8576,16.89],[39.81137,2.85687,16.956],[39.811,2.85638,17.016],[39.81062,2.85671,17.08],[39.81054,2.85625,17.146],[39.81061,2.85559,17.204],[39.81073,2.85499,17.258],[39.81095,2.85432,17.322],[39.81125,2.85374,17.387],[39.81149,2.85337,17.438],[39.81154,2.85266,17.502],[39.81126,2.85242,17.562],[39.81082,2.85223,17.627],[39.81059,2.85181,17.686],[39.81016,2.85195,17.737],[39.80984,2.85201,17.803],[39.80964,2.85224,17.878],[39.80921,2.85225,17.931],[39.80855,2.85208,18.008],[39.80817,2.85167,18.065],[39.80774,2.85127,18.125],[39.80732,2.85076,18.19],[39.80701,2.85043,18.256],[39.80656,2.84991,18.326],[39.80686,2.84968,18.39],[39.80691,2.84931,18.446],[39.80643,2.84905,18.506],[39.80613,2.84857,18.561],[39.80589,2.84802,18.625],[39.80582,2.84774,18.678],[39.80584,2.84735,18.735],[39.80537,2.84708,18.804],[39.80493,2.84674,18.864],[39.80473,2.8464,18.925],[39.80433,2.84601,18.982],[39.80387,2.84538,19.057],[39.80339,2.84472,19.137],[39.80309,2.84418,19.195],[39.80283,2.84354,19.257],[39.80232,2.84264,19.355],[39.8018,2.84206,19.433],[39.80143,2.84168,19.486],[39.80093,2.841,19.569],[39.80077,2.84043,19.621],[39.80142,2.84083,19.706],[39.80075,2.83984,19.82],[39.80019,2.83966,19.886],[39.80008,2.83929,19.948],[39.79958,2.83946,20.006],[39.79902,2.83909,20.093],[39.79845,2.83906,20.157],[39.79804,2.83903,20.208],[39.7976,2.83835,20.29],[39.79689,2.83776,20.385],[39.79618,2.83716,20.48],[39.79578,2.83683,20.536],[39.79487,2.83616,20.654],[39.79435,2.83573,20.722],[39.79384,2.83531,20.79],[39.79339,2.83506,20.845],[39.79284,2.83466,20.915],[39.79232,2.83439,20.978],[39.79207,2.8338,21.038],[39.79109,2.83312,21.165],[39.79058,2.83262,21.236],[39.79007,2.83213,21.308],[39.78956,2.83163,21.379],[39.78954,2.83076,21.454],[39.78899,2.83027,21.529],[39.78869,2.8299,21.584],[39.78838,2.82928,21.648],[39.78789,2.82855,21.733],[39.78762,2.82842,21.79],[39.78777,2.82802,21.841],[39.7879,2.82683,21.946],[39.78756,2.82731,22.004],[39.78774,2.82635,22.09],[39.78793,2.82569,22.151],[39.78842,2.8254,22.212],[39.78895,2.82533,22.272],[39.78945,2.82496,22.336],[39.78993,2.82501,22.391],[39.79038,2.82486,22.463],[39.79088,2.82454,22.527],[39.79165,2.82415,22.626],[39.79207,2.82382,22.681],[39.7926,2.82291,22.78],[39.79296,2.82246,22.836],[39.79327,2.82169,22.91],[39.79354,2.82062,23.007],[39.79362,2.81999,23.062],[39.7937,2.81936,23.117],[39.79415,2.81856,23.203],[39.79363,2.81792,23.297],[39.79311,2.81737,23.378],[39.7931,2.81668,23.441],[39.79332,2.81611,23.5],[39.79313,2.8147,23.627],[39.79299,2.81414,23.678],[39.79278,2.81356,23.733],[39.79257,2.81301,23.786],[39.79235,2.81246,23.839],[39.79187,2.81227,23.898],[39.79163,2.81149,23.987],[39.79139,2.8101,24.11],[39.79134,2.80952,24.16],[39.79133,2.80882,24.222],[39.79099,2.80778,24.319],[39.79082,2.80691,24.399],[39.7906,2.80589,24.49],[39.79115,2.80503,24.593],[39.7909,2.80384,24.716],[39.79042,2.80369,24.772],[39.78971,2.80275,24.886],[39.78916,2.80184,24.987],[39.7887,2.80143,25.05],[39.78829,2.80086,25.117],[39.78796,2.80046,25.168],[39.78747,2.79959,25.261],[39.78718,2.79898,25.325],[39.78704,2.79865,25.392],[39.78679,2.79766,25.484],[39.78707,2.79703,25.552],[39.78749,2.79643,25.624],[39.78728,2.79582,25.7],[39.78691,2.79556,25.754],[39.78639,2.79463,25.853],[39.78612,2.79407,25.91],[39.78567,2.79378,25.968],[39.78514,2.79381,26.026],[39.78462,2.79384,26.085],[39.78403,2.7935,26.159],[39.78342,2.79346,26.228],[39.78284,2.79322,26.297],[39.78226,2.79299,26.365],[39.78124,2.79255,26.485],[39.78083,2.79215,26.544],[39.78039,2.79228,26.597],[39.77969,2.79217,26.677],[39.77924,2.7921,26.728],[39.77869,2.79236,26.794],[39.77808,2.79272,26.873],[39.77766,2.79309,26.93],[39.77758,2.79375,26.99],[39.77767,2.79439,27.049],[39.77755,2.79457,27.101],[39.77714,2.79442,27.158],[39.77707,2.79554,27.255],[39.77684,2.79647,27.339],[39.77661,2.79725,27.411],[39.7762,2.79768,27.472],[39.77606,2.79772,27.523],[39.77566,2.79749,27.577],[39.77513,2.79735,27.64],[39.7747,2.79712,27.694],[39.77401,2.79696,27.782],[39.77349,2.79653,27.851],[39.77299,2.79578,27.937],[39.77339,2.79528,28.003],[39.7738,2.795,28.075],[39.77363,2.79422,28.179],[39.77352,2.79389,28.229],[39.77329,2.79314,28.299],[39.77309,2.79259,28.352],[39.77277,2.79186,28.424],[39.77287,2.79167,28.489],[39.7727,2.79084,28.567],[39.77246,2.79023,28.637],[39.77222,2.78936,28.717],[39.77211,2.78872,28.777],[39.77197,2.78803,28.842],[39.77203,2.78748,28.894],[39.77231,2.78701,28.945],[39.77239,2.78641,28.999],[39.77189,2.78566,29.086],[39.77143,2.78542,29.145],[39.77157,2.78503,29.208],[39.7722,2.78473,29.283],[39.77265,2.78457,29.336],[39.77352,2.78439,29.434],[39.774,2.78394,29.516],[39.77407,2.78293,29.604],[39.77364,2.78239,29.672],[39.77302,2.78175,29.761],[39.77265,2.7816,29.815],[39.77217,2.78139,29.872],[39.77175,2.78121,29.938],[39.77135,2.78046,30.016],[39.77103,2.77994,30.075],[39.77089,2.77914,30.146],[39.77058,2.77848,30.212],[39.76995,2.77824,30.287],[39.76924,2.77791,30.372],[39.76919,2.77739,30.423],[39.76917,2.77663,30.489],[39.76893,2.77614,30.54],[39.7686,2.77571,30.592],[39.76837,2.7752,30.643],[39.7679,2.77487,30.704],[39.76724,2.77428,30.794],[39.76671,2.77417,30.857],[39.76644,2.77367,30.912],[39.76612,2.77326,30.964],[39.76593,2.77277,31.014],[39.76567,2.77256,31.068],[39.76528,2.77233,31.127],[39.76496,2.77159,31.201],[39.76475,2.77096,31.261],[39.7646,2.77033,31.32],[39.76435,2.76983,31.372],[39.76409,2.76926,31.429],[39.76381,2.76872,31.486],[39.76356,2.7681,31.546],[39.76318,2.76783,31.605],[39.76273,2.76769,31.657],[39.76226,2.76759,31.715],[39.76184,2.7673,31.77],[39.76141,2.76717,31.828],[39.76094,2.767,31.883],[39.76077,2.76763,31.948],[39.76044,2.76789,31.999],[39.75999,2.7675,32.061],[39.75952,2.76743,32.115],[39.75973,2.76668,32.196],[39.75996,2.76595,32.264],[39.76024,2.76476,32.372],[39.76068,2.76458,32.426],[39.76115,2.76427,32.486],[39.76171,2.76383,32.565],[39.76262,2.7633,32.678],[39.76358,2.76322,32.786],[39.76437,2.7633,32.876],[39.76481,2.76316,32.927],[39.76519,2.76283,32.978],[39.76567,2.76282,33.035],[39.76533,2.76239,33.09],[39.76484,2.76245,33.152],[39.7647,2.76208,33.212],[39.76416,2.76174,33.28],[39.76366,2.76174,33.337],[39.7633,2.76139,33.389],[39.76306,2.76123,33.444],[39.76239,2.76068,33.536],[39.76218,2.7601,33.599],[39.76172,2.75983,33.658],[39.76114,2.75994,33.732],[39.76091,2.75963,33.795],[39.76094,2.7594,33.848],[39.76077,2.75877,33.915],[39.7603,2.7578,34.016],[39.76018,2.75705,34.082],[39.75976,2.7567,34.154],[39.75938,2.75635,34.207],[39.75899,2.75612,34.258],[39.75941,2.75597,34.31],[39.75985,2.75592,34.36],[39.76055,2.75613,34.442],[39.76107,2.75603,34.503],[39.76149,2.75612,34.558],[39.76198,2.75665,34.632],[39.76248,2.75681,34.701],[39.76243,2.75621,34.761],[39.76254,2.75607,34.82],[39.76272,2.75585,34.875],[39.76289,2.75548,34.931],[39.76316,2.75555,34.988],[39.76345,2.75576,35.041],[39.76367,2.75587,35.094],[39.76402,2.75575,35.155],[39.76443,2.75574,35.218],[39.76492,2.75571,35.277],[39.7653,2.75624,35.342],[39.76555,2.75628,35.396],[39.76581,2.75603,35.458],[39.76588,2.75579,35.519],[39.76542,2.75562,35.572],[39.76522,2.75513,35.633],[39.76526,2.75482,35.697],[39.76542,2.75462,35.752],[39.7654,2.75433,35.808],[39.76504,2.75393,35.861],[39.76459,2.75382,35.915],[39.76409,2.75337,35.984],[39.76474,2.75331,36.063],[39.76524,2.75307,36.124],[39.76568,2.75291,36.18],[39.76603,2.75243,36.239],[39.76633,2.75194,36.297],[39.76627,2.75151,36.347],[39.76642,2.75097,36.403],[39.76617,2.75062,36.458],[39.76622,2.75012,36.514],[39.76653,2.74963,36.571],[39.76654,2.74891,36.64],[39.76703,2.7489,36.701],[39.76734,2.74852,36.756],[39.76721,2.74779,36.82],[39.76719,2.74734,36.872],[39.7668,2.74694,36.928],[39.76672,2.7463,36.984],[39.76662,2.7457,37.04],[39.76707,2.74528,37.102],[39.76704,2.74512,37.16],[39.76703,2.74482,37.227],[39.76703,2.74443,37.287],[39.76702,2.74374,37.351],[39.76716,2.74338,37.406],[39.76725,2.7427,37.48],[39.76743,2.74211,37.535],[39.76741,2.74127,37.609],[39.76753,2.74047,37.69],[39.7674,2.73991,37.747],[39.76767,2.73932,37.821],[39.76812,2.73858,37.903],[39.76863,2.73781,38.02],[39.76946,2.73782,38.114],[39.77022,2.73729,38.213],[39.77075,2.73674,38.291],[39.77123,2.73618,38.365],[39.77128,2.73521,38.475],[39.77133,2.73452,38.55],[39.77176,2.73435,38.61],[39.77223,2.73421,38.665],[39.77227,2.73369,38.717],[39.77237,2.73281,38.794],[39.77292,2.73196,38.89],[39.77328,2.73151,38.946],[39.77363,2.73083,39.018],[39.77369,2.73011,39.085],[39.77442,2.72996,39.168],[39.77528,2.73012,39.266],[39.77587,2.7304,39.337],[39.77648,2.73053,39.407],[39.77688,2.72983,39.483],[39.77714,2.72893,39.568],[39.77731,2.72856,39.624],[39.77787,2.72957,39.732],[39.77833,2.7298,39.796],[39.77836,2.73046,39.855],[39.77874,2.73092,39.918],[39.77901,2.73152,39.98],[39.77865,2.73169,40.04],[39.77815,2.73237,40.122],[39.77836,2.73384,40.262],[39.77855,2.73455,40.328],[39.7786,2.73525,40.39],[39.77895,2.7356,40.44],[39.77935,2.73595,40.495],[39.77936,2.73674,40.57],[39.77958,2.73724,40.62],[39.78013,2.73742,40.683],[39.78071,2.73795,40.764],[39.7812,2.73856,40.841],[39.78148,2.73909,40.901],[39.78172,2.74003,40.987],[39.7821,2.74044,41.044],[39.7825,2.74071,41.113],[39.78293,2.74067,41.165],[39.78272,2.74043,41.225],[39.78254,2.7397,41.291],[39.78207,2.73961,41.346],[39.78201,2.73908,41.404],[39.78232,2.73849,41.466],[39.78224,2.73785,41.523],[39.78272,2.73706,41.61],[39.78272,2.73638,41.679],[39.78264,2.73597,41.736],[39.78302,2.73562,41.789],[39.78318,2.73515,41.846],[39.78286,2.7345,41.913],[39.78258,2.73401,41.972],[39.78313,2.73353,42.048],[39.78372,2.73349,42.114],[39.78362,2.73295,42.164],[39.78388,2.73236,42.227],[39.78362,2.73182,42.282],[39.7838,2.73128,42.337],[39.78432,2.73098,42.406],[39.78438,2.73028,42.474],[39.78412,2.72977,42.527],[39.7837,2.72886,42.62],[39.78364,2.72769,42.728],[39.78349,2.72704,42.786],[39.78339,2.72628,42.863],[39.78345,2.7256,42.926],[39.78385,2.72506,42.99],[39.78404,2.72418,43.069],[39.78434,2.72375,43.122],[39.78443,2.72321,43.187],[39.7848,2.7228,43.244],[39.78538,2.72196,43.342],[39.78585,2.72173,43.4],[39.78607,2.72115,43.464],[39.78654,2.72088,43.522],[39.78707,2.72107,43.588],[39.78769,2.7208,43.662],[39.78834,2.72058,43.737],[39.78901,2.72037,43.818],[39.78934,2.72036,43.874],[39.78983,2.72033,43.93],[39.79031,2.71999,43.994],[39.79065,2.72071,44.069],[39.79105,2.721,44.12],[39.79148,2.72098,44.173],[39.7913,2.7205,44.226],[39.79176,2.72028,44.282],[39.79236,2.72011,44.353],[39.79289,2.71988,44.416],[39.7932,2.71934,44.48],[39.79359,2.71869,44.554],[39.79402,2.71804,44.63],[39.79386,2.71733,44.702],[39.79402,2.71664,44.764],[39.79453,2.71654,44.826],[39.79466,2.71549,44.921],[39.79406,2.71507,44.998],[39.7936,2.71488,45.057],[39.79402,2.71474,45.109],[39.79419,2.71433,45.177],[39.79423,2.71381,45.227],[39.79455,2.71284,45.319],[39.79451,2.7121,45.384],[39.79519,2.7112,45.493],[39.79503,2.71062,45.554],[39.79512,2.7096,45.644],[39.79482,2.70934,45.709],[39.79477,2.70876,45.762],[39.79492,2.70837,45.814],[39.79515,2.70796,45.87],[39.7948,2.70737,45.935],[39.79425,2.70659,46.026],[39.79354,2.70611,46.12],[39.79298,2.70607,46.186],[39.79228,2.70622,46.266],[39.7916,2.70608,46.343],[39.79115,2.7061,46.393],[39.79067,2.70601,46.448],[39.78971,2.7064,46.562],[39.78924,2.7065,46.617],[39.78862,2.70685,46.692],[39.78801,2.70685,46.766],[39.78719,2.70677,46.859],[39.78662,2.70681,46.925],[39.78619,2.70713,46.981],[39.78542,2.70642,47.09],[39.78507,2.70606,47.142],[39.78441,2.70577,47.221],[39.78381,2.70597,47.304],[39.78333,2.70567,47.365],[39.78294,2.70605,47.421],[39.78222,2.70637,47.513],[39.78168,2.70663,47.577],[39.78128,2.70699,47.632],[39.78063,2.70638,47.721],[39.77998,2.70577,47.81],[39.77934,2.70517,47.9],[39.77869,2.70456,47.989],[39.77933,2.7043,48.065],[39.77974,2.70372,48.133],[39.78013,2.70325,48.193],[39.78025,2.70253,48.257],[39.78033,2.70173,48.326],[39.78054,2.70125,48.381],[39.78098,2.70089,48.439],[39.78168,2.70044,48.527],[39.78238,2.69999,48.614],[39.78284,2.69966,48.673],[39.78311,2.69906,48.734],[39.78351,2.69852,48.798],[39.78406,2.69735,48.917],[39.78479,2.69658,49.022],[39.78521,2.6958,49.105],[39.78545,2.69513,49.169],[39.78546,2.69459,49.235],[39.78538,2.69375,49.309],[39.78509,2.69338,49.37],[39.7848,2.69243,49.458],[39.78456,2.69196,49.512],[39.78456,2.69131,49.575],[39.7845,2.6902,49.673],[39.78461,2.68961,49.727],[39.78457,2.68896,49.784],[39.78442,2.6888,49.842],[39.78424,2.68823,49.899],[39.78353,2.68793,49.982],[39.78328,2.68746,50.037],[39.78374,2.6871,50.099],[39.78418,2.68679,50.157],[39.78466,2.68646,50.219],[39.78486,2.68548,50.31],[39.78471,2.68492,50.361],[39.78456,2.68435,50.413],[39.7842,2.68392,50.469],[39.78399,2.68339,50.523],[39.78405,2.68302,50.576],[39.78397,2.68248,50.631],[39.78368,2.68169,50.711],[39.78387,2.68118,50.761],[39.78421,2.68155,50.831],[39.78472,2.68161,50.888],[39.78491,2.68112,50.938],[39.78499,2.68048,50.994],[39.78517,2.6797,51.065],[39.78565,2.67965,51.123],[39.78609,2.67972,51.175],[39.78662,2.67964,51.235],[39.78709,2.67954,51.289],[39.78757,2.67984,51.352],[39.78801,2.67951,51.413],[39.78865,2.67959,51.487],[39.78909,2.67993,51.553],[39.78971,2.67969,51.628],[39.79033,2.67973,51.699],[39.79078,2.6798,51.752],[39.79137,2.67973,51.82],[39.79185,2.67961,51.88],[39.79189,2.68012,51.933],[39.79211,2.6793,52.027],[39.79184,2.67872,52.087],[39.79241,2.6786,52.165],[39.79307,2.67882,52.242],[39.79331,2.67874,52.295],[39.79367,2.67902,52.352],[39.7941,2.67929,52.408],[39.79466,2.67987,52.494],[39.79523,2.6801,52.562],[39.79555,2.68055,52.62],[39.79593,2.68059,52.675],[39.79632,2.68034,52.73],[39.79677,2.68058,52.785],[39.79693,2.68132,52.855],[39.79684,2.68189,52.905],[39.79649,2.68227,52.957],[39.79696,2.68203,53.02],[39.79659,2.6825,53.089],[39.79557,2.68289,53.208],[39.79495,2.68317,53.282],[39.79406,2.68286,53.386],[39.79359,2.68272,53.44],[39.79314,2.68262,53.492],[39.79287,2.6828,53.542],[39.79303,2.68335,53.593],[39.79333,2.68388,53.65],[39.79323,2.68487,53.737],[39.7931,2.68565,53.805],[39.79311,2.6865,53.879],[39.79304,2.68711,53.932],[39.7931,2.68776,53.991],[39.7931,2.68873,54.079],[39.79307,2.68829,54.133],[39.79333,2.68877,54.198],[39.79325,2.68982,54.289],[39.7926,2.69024,54.372],[39.79183,2.69016,54.461],[39.79125,2.69015,54.526],[39.79079,2.69025,54.579],[39.79051,2.6907,54.636],[39.79035,2.69137,54.696],[39.79042,2.69225,54.773],[39.79059,2.6929,54.832],[39.79076,2.69355,54.892],[39.79109,2.69467,55.007],[39.79173,2.6952,55.092],[39.79262,2.69602,55.215],[39.79318,2.6964,55.285],[39.79363,2.69663,55.34],[39.79417,2.69677,55.401],[39.79489,2.6968,55.482],[39.79549,2.69678,55.549],[39.79606,2.69666,55.614],[39.79692,2.69615,55.72],[39.79724,2.69569,55.774],[39.79775,2.69498,55.857],[39.79743,2.69471,55.9]]}};
+// Verpflegungsangebot je Posten (Aid Station & Nutrition Guide 2026): t = s fest / l flüssig / h Life Base; p = Produkt-Indizes
+const NUT = {"sdt":{"Bunyola":{"t":"s","p":[0,1,2,3,6,7,8,10,12,13,14,16,17,19,22,24,26,30,31,32]},"Orient":{"t":"s","p":[0,1,2,3,4,7,9,13,14,17,20,22,24,26,30,31,32]},"Alaró":{"t":"h","p":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,25,26,27,28,29,30,31,32]},"Lluc":{"t":"h","p":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,25,26,27,28,29,30,31,32]},"Cúber":{"t":"s","p":[0,1,2,3,4,7,10,11,12,13,14,16,17,19,21,22,23,24,25,30,31,32]},"Esporles":{"t":"s","p":[0,1,2,3,7,9,12,13,14,16,17,19,22,24,26,31,32]},"Valldemossa":{"t":"s","p":[0,1,2,3,4,7,9,11,12,13,15,18,20,21,23,25,30,31,32]},"Tossals Verds":{"t":"s","p":[0,1,2,3,7,11,12,13,14,16,17,19,22,24,26,30,31,32]},"Can Bajoca":{"t":"s","p":[0,1,2,3,4,6,7,8,9,10,12,13,14,15,18,20,21,23,25,30,31,32]},"Son Amer":{"t":"s","p":[0,1,2,3,7,9,11,12,13,16,17,19,22,24,26,30,31,32]},"Fornalutx":{"t":"s","p":[0,1,2,3,4,7,8,9,10,12,13,14,15,17,18,19,20,21,22,23,25,26,31,32]},"Sóller":{"t":"l","p":[0,1,2,3,4,6,9,13,30]}},"etm":{"Lluc":{"t":"s","p":[0,1,2,3,7,9,12,13,14,15,17,19,22,24,26,31,32]},"Cúber":{"t":"s","p":[0,1,2,3,4,7,8,10,11,12,13,14,16,17,19,21,22,23,24,25,30,31,32]},"Coll d'en Poma":{"t":"l","p":[0,1,2,3,4,9,13]},"Fornalutx":{"t":"s","p":[0,1,2,3,4,7,8,9,10,12,13,14,15,17,18,19,20,21,22,23,25,26,31,32]},"Sóller":{"t":"l","p":[0,1,2,3,4,6,9,13,30]}}};
+const NUTCAT=[[0,6],[6,11],[11,13],[13,17],[17,27],[27,31],[31,33]];
+const $=id=>document.getElementById(id);
+const NS="http://www.w3.org/2000/svg";
+function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;parent&&parent.appendChild(e);return e}
+const H=3600e3, M=60e3;
+const U=(d,h,m)=>Date.UTC(2026,d>=30?9:10,d,h,m); // lokale Zeit (MEZ) als UTC-Zahl
+const p2=n=>String(n).padStart(2,"0");
+const rnd=t=>Math.round(t/M)*M;
+const clock=t=>{const d=new Date(rnd(t));return p2(d.getUTCHours())+":"+p2(d.getUTCMinutes())};
+const hm=min=>{const s=Math.round(min);return Math.floor(s/60)+":"+p2(s%60)};
+const pace=mpk=>{let s=Math.round(mpk*60);return Math.floor(s/60)+":"+p2(s%60)};
+const sgnHm=min=>(min<0?"−":"+")+hm(Math.abs(min));
+const kmf=k=>k.toFixed(1).replace(".",",");
+// aktuelle Ortszeit Mallorca (Europe/Madrid, Sommer-/Winterzeit automatisch) als Wanduhrzeit im selben Format wie alle Rennzeiten
+const TZF=(()=>{try{return new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Madrid",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"})}catch(e){return null}})();
+function nowLocal(){return wallOf(Date.now())}
+function wallOf(n){if(!TZF)return n+H;const o={};TZF.formatToParts(new Date(n)).forEach(p=>o[p.type]=p.value);
+  return Date.UTC(+o.year,+o.month-1,+o.day,+o.hour%24,+o.minute,+o.second)}
+
+// ---------- Sprache
+const TX={
+de:{eyebrow:"Mallorca · 100 Miles Serra de Tramuntana & Els Tres Mils",h1:"Pacerechner Mallorca by UTMB",
+ sub:"Stell für jede Strecke deine Zielzeit ein. Die Pace jedes Kilometers ergibt sich aus seinen Höhenmetern bergauf und bergab und einer zunehmenden Ermüdung.",
+ courses:"Strecken",model:"Modell",mUp1:"1 km flach ≙",mUp2:"Hm bergauf",mDn1:"und ≙",mDn2:"Hm bergab",mFat:"Ermüdung bis zum Ziel",
+ goal:"Zielzeit",start:"Start",finish:"Zielankunft",flat:"Grundpace flach am Start",avg:"Ø Pace gesamt",fastKm:"schnellster km",slowKm:"langsamster km",
+ dark:"davon im Dunkeln (Stirnlampe)",darkVal:"{0} h, davon {1} h ohne Mond",buf:"knappster Puffer zum Cut-Off",over:"überschritten: ",cutoff:"Cut-Off",
+ chart:"Marschtabelle",legPlan:"Dein Plan, eingefärbt nach Pace:",legAvg:"Ø Pace (gleichmäßig)",legElev:"Höhenprofil (rechte Skala)",legNight0:"Nacht ohne Mond",legNight1:"Nacht mit Mond / Dämmerung",
+ legSup:"Support erlaubt",legFast:"Schnellster Läufer",legCut:"Cut-Off",legOwn:"eigene ETM-Route",
+ axis:"Distanz [km]",axisSDT:"Distanz SDT [km]",paceLab:"Pace",
+ sunrise:"☀ Sonnenaufgang {0}",sunset:"☀ Sonnenuntergang {0}",moon1a:"☾ Nacht · abnehmender Mond",moon1b:"ca. 70 % beleuchtet, Aufgang 21:25",nomoon:"● Nacht ohne Mond",moon2a:"☾ Mondaufgang 22:40",moon2b:"ca. 60 % beleuchtet",
+ tipPlan:"Plan",tipPace:"Pace km {0}",hmUp:"Hm↑",hmDn:"Hm↓",ownRoute:"eigene Route",support:"Support",
+ etmNote:"Die ETM-Linie ist auf der SDT-Distanzachse eingezeichnet: Von Lluc bis kurz nach Cúber und ab kurz vor Fornalutx laufen beide Strecken auf demselben Weg. Wo die ETM eine eigene Route hat (Selva–Lluc und der Bogen über Coll d'en Poma), ist ihre Linie gestrichelt und die Distanz auf die SDT-Achse umgerechnet. Die echten ETM-Kilometer zeigt das Infofenster.",
+ map:"Streckenkarte",mapAid:"Verpflegungspunkt",mapSup:"mit Support",mapKm:"km-Marke alle 10 km",
+ mapNote:"Topografische Karte mit Höhenlinien (beim Hineinzoomen beschriftet). Fahr mit der Maus über die Strecke oder das Diagramm, um deine Position und Plan-Zeit zu sehen.",
+ table:"Verpflegungspunkte",thPoint:"Punkt",thLeg:"Abschnitt Hm↑ / ↓",thTime:"Abschnittszeit",thIP:"Ist / Prognose",thPace:"Ø Pace",thPlan:"Dein Plan",thFast:"Schnellster",thCut:"Cut-Off",thBuf:"Puffer",
+ lightAt:"Licht bei deiner Ankunft:",lDay:"Tag",lTw:"Dämmerung",lMoon:"Nacht mit Mond",lNoMoon:"Nacht ohne Mond",supNote:"Betreuung erlaubt",supAllowed:"Support erlaubt",
+ none:"Wähle oben mindestens eine Strecke aus.",
+ note:"So wird gerechnet: Jeder Kilometer bekommt einen Aufwand in Flach-Kilometern: Länge + Hm bergauf ÷ 100 + Hm bergab ÷ 500. Dazu kommt die Ermüdung: Bei gleichem Gelände wird die Pace bis zum Ziel gleichmäßig langsamer, standardmäßig um 50 %. Die Zielzeit wird auf die Summe dieser Aufwände verteilt; Pausen an den Verpflegungsstellen sind enthalten. Höhendaten aus den GPX-Dateien (leicht geglättet), Längen auf die offiziellen 138,4 km bzw. 55,9 km angepasst. Sonnen- und Mondzeiten für 39,7° N / 2,7° O in MEZ berechnet.",
+ live:"Livedaten",liveShared:"gemeinsam gespeichert, alle Besucher sehen sie",liveLocal:"nur in diesem Browser gespeichert (keine Datenbank eingerichtet)",liveErr:"keine Verbindung zur Datenbank – versuche erneut …",liveLocked:"gesperrt",liveEdit:"Bearbeitung aktiv",liveRO:"nur lesen: Livedaten pflegt der Besitzer",liveLoad:"verbinde …",
+ kmIn:"km",timeIn:"Uhrzeit",add:"Eintragen",clearAll:"Alle Livedaten löschen",confirmClear:"Wirklich alle Durchgänge dieser Strecke löschen?",yes:"Ja, löschen",no:"Abbrechen",
+ noEntries:"Noch keine Durchgänge. Trag eine Uhrzeit in der Tabelle oder hier mit km ein.",entryErr:"Bitte km zwischen 0 und {0} und eine Uhrzeit eingeben.",saveErr:"Speichern fehlgeschlagen – bitte erneut versuchen.",noEntriesRO:"Noch keine Durchgänge.",
+ lockOff:"gesperrt",lockOn:"Bearbeiten",lockAria:"Bearbeitung freischalten",pwTitle:"Bearbeitung freischalten",pwText:"Die Eingaben sind gesperrt. Mit dem Passwort kannst du Zielzeiten, Modell und Livedaten für alle Besucher ändern.",
+ pwLabel:"Passwort",pwOk:"Freischalten",pwCancel:"Abbrechen",pwWrong:"Falsches Passwort.",pwCheck:"prüfe …",pwNet:"Keine Verbindung – bitte erneut versuchen.",pwLost:"Das Passwort wurde nicht akzeptiert – die Bearbeitung ist wieder gesperrt.",
+ thIst:"Ist",thProg:"Prognose",forecast:"Prognose",actual:"Ist",origPlan:"urspr. Plan",progGoal:"Prognose Zielzeit",finishLive:"Zielankunft (Prognose)",
+ now:"Jetzt {0}",posNow:"jetzt ≈ km {0}",legDashed:"ursprünglicher Plan",legIst:"gemessener Durchgang",legFc:"blasser Teil = Prognose",factor:"Tempo ggü. Plan: {0}",
+ livePublic:"öffentliche Ansicht, Stand {0} – lädt bei neuen Daten von selbst",pubPending:"Ansicht ohne Konto wird in Kürze aktualisiert …",pubDone:"Ansicht ohne Konto aktuell (Stand {0})",pubStale:"Ansicht ohne Konto ist nicht aktuell.",pubNow:"Jetzt aktualisieren",pubNoRight:"Die Ansicht ohne Konto kann nur der Besitzer aktualisieren.",pubErr:"Aktualisieren der Ansicht ohne Konto fehlgeschlagen.",
+ fNext:"Nächster Posten",fFrom:"ab letztem Durchgang: {0}",fFromStart:"ab Start (noch keine Livedaten)",fArr:"Ankunft (Prognose)",fIn:"in {0} h",fAgo:"vor {0} h fällig",fPlan:"urspr. Plan",fDist:"Distanz",fLeg:"Abschnitt",fPace:"Ø Pace",fCut:"Cut-Off",fNoCut:"kein Cut-Off",fThen:"danach",fFinished:"Im Ziel – {0}",fLight:"Licht",
+ nutSum:"🍴 Verpflegungsangebot",nutNone:"Laut Verpflegungsguide kein Verpflegungsposten (nur Kontrollpunkt).",nutFinish:"Ziel: umfangreiche Mahlzeit und Getränke, auch Bier.",
+ nutT_s:"Verpflegung fest & flüssig",nutT_l:"nur Getränke & Kleinigkeiten",nutT_h:"Life Base mit warmem Essen",
+ nutByou:"Eigenen Becher (mind. 15 cl) mitbringen, für warmes Essen auch Besteck und Schale.",nutSrc:"Quelle: Aid Station & Nutrition Guide Mallorca by UTMB 2026 – Änderungen vorbehalten.",
+ nutCat:["Getränke","Obst & Frisches","Nüsse & Trockenobst","Süßes","Brot & Herzhaftes","Warmes","Näak"],
+ nutP:["Wasser still","Wasser mit Kohlensäure","Näak isotonisches Getränk","Cola","Orangenlimonade","Kaffee","Zitrone","Banane","Tomate","Clementinen aus Sóller","Essiggurken / Oliven","Getr. Aprikosen / Datteln","Nüsse und Rosinen","Fruchtgummi","Milchschokolade","Quittenpaste","Ensaïmada / Gebäck","Toastbrot","Bauernbrot (pa pagès)","Schokoaufstrich","Erdnussbutter","Käse","Fuet (Trockenwurst)","Serranoschinken","Picos (Grissini)","Salzcracker","Müsliriegel","Warme Pasta","Warmer Reis","Kalter Reissalat","Brühe","Näak-Waffeln","Näak-Energieriegel"],
+ kmPinLbl:"Infofenster bei km",kmClose:"Infofenster schließen",
+ fsOn:"⛶ Vollbild",fsOff:"✕ Vollbild beenden",zoomIn:"Hineinzoomen",zoomOut:"Herauszoomen",zoomAll:"Ganze Strecke",panL:"Nach links",panR:"Nach rechts",zoomHint:"Am Handy: doppelt tippen zum Hineinzoomen",
+ wd:["So","Mo","Di","Mi","Do","Fr","Sa"]},
+nl:{eyebrow:"Mallorca · 100 Miles Serra de Tramuntana & Els Tres Mils",h1:"Pacerekenaar Mallorca by UTMB",
+ sub:"Stel per parcours je doeltijd in. De pace van elke kilometer volgt uit de hoogtemeters omhoog en omlaag en een toenemende vermoeidheid.",
+ courses:"Parcoursen",model:"Model",mUp1:"1 km vlak ≙",mUp2:"hm stijging",mDn1:"en ≙",mDn2:"hm daling",mFat:"Vermoeidheid tot de finish",
+ goal:"Doeltijd",start:"Start",finish:"Aankomst finish",flat:"Basispace vlak bij de start",avg:"Gem. pace totaal",fastKm:"snelste km",slowKm:"traagste km",
+ dark:"waarvan in het donker (hoofdlamp)",darkVal:"{0} h, waarvan {1} h zonder maan",buf:"krapste marge tot cut-off",over:"overschreden: ",cutoff:"Cut-off",
+ chart:"Tijdschema",legPlan:"Jouw plan, gekleurd naar pace:",legAvg:"Gem. pace (gelijkmatig)",legElev:"Hoogteprofiel (rechter schaal)",legNight0:"Nacht zonder maan",legNight1:"Nacht met maan / schemering",
+ legSup:"Support toegestaan",legFast:"Snelste loper",legCut:"Cut-off",legOwn:"eigen ETM-route",
+ axis:"Afstand [km]",axisSDT:"Afstand SDT [km]",paceLab:"Pace",
+ sunrise:"☀ Zonsopkomst {0}",sunset:"☀ Zonsondergang {0}",moon1a:"☾ Nacht · afnemende maan",moon1b:"ca. 70 % verlicht, opkomst 21:25",nomoon:"● Nacht zonder maan",moon2a:"☾ Maanopkomst 22:40",moon2b:"ca. 60 % verlicht",
+ tipPlan:"Plan",tipPace:"Pace km {0}",hmUp:"hm↑",hmDn:"hm↓",ownRoute:"eigen route",support:"Support",
+ etmNote:"De ETM-lijn staat op de afstandsas van de SDT: van Lluc tot kort na Cúber en vanaf kort voor Fornalutx lopen beide parcoursen over hetzelfde pad. Waar de ETM een eigen route heeft (Selva–Lluc en de lus via Coll d'en Poma), is de lijn gestippeld en is de afstand omgerekend naar de SDT-as. De echte ETM-kilometers staan in het infovenster.",
+ map:"Parcourskaart",mapAid:"Verzorgingspost",mapSup:"met support",mapKm:"km-markering elke 10 km",
+ mapNote:"Topografische kaart met hoogtelijnen (bij inzoomen gelabeld). Beweeg over het parcours of de grafiek om je positie en geplande tijd te zien.",
+ table:"Verzorgingsposten",thPoint:"Post",thLeg:"Etappe hm↑ / ↓",thTime:"Etappetijd",thIP:"Echt / prognose",thPace:"Gem. pace",thPlan:"Jouw plan",thFast:"Snelste",thCut:"Cut-off",thBuf:"Marge",
+ lightAt:"Licht bij je aankomst:",lDay:"Dag",lTw:"Schemering",lMoon:"Nacht met maan",lNoMoon:"Nacht zonder maan",supNote:"begeleiding toegestaan",supAllowed:"Support toegestaan",
+ none:"Kies hierboven minstens één parcours.",
+ note:"Zo wordt gerekend: elke kilometer krijgt een inspanning in vlakke kilometers: lengte + hm stijging ÷ 100 + hm daling ÷ 500. Daarbij komt vermoeidheid: bij gelijk terrein wordt de pace tot de finish gelijkmatig trager, standaard met 50 %. De doeltijd wordt over de som van deze inspanningen verdeeld; pauzes bij de verzorgingsposten zijn inbegrepen. Hoogtegegevens uit de GPX-bestanden (licht afgevlakt), lengtes aangepast aan de officiële 138,4 km en 55,9 km. Zon- en maantijden berekend voor 39,7° N / 2,7° O in CET.",
+ live:"Live-gegevens",liveShared:"gedeeld opgeslagen, alle bezoekers zien ze",liveLocal:"alleen in deze browser opgeslagen (geen database ingesteld)",liveErr:"geen verbinding met de database – opnieuw proberen …",liveLocked:"vergrendeld",liveEdit:"bewerken actief",liveRO:"alleen lezen: de eigenaar beheert de live-gegevens",liveLoad:"verbinden …",
+ kmIn:"km",timeIn:"Tijd",add:"Toevoegen",clearAll:"Alle live-gegevens wissen",confirmClear:"Echt alle doorkomsten van dit parcours wissen?",yes:"Ja, wissen",no:"Annuleren",
+ noEntries:"Nog geen doorkomsten. Vul een tijd in de tabel of hier met km in.",entryErr:"Vul een km tussen 0 en {0} en een tijd in.",saveErr:"Opslaan mislukt – probeer het opnieuw.",noEntriesRO:"Nog geen doorkomsten.",
+ lockOff:"vergrendeld",lockOn:"Bewerken",lockAria:"Bewerken ontgrendelen",pwTitle:"Bewerken ontgrendelen",pwText:"De invoer is vergrendeld. Met het wachtwoord kun je doeltijden, model en live-gegevens voor alle bezoekers wijzigen.",
+ pwLabel:"Wachtwoord",pwOk:"Ontgrendelen",pwCancel:"Annuleren",pwWrong:"Onjuist wachtwoord.",pwCheck:"controleren …",pwNet:"Geen verbinding – probeer het opnieuw.",pwLost:"Het wachtwoord werd niet geaccepteerd – bewerken is weer vergrendeld.",
+ thIst:"Echt",thProg:"Prognose",forecast:"Prognose",actual:"Echt",origPlan:"oorspr. plan",progGoal:"Prognose eindtijd",finishLive:"Aankomst finish (prognose)",
+ now:"Nu {0}",posNow:"nu ≈ km {0}",legDashed:"oorspronkelijk plan",legIst:"gemeten doorkomst",legFc:"lichter deel = prognose",factor:"Tempo t.o.v. plan: {0}",
+ livePublic:"openbare weergave, stand {0} – laadt bij nieuwe gegevens vanzelf",pubPending:"Weergave zonder account wordt zo bijgewerkt …",pubDone:"Weergave zonder account actueel (stand {0})",pubStale:"Weergave zonder account is niet actueel.",pubNow:"Nu bijwerken",pubNoRight:"Alleen de eigenaar kan de weergave zonder account bijwerken.",pubErr:"Bijwerken van de weergave zonder account mislukt.",
+ fNext:"Volgende post",fFrom:"vanaf laatste doorkomst: {0}",fFromStart:"vanaf de start (nog geen live-gegevens)",fArr:"Aankomst (prognose)",fIn:"over {0} u",fAgo:"{0} u geleden verwacht",fPlan:"oorspr. plan",fDist:"Afstand",fLeg:"Etappe",fPace:"Gem. pace",fCut:"Cut-off",fNoCut:"geen cut-off",fThen:"daarna",fFinished:"Gefinisht – {0}",fLight:"Licht",
+ nutSum:"🍴 Verzorgingsaanbod",nutNone:"Volgens de verzorgingsgids geen verzorgingspost (alleen controlepunt).",nutFinish:"Finish: uitgebreide maaltijd en drankjes, ook bier.",
+ nutT_s:"vaste & vloeibare verzorging",nutT_l:"alleen drank & kleinigheden",nutT_h:"life base met warm eten",
+ nutByou:"Neem een eigen beker mee (min. 15 cl), voor warm eten ook bestek en kom.",nutSrc:"Bron: Aid Station & Nutrition Guide Mallorca by UTMB 2026 – wijzigingen voorbehouden.",
+ nutCat:["Dranken","Fruit & vers","Noten & gedroogd fruit","Zoet","Brood & hartig","Warm","Näak"],
+ nutP:["Plat water","Bruisend water","Näak isotone drank","Cola","Sinaasappelfrisdrank","Koffie","Citroen","Banaan","Tomaat","Clementines uit Sóller","Augurken / olijven","Gedr. abrikozen / dadels","Noten en rozijnen","Snoepjes (gom)","Melkchocolade","Kweepeerpasta","Ensaïmada / gebak","Gesneden brood","Boerenbrood (pa pagès)","Chocopasta","Pindakaas","Kaas","Fuet (droge worst)","Serranoham","Picos (soepstengels)","Zoute crackers","Mueslirepen","Warme pasta","Warme rijst","Koude rijstsalade","Bouillon","Näak-wafels","Näak-energierepen"],
+ kmPinLbl:"Infovenster bij km",kmClose:"Infovenster sluiten",
+ fsOn:"⛶ Volledig scherm",fsOff:"✕ Volledig scherm sluiten",zoomIn:"Inzoomen",zoomOut:"Uitzoomen",zoomAll:"Heel parcours",panL:"Naar links",panR:"Naar rechts",zoomHint:"Op de telefoon: dubbeltikken om in te zoomen",
+ wd:["zo","ma","di","wo","do","vr","za"]}};
+let lang="de"; try{const v=localStorage.getItem("pr-lang");if(v==="nl")lang="nl"}catch(e){}
+const t=(k,...a)=>{let s=(TX[lang][k]??TX.de[k]??k);a.forEach((v,i)=>s=s.replace("{"+i+"}",v));return s};
+const dayclock=x=>TX[lang].wd[new Date(rnd(x)).getUTCDay()]+" "+clock(x);
+
+// ---------- Strecken
+const ETM_ANCHORS=[[0,85.6],[10.78,96.38],[26.6,112.2],[32.93,115.62],[55.9,138.4]]; // ETM-km -> SDT-Achse (gemeinsame Abschnitte 1:1)
+const lerpMap=(A,v,i0,i1)=>{for(let i=1;i<A.length;i++){if(v<=A[i][i0]||i===A.length-1){const a=A[i-1],b=A[i],f=(v-a[i0])/((b[i0]-a[i0])||1);return a[i1]+f*(b[i1]-a[i1])}}};
+const COURSES=[
+ {id:"sdt",short:"SDT",name:"100 Miles Serra de Tramuntana",len:138.4,start:U(30,22,0),gMin:720,gMax:1830,gDef:1440,color:"--c-sdt",
+  own:[],toAxis:k=>k,fromAxis:x=>x,
+  aid:[["Cala Estellencs",0,"30 22:00"],["Esporles",14.1,"30 22:54","31 00:15"],["Valldemossa",24.8,"30 23:53","31 02:20"],["Bunyola",37.9,"31 00:45","31 04:30"],["Orient",52.4,"31 02:11","31 07:40"],
+   ["Alaró",60.2,"31 03:01","31 09:30",1],["Tossals Verds",69.8,"31 03:53","31 11:40"],["Can Bajoca",77.1,"31 04:36","31 13:30"],["Coll de sa Línia",82.3,"31 05:20"],
+   ["Son Amer",86.7,"31 05:41","31 16:00"],["Lluc",96.6,"31 06:36","31 18:20",1],["Coll des Prat",103.8,"31 07:40"],["Cúber",111.1,"31 08:18","31 22:30"],
+   ["Fornalutx",123.4,"31 09:29","01 01:15"],["Sóller",130.6,"31 10:12","01 03:00"],["Port de Sóller",138.4,"31 10:54","01 04:30"]]},
+ {id:"etm",short:"ETM",name:"Els Tres Mils",len:55.9,start:U(31,8,0),gMin:270,gMax:720,gDef:480,color:"--c-etm",
+  own:[[0,10.78],[26.6,32.93]],toAxis:k=>lerpMap(ETM_ANCHORS,k,0,1),fromAxis:x=>lerpMap(ETM_ANCHORS,x,1,0),
+  aid:[["Selva",0,"31 08:00"],["Lluc",10.8,"31 08:44","31 10:00"],["Coll des Prat",17.9,"31 09:29"],["Cúber",25.3,"31 09:57","31 13:25"],
+   ["Coll d'en Poma",32.2,"31 10:41"],["Fornalutx",40.8,"31 11:20","31 17:00"],["Sóller",48.2,"31 11:53","31 18:20"],["Port de Sóller",55.9,"31 12:30","31 20:00"]]}
+];
+const ts=s=>U(+s.slice(0,2),+s.slice(3,5),+s.slice(6,8));
+COURSES.forEach(c=>{c.aid=c.aid.map(([n,km,f,cu,s])=>({n,km,f:f?ts(f):null,c:cu?ts(cu):null,s:!!s}));c.D=DATA[c.id];c.on=true;c.goal=c.gDef;c.splits=[]});
+// eingebetteter Stand der Livedaten (für Betrachter ohne Claude-Konto)
+try{const v=JSON.parse(localStorage.getItem("pr-on")||"null");if(v)COURSES.forEach(c=>{if(c.id in v)c.on=!!v[c.id]})}catch(e){}
+const cvar=c=>getComputedStyle(document.documentElement).getPropertyValue(c.color).trim();
+
+// ---------- Licht (MEZ, NOAA bzw. Meeus)
+const DAWN=U(31,6,48),SUNRISE=U(31,7,16),SUNSET=U(31,17,48),DUSK=U(31,18,16),MOONSET=U(31,13,11),MOONRISE=U(31,22,40);
+const T0=U(30,22,0),T1=U(1,4,30);
+const DARK=[[T0-6*H,DAWN],[DUSK,T1+6*H]],NOMOON=[[DUSK,MOONRISE]];
+function lightAt(x){if(x<DAWN||x>=DUSK)return (x<MOONSET||x>=MOONRISE)?["☾","lMoon"]:["●","lNoMoon"];return (x<SUNRISE||x>=SUNSET)?["◐","lTw"]:["☀","lDay"]}
+const overlap=(I,a,b)=>I.reduce((s,[x,y])=>s+Math.max(0,Math.min(y,b)-Math.max(x,a)),0);
+
+// ---------- Modell
+function compute(c,fUp,fDown,fat){
+  let k0=0;const segs=c.D.seg.map(([len,up,down])=>{const mid=k0+len/2;k0+=len;return {len,up,down,eff:(len+up/fUp+down/fDown)*(1+fat*mid/c.len)}});
+  const tot=segs.reduce((a,s)=>a+s.eff,0),flat=c.goal/tot;let km=0,tt=c.start;const pts=[{km:0,t:tt}];
+  segs.forEach(s=>{s.min=s.eff*flat;s.pace=s.min/s.len;s.km0=km;km+=s.len;tt+=s.min*M;s.km1=km;pts.push({km,t:tt})});
+  c.pSegs=segs;c.pPts=pts;c.flat=flat;computeLive(c);
+}
+const interp=(P,km)=>{for(let i=1;i<P.length;i++)if(km<=P[i].km+1e-9){const a=P[i-1],b=P[i],f=(km-a.km)/((b.km-a.km)||1);return a.t+f*(b.t-a.t)}return P[P.length-1].t};
+const planTimeAt=(c,km)=>interp(c.pPts,km);
+// Livedaten: zwischen zwei Durchgängen folgt die Kurve der Modellform; nach dem letzten Durchgang wird der Plan
+// mit dem bisherigen Tempofaktor (Ist-Laufzeit / Plan-Laufzeit bis dahin) hochgerechnet.
+function computeLive(c){
+  // tatsächliche Startzeit (Eintrag bei km 0) verschiebt den ganzen Plan
+  const s0=c.splits.find(x=>x.km<=1e-6),A=[{km:0,t:s0?s0.t:c.start}];
+  [...c.splits].filter(x=>x.km>0&&x.km<=c.len+1e-6).sort((a,b)=>a.km-b.km).forEach(x=>{if(x.t>A[A.length-1].t&&x.km>A[A.length-1].km)A.push({km:x.km,t:x.t})});
+  const L=A[A.length-1],f=L.km>0?(L.t-A[0].t)/((planTimeAt(c,L.km)-c.start)||1):1;
+  c.hasLive=A.length>1||!!s0;c.lastKm=L.km;c.factor=f;
+  c.pts=c.pPts.map(p=>{if(p.km>L.km||A.length===1)return {km:p.km,t:L.t+f*(p.t-planTimeAt(c,L.km))};
+    let i=1;while(i<A.length-1&&A[i].km<p.km)i++;const a=A[i-1],b=A[i],pa=planTimeAt(c,a.km),pb=planTimeAt(c,b.km);
+    return {km:p.km,t:a.t+(p.t-pa)/((pb-pa)||1)*(b.t-a.t)}});
+  // Durchgänge exakt treffen: Stützpunkte einfügen
+  A.slice(1).forEach(a=>{const j=c.pts.findIndex(p=>p.km>=a.km);if(j>=0&&Math.abs(c.pts[j].km-a.km)>1e-6)c.pts.splice(j,0,{km:a.km,t:a.t});else if(j>=0)c.pts[j].t=a.t});
+  c.segs=c.pSegs.map(s=>{const t0=interp(c.pts,s.km0),t1=interp(c.pts,s.km1),min=(t1-t0)/M;return {...s,min,pace:min/s.len}});
+}
+function timeAt(c,km){return interp(c.pts,km)}
+const segAt=(c,km)=>c.segs.find(s=>km<s.km1)||c.segs[c.segs.length-1];
+const isOwn=(c,km)=>X.mode==="sdt"&&c.own.some(([a,b])=>km>=a&&km<=b);
+
+// ---------- Bedienfelder je Strecke
+// Zielzeit-Eingabe: "24:30", "24.5", "24,5", "2430" oder "24"
+function parseGoal(v){v=String(v).trim().replace(/\s|h/gi,"");let m;
+  if((m=v.match(/^(\d{1,2})[:.](\d{1,2})$/))&&v.includes(":"))return +m[1]*60+ +m[2];
+  if((m=v.match(/^(\d{1,2})[.,](\d+)$/)))return Math.round(parseFloat(m[1]+"."+m[2])*60);
+  if((m=v.match(/^(\d{1,2})(\d{2})$/)))return +m[1]*60+ +m[2];
+  if((m=v.match(/^(\d{1,2})$/)))return +m[1]*60;
+  return null}
+function buildControls(){
+  $("controls").replaceChildren();
+  COURSES.forEach(c=>{
+    const s=document.createElement("section");s.className="panel control";s.id="ctl-"+c.id;s.style.setProperty("--cc",`var(${c.color})`);s.hidden=!c.on;
+    s.innerHTML=`<h2>${c.name}<small>${c.short} · ${kmf(c.len)} km · ${t("start")} ${dayclock(c.start)}</small></h2>
+    <div><label class="gl" for="goal-${c.id}">${t("goal")}</label>
+      <input type="range" id="goal-${c.id}" min="${c.gMin}" max="${c.gMax}" step="5" value="${c.goal}" style="accent-color:var(${c.color})">
+      <div class="rangeLab"><span>${hm(c.gMin)} h</span><span>${t("cutoff")} ${hm(c.gMax)} h</span></div></div>
+    <div class="goalBox"><div class="goal"><input type="text" class="goalIn" id="gi-${c.id}" inputmode="numeric" autocomplete="off" aria-label="${t("goal")} (hh:mm)" value="${hm(c.goal)}"><small>h</small></div>
+      <div class="goalSteps"><button type="button" class="zb" data-d="-5" aria-label="−5 min">−5′</button><button type="button" class="zb" data-d="5" aria-label="+5 min">+5′</button></div></div>
+    <div class="stats">
+      <div class="stat"><b id="fin-${c.id}"></b><span id="finL-${c.id}">${t("finish")}</span></div>
+      <div class="stat" id="pgS-${c.id}" hidden><b id="pg-${c.id}"></b><span>${t("progGoal")}</span></div>
+      <div class="stat"><b id="flat-${c.id}"></b><span>${t("flat")}</span></div>
+      <div class="stat"><b id="avg-${c.id}"></b><span>${t("avg")}</span></div>
+      <div class="stat"><b id="min-${c.id}"></b><span>${t("fastKm")}</span></div>
+      <div class="stat"><b id="max-${c.id}"></b><span>${t("slowKm")}</span></div>
+      <div class="stat"><b id="dark-${c.id}"></b><span>${t("dark")}</span></div>
+      <div class="stat"><b id="buf-${c.id}"></b><span>${t("buf")}</span></div>
+    </div>
+    <div class="live">
+      <div class="liveHead"><span class="eyebrow">${t("live")}</span><span class="lst" id="lst-${c.id}"></span></div>
+      <form class="liveForm" id="lf-${c.id}">
+        <label>${t("kmIn")} <input type="number" id="lk-${c.id}" min="0" max="${c.len}" step="0.1" inputmode="decimal"></label>
+        <label>${t("timeIn")} <input type="time" id="lt-${c.id}" value="${nowHM()}"></label>
+        <button type="submit" class="btn">${t("add")}</button>
+        <span class="lerr" id="le-${c.id}" role="alert"></span>
+      </form>
+      <div class="chips" id="ch-${c.id}"></div>
+      <div class="focus" id="fx-${c.id}" aria-live="polite"></div>
+    </div>`;
+    $("controls").appendChild(s);
+    $("goal-"+c.id).addEventListener("input",e=>{c.goal=+e.target.value;render()});
+    $("goal-"+c.id).addEventListener("change",()=>saveLive(c));
+    const gi=$("gi-"+c.id),setGoal=v=>{c.goal=Math.max(c.gMin,Math.min(c.gMax,Math.round(v)));gi.value=hm(c.goal);render();saveLive(c)};
+    gi.addEventListener("change",()=>{const v=parseGoal(gi.value);if(v==null){gi.value=hm(c.goal);return}setGoal(v)});
+    gi.addEventListener("keydown",e=>{if(e.key==="Enter")gi.blur()});
+    s.querySelectorAll(".goalSteps button").forEach(b=>b.addEventListener("click",()=>setGoal(c.goal+(+b.dataset.d))));
+    $("lf-"+c.id).addEventListener("submit",e=>{e.preventDefault();const k=parseFloat(String($("lk-"+c.id).value).replace(",",".")),tv=$("lt-"+c.id).value;
+      if(!(k>0&&k<=c.len)||!tv){$("le-"+c.id).textContent=t("entryErr",kmf(c.len));return}
+      $("le-"+c.id).textContent="";const [hh,mm]=tv.split(":").map(Number);c.splits.push({km:Math.round(k*10)/10,t:inferT(c,k,hh,mm),aid:null});
+      $("lk-"+c.id).value="";const ti=$("lt-"+c.id);ti.value=nowHM();delete ti.dataset.edited;saveLive(c);render()});
+    $("lt-"+c.id).addEventListener("input",e=>{e.target.dataset.edited="1"});
+  });
+}
+
+// ---------- Diagramm
+const W=1100,ml=118,mr=52,mt=16,TB=554;
+let X={},STR=[],SBOT=0,pLo=8,pHi=20;
+const STOPS=[[47,163,107],[227,178,60],[217,87,43],[142,27,43]];
+function paceColor(p){let f=Math.max(0,Math.min(1,(p-pLo)/((pHi-pLo)||1)))*(STOPS.length-1),i=Math.min(STOPS.length-2,Math.floor(f)),u=f-i,a=STOPS[i],b=STOPS[i+1];
+  return "rgb("+a.map((v,k)=>Math.round(v+(b[k]-v)*u)).join(",")+")"}
+const main=$("main");
+let VX=[0,140];
+const xS=x=>ml+(x-VX[0])/(VX[1]-VX[0])*(W-ml-mr);
+const yS=tt=>TB-(tt-X.t0)/(X.t1-X.t0)*(TB-mt);
+const xOf=(c,km)=>X.mode==="etm"?km:c.toAxis(km);
+
+function drawChart(){
+  main.replaceChildren();
+  const on=COURSES.filter(c=>c.on);
+  if(!on.length){main.setAttribute("viewBox","0 0 1100 120");el("text",{x:550,y:60,"text-anchor":"middle",style:"font-size:16px"},main,t("none"));return}
+  const sdtOn=COURSES[0].on;
+  const prevMode=X.mode;
+  X=sdtOn?{mode:"sdt",max:140,t0:T0,t1:T1}:{mode:"etm",max:60,t0:U(31,6,0),t1:U(31,22,0)};
+  if(prevMode!==X.mode||VX[1]>X.max)VX=[0,X.max];
+  VX=[0,X.max];fsLabel();
+  // Pace-Streifen je Strecke
+  STR=[];let y=TB+30;on.forEach(c=>{STR.push({c,top:y,bot:y+78});y+=78+14});SBOT=y-14;
+  const VH=SBOT+110;main.setAttribute("viewBox",`0 0 ${W} ${VH}`);
+  main.setAttribute("aria-label",t("chart"));
+  const gBg=el("g",{style:"pointer-events:none"},main);
+  // Nacht/Dämmerung
+  const op=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--nightop"))||.12,opM=op*.6,opD=op*1.3;
+  const defs=el("defs",{},gBg);
+  el("rect",{x:ml,y:0,width:W-ml-mr,height:VH},el("clipPath",{id:"plotclip"},defs));
+  const mk=(id,a,b)=>{const lg=el("linearGradient",{id,x1:0,y1:0,x2:0,y2:1},defs);el("stop",{offset:0,"stop-color":"var(--night)","stop-opacity":a},lg);el("stop",{offset:1,"stop-color":"var(--night)","stop-opacity":b},lg)};
+  mk("twm",0,opM);mk("twe",opD,0);
+  const band=(a,b,fill,o)=>{a=Math.max(a,X.t0);b=Math.min(b,X.t1);if(b<=a)return;el("rect",{x:ml,width:W-ml-mr,y:yS(b),height:yS(a)-yS(b),fill,...(o!=null?{"fill-opacity":o}:{})},gBg)};
+  band(X.t0,DAWN,"var(--night)",opM);band(DUSK,MOONRISE,"var(--night)",opD);band(MOONRISE,X.t1,"var(--night)",opM);
+  band(DAWN,SUNRISE,"url(#twm)");band(SUNSET,DUSK,"url(#twe)");
+  // Raster
+  const g=el("g",{},main),gc=el("g",{"clip-path":"url(#plotclip)"},main); // gc: Datenebene, auf den Zoom-Ausschnitt beschnitten
+  for(let tt=X.t0;tt<=X.t1;tt+=H/2){if((tt-X.t0)%(2*H)===0)continue;el("line",{x1:ml,x2:W-mr,y1:yS(tt),y2:yS(tt),stroke:"var(--grid)","stroke-width":.5,opacity:.7},g)}
+  for(let tt=X.t0;tt<=X.t1;tt+=2*H){const yy=yS(tt),d=new Date(tt);el("line",{x1:ml,x2:W-mr,y1:yy,y2:yy,stroke:"var(--grid)","stroke-width":.8},g);
+    el("text",{x:ml-8,y:yy+4,"text-anchor":"end"},g,TX[lang].wd[d.getUTCDay()]+" "+p2(d.getUTCDate())+"."+p2(d.getUTCMonth()+1)+".26  "+clock(tt))}
+  const kmTexts=[];
+  const span=VX[1]-VX[0],step=span>70?5:span>30?2:span>12?1:.5;
+  for(let k=Math.ceil(VX[0]/step-1e-9)*step;k<=VX[1]+1e-9;k=Math.round((k+step)*10)/10){const x=xS(k),sw=step===5&&k%25===0?1:.6;el("line",{x1:x,x2:x,y1:mt,y2:TB,stroke:"var(--grid)","stroke-width":sw},g);
+    STR.forEach(s=>el("line",{x1:x,x2:x,y1:s.top,y2:s.bot,stroke:"var(--grid)","stroke-width":sw},g));kmTexts.push([x,k])}
+  el("line",{x1:ml,x2:ml,y1:mt,y2:TB,stroke:"var(--line)"},g);el("line",{x1:ml,x2:W-mr,y1:TB,y2:TB,stroke:"var(--line)"},g);
+  // Höhenprofil (rechte Skala)
+  const pc=sdtOn?COURSES[0]:COURSES[1],eMax=1300,eY=e=>TB-e/eMax*(TB-mt);
+  const prof=pc.D.prof.map(p=>[xS(xOf(pc,p[0])),eY(p[1])]);
+  el("path",{d:`M${prof[0][0]},${eY(0)}`+prof.map(p=>`L${p[0].toFixed(1)},${p[1].toFixed(1)}`).join("")+`L${prof[prof.length-1][0]},${eY(0)}Z`,fill:"var(--elev)",opacity:.22,style:"pointer-events:none"},gc);
+  el("path",{d:prof.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+","+p[1].toFixed(1)).join(""),fill:"none",stroke:"var(--elev)","stroke-width":1.2},gc);
+  [0,250,500,750,1000,1250].forEach(e=>el("text",{x:W-mr+6,y:eY(e)+4,style:"font-size:10px",fill:"var(--muted)"},g,e+" m"));
+  // Punkte an der X-Achse (Namen) – im SDT-Modus SDT-Punkte, ETM-eigene Punkte stehen direkt an der Linie
+  const axisCourse=sdtOn?COURSES[0]:COURSES[1];
+  axisCourse.aid.forEach(a=>{const x=xS(xOf(axisCourse,a.km));if(x<ml-1||x>W-mr+1)return;
+    el("line",{x1:x,x2:x,y1:mt,y2:SBOT+6,stroke:"var(--fg2)","stroke-width":1,"stroke-dasharray":"1.5 3",opacity:.85},gc);
+    el("text",{x:x+3,y:SBOT+14,"text-anchor":"end",transform:`rotate(-40 ${x+3} ${SBOT+14})`,style:"font-size:11px"+(a.s?";font-weight:700":""),fill:a.s?"var(--support)":"var(--fg)"},g,a.n)});
+  kmTexts.forEach(([x,k])=>el("text",{x,y:TB+19,"text-anchor":"middle",class:"kmlabel"},g,step<1?kmf(k):String(k)));
+  el("text",{x:ml-8,y:TB+21,"text-anchor":"end",style:"font-size:11px;font-weight:600"},g,sdtOn&&COURSES[1].on?t("axisSDT"):t("axis"));
+  // Pace-Streifen
+  STR.forEach(({c,top,bot})=>{
+    const paces=c.segs.map(s=>s.pace),maxP=Math.max(20,Math.ceil(Math.max(...paces)/10)*10),pY=p=>bot-p/maxP*(bot-top);
+    el("line",{x1:ml,x2:ml,y1:top,y2:bot,stroke:"var(--line)"},g);el("line",{x1:ml,x2:W-mr,y1:bot,y2:bot,stroke:"var(--line)"},g);
+    for(let p=10;p<maxP;p+=10){el("line",{x1:ml,x2:W-mr,y1:pY(p),y2:pY(p),stroke:"var(--grid)"},g);el("text",{x:ml-8,y:pY(p)+4,"text-anchor":"end"},g,p+":00")}
+    const fo=el("foreignObject",{x:ml-60,y:top-2,width:52,height:20},g);fo.innerHTML=`<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:right"><span class="cpill" style="background:var(${c.color})">${c.short}</span></div>`;
+    c.segs.forEach(s=>{const x0=xS(xOf(c,s.km0))+.6,x1=xS(xOf(c,s.km1))-.6;if(x1<=x0)return;const yy=pY(Math.min(s.pace,maxP)),r=Math.min(2,(x1-x0)/2);
+      el("path",{d:`M${x0},${bot}V${yy+r}Q${x0},${yy} ${x0+r},${yy}H${x1-r}Q${x1},${yy} ${x1},${yy+r}V${bot}Z`,fill:paceColor(s.pace),opacity:isOwn(c,(s.km0+s.km1)/2)?.55:1},gc)});
+    const ap=(c.pts[c.pts.length-1].t-c.start)/M/c.len;el("line",{x1:xS(xOf(c,0)),x2:xS(xOf(c,c.len)),y1:pY(ap),y2:pY(ap),stroke:"var(--fg)","stroke-width":1.5,"stroke-dasharray":"5 4"},gc);
+    el("text",{x:Math.max(ml,xS(xOf(c,0)))+6,y:pY(ap)-5,style:"font-size:11px;font-weight:600",fill:"var(--fg)",class:"fglab"},gc,"Ø "+pace(ap)+" min/km");
+    el("text",{x:W-mr+6,y:(top+bot)/2-6,style:"font-size:10px",fill:"var(--muted)"},g,t("paceLab"));el("text",{x:W-mr+6,y:(top+bot)/2+9,style:"font-size:10px",fill:"var(--muted)"},g,"min/km");
+  });
+  // Referenzlinien: Schnellster und Cut-Off
+  const path=P=>P.map((p,i)=>(i?"L":"M")+xS(p.x).toFixed(1)+","+yS(p.t).toFixed(1)).join("");
+  on.forEach(c=>{
+    const fp=c.aid.filter(a=>a.f).map(a=>({x:xOf(c,a.km),t:a.f})),cp=c.aid.filter(a=>a.c).map(a=>({x:xOf(c,a.km),t:a.c}));
+    el("path",{d:path(fp),fill:"none",stroke:"var(--fast)","stroke-width":c.id==="sdt"?2:1.6},gc);
+    el("path",{d:path(cp),fill:"none",stroke:"var(--cut)","stroke-width":c.id==="sdt"?2:1.6,"stroke-dasharray":"7 4"},gc);
+    const mark=(x,yy,fill)=>c.id==="sdt"?el("circle",{cx:x,cy:yy,r:3.5,fill,stroke:"var(--panel)","stroke-width":1.5},gc):el("path",{d:`M${x},${yy-5}L${x+4.5},${yy+3.5}L${x-4.5},${yy+3.5}Z`,fill,stroke:"var(--panel)","stroke-width":1.2},gc);
+    fp.forEach(p=>mark(xS(p.x),yS(p.t),"var(--fast)"));cp.forEach(p=>mark(xS(p.x),yS(p.t),"var(--cut)"));
+  });
+  // Plan-Linien (Pace-Farbe, Rand in Streckenfarbe)
+  const gPlan=el("g",{"clip-path":"url(#plotclip)"},main);
+  on.forEach(c=>{
+    const P=c.pts.map(p=>({x:xS(xOf(c,p.km)),y:yS(p.t),km:p.km})),PS=k=>({x:xS(xOf(c,k)),y:yS(timeAt(c,k))});
+    el("path",{d:P.map((p,i)=>(i?"L":"M")+p.x.toFixed(1)+","+p.y.toFixed(1)).join(""),fill:"none",stroke:`var(${c.color})`,"stroke-width":c.id==="etm"?8:7,"stroke-linejoin":"round","stroke-linecap":"round",opacity:c.id==="etm"?.9:1},gPlan);
+    el("path",{d:P.map((p,i)=>(i?"L":"M")+p.x.toFixed(1)+","+p.y.toFixed(1)).join(""),fill:"none",stroke:"var(--panel)","stroke-width":c.id==="etm"?5:4.5,"stroke-linejoin":"round"},gPlan);
+    c.segs.forEach(s=>{const own=isOwn(c,(s.km0+s.km1)/2),fc=c.hasLive&&s.km1>c.lastKm+1e-6;
+      const ks=[s.km0,...c.splits.map(x=>x.km).filter(k=>k>s.km0&&k<s.km1),s.km1];
+      for(let j=1;j<ks.length;j++){const a=PS(ks[j-1]),b=PS(ks[j]);
+        el("line",{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:paceColor(s.pace),"stroke-width":3.2,opacity:fc&&ks[j]>c.lastKm+1e-6?.45:1,"stroke-linecap":own?"butt":"round",...(own?{"stroke-dasharray":"5 3"}:{})},gPlan)}});
+    if(c.hasLive){el("path",{d:c.pPts.map((p,i)=>(i?"L":"M")+xS(xOf(c,p.km)).toFixed(1)+","+yS(p.t).toFixed(1)).join(""),fill:"none",stroke:"var(--fg)","stroke-width":1.6,"stroke-dasharray":"6 4"},gPlan);
+      c.splits.forEach(x=>{if(x.km>c.len)return;const q={x:xS(xOf(c,x.km)),y:yS(x.t)};el("rect",{x:q.x-5,y:q.y-5,width:10,height:10,transform:`rotate(45 ${q.x} ${q.y})`,fill:`var(${c.color})`,stroke:"var(--fg)","stroke-width":1.5},gPlan)})}
+    c.aid.forEach(a=>{const x=xS(xOf(c,a.km)),yy=yS(timeAt(c,a.km));if(x<ml-6||x>W-mr+6)return;
+      if(a.s){el("circle",{cx:x,cy:yy,r:7,fill:"var(--support)",stroke:"var(--panel)","stroke-width":2},gPlan);el("text",{x:x+10,y:yy+14,class:"suplab"},gPlan,t("support"))}
+      else el("circle",{cx:x,cy:yy,r:4,fill:"var(--fg)",stroke:"var(--panel)","stroke-width":1.5},gPlan);
+      // ETM-eigene Punkte im gemeinsamen Diagramm direkt beschriften
+      if(X.mode==="sdt"&&c.id==="etm"&&!COURSES[0].aid.some(b=>b.n===a.n))el("text",{x:x+8,y:yy+15,class:"ptlab",fill:`var(${c.color})`},gPlan,a.n)});
+    const e=P[P.length-1],fo=el("foreignObject",{x:e.x-46,y:e.y-26,width:44,height:20},gPlan);
+    fo.innerHTML=`<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:right"><span class="cpill" style="background:var(${c.color})">${c.short}</span></div>`;
+    const s0=P[0],fo2=el("foreignObject",{x:s0.x+6,y:s0.y-24,width:44,height:20},gPlan);
+    fo2.innerHTML=`<div xmlns="http://www.w3.org/1999/xhtml"><span class="cpill" style="background:var(${c.color})">${c.short}</span></div>`;
+  });
+  // Jetzt-Linie (Rennzeit in MEZ)
+  const nowL=nowLocal();
+  if(nowL>X.t0&&nowL<X.t1){const yy=yS(nowL);el("line",{x1:ml,x2:W-mr,y1:yy,y2:yy,stroke:"var(--warn)","stroke-width":1.5},gPlan);
+    el("text",{x:W-mr-6,y:yy-5,"text-anchor":"end",class:"fglab",fill:"var(--warn)"},gPlan,t("now",clock(nowL)))}
+  // Licht-Beschriftungen im Vordergrund
+  const gL=el("g",{style:"pointer-events:none"},main);
+  const inY=tt=>tt>X.t0&&tt<X.t1;
+  const lab=(yy,lines,fill)=>{const tx=el("text",{x:ml+6,y:yy,class:"fglab",fill:fill||"var(--fg2)"},gL);lines.forEach((ln,i)=>el("tspan",{x:ml+6,dy:i?13:0},tx,ln))};
+  [[SUNRISE,t("sunrise","07:16")],[SUNSET,t("sunset","17:48")]].forEach(([tt,l])=>{if(!inY(tt))return;const yy=yS(tt);
+    el("line",{x1:ml,x2:W-mr,y1:yy,y2:yy,stroke:"var(--sun)","stroke-width":1,"stroke-dasharray":"6 3",opacity:.8},gBg);lab(yy-4,[l],"var(--sun)")});
+  if(inY(DAWN)&&yS(X.t0)-yS(DAWN)>40)lab(yS(DAWN)+14,[t("moon1a"),t("moon1b")]);
+  if(inY(MOONRISE)){const yy=yS(MOONRISE);el("line",{x1:ml,x2:W-mr,y1:yy,y2:yy,stroke:"var(--night)","stroke-width":1,"stroke-dasharray":"2 3",opacity:.9},gBg);
+    lab(yy+14,[t("nomoon")]);lab(yy-17,[t("moon2a"),t("moon2b")])}
+  else if(inY(DUSK))lab(yS(DUSK)-4,[t("nomoon")]);
+  // Hover
+  hoverG=el("g",{style:"pointer-events:none",visibility:"hidden"},main);
+  hLine=el("line",{y1:mt,y2:SBOT,stroke:"var(--fg2)","stroke-width":1},hoverG);
+  hDots=el("g",{},hoverG);
+  hit=el("rect",{x:ml,y:mt,width:W-ml-mr,height:TB-mt,fill:"transparent"},main); // nur oberhalb der X-Achse; darunter bleibt Platz zum Scrollen
+  hit.addEventListener("pointermove",showAt);hit.addEventListener("pointerdown",e=>{setPin(locate(e),e)});
+  hit.addEventListener("pointerleave",e=>{if(e.pointerType!=="touch"){PIN!=null?showPinned():hideTip()}});
+  if(PIN!=null)requestAnimationFrame(showPinned);
+}
+let hoverG,hLine,hDots,hit;
+
+// ---------- Hover / Infofenster
+function locate(e){const r=main.getBoundingClientRect();const x=(e.clientX-r.left)/r.width*W;return Math.max(VX[0],Math.min(VX[1],VX[0]+(x-ml)/(W-ml-mr)*(VX[1]-VX[0])))}
+// ---------- Zoom der X-Achse
+const MINSPAN=4;
+
+// ---------- Vollbild
+const CP=$("chartPanel");
+const fsEl=()=>document.fullscreenElement||document.webkitFullscreenElement;
+const fsActive=()=>fsEl()===CP||CP.classList.contains("fs");
+function fsLabel(){$("kmLbl").textContent=t("kmPinLbl");$("kmX").setAttribute("aria-label",t("kmClose"));$("kmX").title=t("kmClose");$("fsBtn").textContent=fsActive()?t("fsOff"):t("fsOn");$("fsBtn").setAttribute("aria-pressed",fsActive())}
+function pseudoFs(on){CP.classList.toggle("fs",on);document.body.classList.toggle("fsLock",on);fsLabel()}
+async function enterFs(){
+  const req=CP.requestFullscreen||CP.webkitRequestFullscreen;
+  if(req){try{const r=req.call(CP);await Promise.race([Promise.resolve(r),new Promise(res=>setTimeout(res,1000))])}catch(e){}
+    if(fsEl()===CP){try{await screen.orientation.lock("landscape")}catch(e){}fsLabel();return}}
+  pseudoFs(true)}
+function exitFs(){if(CP.classList.contains("fs")){pseudoFs(false);return}
+  try{screen.orientation.unlock()}catch(e){}
+  (document.exitFullscreen||document.webkitExitFullscreen||(()=>{})).call(document)}
+$("fsBtn").addEventListener("click",()=>fsActive()?exitFs():enterFs());
+document.addEventListener("fullscreenchange",fsLabel);document.addEventListener("webkitfullscreenchange",fsLabel);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&CP.classList.contains("fs"))pseudoFs(false)});
+const axisAtClientX=cx=>{const r=main.getBoundingClientRect();return VX[0]+((cx-r.left)/r.width*W-ml)/(W-ml-mr)*(VX[1]-VX[0])};
+
+function showAt(e){showAtAxis(locate(e),e)}
+function showAtAxis(xv,e){
+  const x=xS(xv);let rows=[],topY=Infinity,pos={};
+  hDots.replaceChildren();
+  COURSES.filter(c=>c.on).forEach(c=>{
+    const km=X.mode==="etm"?xv:c.fromAxis(xv);if(km<0||km>c.len||(c.id==="etm"&&X.mode==="sdt"&&(xv<85.6||xv>138.4)))return;
+    const tt=timeAt(c,km),s=segAt(c,Math.max(.001,km-.001)),yy=yS(tt);topY=Math.min(topY,yy);pos[c.id]=km;
+    el("circle",{cx:x,cy:yy,r:5,fill:`var(${c.color})`,stroke:"var(--panel)","stroke-width":2},hDots);
+    rows.push(`<div class="row"><span class="cpill" style="background:var(${c.color})">${c.short}</span> <b>km ${Math.round(km)}</b>${isOwn(c,km)?" · "+t("ownRoute"):""}<br>${c.hasLive?(km<=c.lastKm+1e-6?t("actual"):t("forecast")):t("tipPlan")}: <b>${dayclock(tt)}</b>${c.hasLive?` · ${t("origPlan")}: ${dayclock(planTimeAt(c,km))}`:""}<br>${t("tipPace",Math.floor(s.km0)+1)}: <b>${pace(s.pace)}</b> min/km<br>${Math.round(s.up)} ${t("hmUp")} · ${Math.round(s.down)} ${t("hmDn")}</div>`)});
+  if(!rows.length){hideTip();return}
+  hoverG.setAttribute("visibility","visible");hLine.setAttribute("x1",x);hLine.setAttribute("x2",x);
+  $("tip").innerHTML=rows.join("");showMapPos(pos);
+  if(!e){const sr=main.getBoundingClientRect(),k=sr.width/W;e={pointerType:"mouse",clientX:sr.left+x*k,clientY:sr.top+topY*k}}
+  placeTip(e,x,topY);
+}
+// ---------- Infofenster auf feste Kilometrierung setzen (Feld über dem Diagramm)
+let PIN=null;
+const pinMax=()=>X.mode==="etm"?COURSES[1].len:COURSES[0].len;
+function showPinned(){if(PIN==null||!hit)return;PIN=Math.max(0,Math.min(pinMax(),PIN));showAtAxis(PIN,null)}
+function setPin(v,e){if(v==null||isNaN(v)){PIN=null;hideTip();$("kmIn").value="";try{localStorage.removeItem("pr-pin")}catch(x){}return}PIN=Math.round(Math.max(0,Math.min(pinMax(),v)));$("kmIn").value=String(PIN);try{localStorage.setItem("pr-pin",String(PIN))}catch(x){}if(e)showAtAxis(PIN,e);else showPinned()}
+$("kmIn").addEventListener("input",()=>{const v=parseFloat(String($("kmIn").value).replace(",","."));if(!isNaN(v)){PIN=Math.max(0,Math.min(pinMax(),v));showPinned()}});
+$("kmIn").addEventListener("change",()=>{const v=parseFloat(String($("kmIn").value).replace(",","."));setPin(isNaN(v)?null:v)});
+$("kmIn").addEventListener("keydown",e=>{if(e.key==="Enter")$("kmIn").blur()});
+// − / +: Tippen = 1 km; gedrückt halten = laufend weiter (nach 0,4 s, immer schneller)
+function stepPin(d){setPin(d<0?(PIN??0)-1:(PIN??-1)+1)}
+[["kmM",-1],["kmP",1]].forEach(([id,d])=>{const b=$(id);let tmr=0,n=0;
+  const stop=()=>{clearTimeout(tmr);tmr=0};
+  const rep=()=>{stepPin(d);n++;tmr=setTimeout(rep,n<10?120:n<30?60:30)};
+  b.addEventListener("pointerdown",e=>{if(e.button>0)return;e.preventDefault();stop();n=0;stepPin(d);tmr=setTimeout(rep,400)});
+  ["pointerup","pointerleave","pointercancel","blur"].forEach(ev=>b.addEventListener(ev,stop));
+  b.addEventListener("click",e=>{if(e.detail===0)stepPin(d)}); // Tastatur (Enter/Leertaste)
+  b.addEventListener("contextmenu",e=>e.preventDefault())});
+$("kmX").addEventListener("click",()=>setPin(null));
+function placeTip(e,ax,ay){const tip=$("tip"),r=$("mainWrap").getBoundingClientRect(),sr=main.getBoundingClientRect(),k=sr.width/W;
+  tip.hidden=false;const w=tip.offsetWidth,h=tip.offsetHeight,g=16,touch=e.pointerType==="touch";
+  const px=sr.left-r.left+ax*k,py=sr.top-r.top+ay*k,fx=e.clientX-r.left,fy=e.clientY-r.top;
+  let x=px-w-g,y=Math.min(py,fy)-h-(touch?g+24:g);if(x<4)x=4;
+  if(y<4){y=4;x=Math.max(px,fx)+g+(touch?24:0);if(x+w>r.width-4)x=Math.min(px,fx)-w-g-(touch?24:0);if(x<4)x=4}
+  tip.style.left=x+"px";tip.style.top=y+"px"}
+function hideTip(){if(hoverG)hoverG.setAttribute("visibility","hidden");$("tip").hidden=true;showMapPos({})}
+document.addEventListener("pointerdown",e=>{if(e.pointerType==="touch"&&e.target!==hit&&!e.target.closest("#kmBar")){PIN!=null?showPinned():hideTip()}});
+
+// ---------- Legenden
+function buildLegends(){
+  const sw=(st,lab)=>`<span><i style="${st}"></i>${lab}</span>`;
+  const on=COURSES.filter(c=>c.on);
+  $("legend").innerHTML=on.map(c=>`<span><span class="cpill" style="background:var(${c.color})">${c.short}</span></span>`).join("")+
+    `<span>${t("legPlan")} <b class="mono">${pace(pLo)}</b> <i class="grad"></i> <b class="mono">${pace(pHi)}</b> min/km</span>`+
+    (COURSES[1].on&&COURSES[0].on?sw("border-color:var(--c-etm);border-top-style:dashed;border-top-width:3px",t("legOwn")):"")+
+    sw("border-color:var(--elev);border-top-width:8px",t("legElev"))+
+    sw("border-color:var(--night);border-top-width:8px;opacity:.6",t("legNight0"))+sw("border-color:var(--night);border-top-width:8px;opacity:.3",t("legNight1"))+
+    (COURSES[0].on?`<span><span class="sup-dot"></span>${t("legSup")}</span>`:"")+
+    (on.some(c=>c.hasLive)?sw("border-color:var(--fg);border-top-style:dashed;border-top-width:1.6px",t("legDashed"))+`<span>◆ ${t("legIst")}</span><span>${t("legFc")}</span>`:"")+
+    sw("border-color:var(--fast)",t("legFast"))+sw("border-color:var(--cut);border-top-style:dashed",t("legCut"));
+  $("mapLegend").innerHTML=on.map(c=>sw(`border-color:var(${c.color});border-top-width:4px`,c.short)).join("")+
+    `<span>● ${t("mapAid")}</span>`+(COURSES[0].on?`<span><span class="sup-dot"></span>${t("mapSup")}</span>`:"")+`<span>□ ${t("mapKm")}</span>`;
+  $("etmNote").hidden=!(COURSES[0].on&&COURSES[1].on);
+}
+
+// ---------- Tabellen
+function buildTables(){
+  const box=$("tables");box.replaceChildren();
+  COURSES.filter(c=>c.on).forEach(c=>{
+    const s=document.createElement("section");s.className="panel";s.style.setProperty("--tc",`var(${c.color})`);
+    s.innerHTML=`<div class="chart-head"><h2><span class="cpill" style="background:var(${c.color});font-size:13px;vertical-align:middle">${c.short}</span> ${t("table")} · ${c.name}</h2>
+      <div class="legend"><span>${t("lightAt")}</span><span>☀ ${t("lDay")}</span><span>◐ ${t("lTw")}</span><span>☾ ${t("lMoon")}</span><span>● ${t("lNoMoon")}</span>${c.aid.some(a=>a.s)?`<span><span class="pill sup" style="margin-left:0">${t("support")}</span> ${t("supNote")}</span>`:""}</div></div>
+      <div class="scroll"><table><thead><tr><th>${t("thPoint")}</th><th>km</th><th>${t("thPlan")}</th><th>${t("thIP")}</th><th>${t("thBuf")}</th><th>${t("thCut")}</th><th>${t("thLeg")}</th><th>${t("thPace")}</th><th>${t("thTime")}</th></tr></thead><tbody></tbody></table></div>`;
+    const tb=s.querySelector("tbody");
+    c.aid.forEach((a,i)=>{const tt=timeAt(c,a.km),prev=i?c.aid[i-1]:null;let up=0,dn=0;
+      if(prev)c.segs.forEach(sg=>{const o=Math.max(0,Math.min(sg.km1,a.km)-Math.max(sg.km0,prev.km));if(o>0){up+=sg.up*o/sg.len;dn+=sg.down*o/sg.len}});
+      const leg=prev?(tt-timeAt(c,prev.km))/M:0;let buf="–";
+      if(a.c){const b=(a.c-tt)/M,cls=b<0?"out":b<60?"tight":"ok";buf=`<span class="pill ${cls}">${sgnHm(b)}</span>`}
+      const L=lightAt(tt),tr=document.createElement("tr");
+      const sp=c.splits.find(x=>x.aid===a.n),ip=`<input type="time" class="tin ${sp?"ist":"fc"}" data-k="${a.km}" data-n="${a.n}" value="${clock(sp?sp.t:tt)}" aria-label="${t("thIP")} ${a.n}" title="${sp?t("actual"):t("forecast")}" ${RO?"disabled":""}>`;
+      tr.innerHTML=`<td><span class="lt" title="${t(L[1])}" aria-label="${t(L[1])}">${L[0]}</span>${a.n}${a.s?`<span class="pill sup">${t("support")}</span>`:""}</td><td class="mono">${kmf(a.km)}</td><td class="mono">${dayclock(planTimeAt(c,a.km))}</td><td>${ip}</td><td>${buf}</td><td class="mono">${a.c?dayclock(a.c):"–"}</td><td class="mono">${prev?Math.round(up)+" / "+Math.round(dn):"–"}</td><td class="mono">${prev?pace(leg/(a.km-prev.km))+" min/km":"–"}</td><td class="mono">${prev?hm(leg):"–"}</td>`;
+      tb.appendChild(tr)});
+    // Feld zeigt die Prognose; eine geänderte Uhrzeit wird zum Ist-Wert, ein geleertes Feld löscht ihn wieder
+    s.querySelectorAll(".tin").forEach(inp=>inp.addEventListener("change",()=>{const k=+inp.dataset.k,n=inp.dataset.n;
+      if(inp.value&&inp.value===inp.defaultValue)return;
+      c.splits=c.splits.filter(x=>x.aid!==n);if(inp.value){const [hh,mm]=inp.value.split(":").map(Number);c.splits.push({km:k,t:inferT(c,k,hh,mm),aid:n})}
+      saveLive(c);render()}));
+    box.appendChild(s)});
+}
+
+// ---------- Kennwerte je Strecke
+function updateStats(c){
+  if(!c.on)return;const paces=c.segs.filter(s=>s.len>=.9).map(s=>s.pace),fin=c.pts[c.pts.length-1].t;
+  {const gi=$("gi-"+c.id);if(gi&&document.activeElement!==gi)gi.value=hm(c.goal)}$("goal-"+c.id).setAttribute("aria-valuetext",hm(c.goal)+" h");
+  $("fin-"+c.id).textContent=dayclock(fin);$("finL-"+c.id).textContent=c.hasLive?t("finishLive"):t("finish");
+  $("pgS-"+c.id).hidden=!c.hasLive;if(c.hasLive){const g=(fin-c.start)/M;$("pg-"+c.id).textContent=hm(g)+" h ("+sgnHm(g-c.goal)+")"}
+  $("goal-"+c.id).value=c.goal;$("flat-"+c.id).textContent=pace(c.flat)+" min/km";$("avg-"+c.id).textContent=pace((fin-c.start)/M/c.len)+" min/km";
+  $("min-"+c.id).textContent=pace(Math.min(...paces))+" min/km";$("max-"+c.id).textContent=pace(Math.max(...paces))+" min/km";
+  $("dark-"+c.id).textContent=t("darkVal",hm(overlap(DARK,c.start,fin)/M),hm(overlap(NOMOON,c.start,fin)/M));
+  let mb=Infinity,at="";c.aid.forEach(a=>{if(!a.c)return;const b=(a.c-timeAt(c,a.km))/M;if(b<mb){mb=b;at=a.n}});
+  const el2=$("buf-"+c.id);el2.textContent=(mb<0?t("over"):"")+sgnHm(mb)+" h · "+at;el2.style.color=mb<0?"var(--warn)":mb<60?"var(--cut)":"";
+}
+
+// ---------- Karte
+const posAt=(c,km)=>{const T=c.D.track;let lo=0,hi=T.length-1;while(hi-lo>1){const m=(lo+hi)>>1;if(T[m][2]<km)lo=m;else hi=m}const a=T[lo],b=T[hi],f=(km-a[2])/((b[2]-a[2])||1);return [a[0]+f*(b[0]-a[0]),a[1]+f*(b[1]-a[1])]};
+let map=null,mapLayers={},mapDots={},aidPts=[];
+const SUPC=getComputedStyle(document.documentElement).getPropertyValue("--support").trim()||"#7b3fc4";
+function initMap(){
+  if(!window.L||!$("map"))return;
+  const all=COURSES.flatMap(c=>c.D.track.map(p=>[p[0],p[1]])),bounds=L.latLngBounds(all);
+  map=L.map("map",{minZoom:11,maxZoom:15,maxBounds:bounds.pad(0.25),scrollWheelZoom:false,zoomSnap:0.5});
+  map.fitBounds(bounds,{padding:[16,16]});
+  const blank="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+  const attr='Kartendaten: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Darstellung: © <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)';
+  L.tileLayer("tiles/{z}/{x}/{y}.png",{minZoom:11,maxZoom:15,maxNativeZoom:13,errorTileUrl:blank,attribution:attr}).addTo(map);
+  L.tileLayer("tiles/{z}/{x}/{y}.png",{minZoom:14,maxZoom:15,minNativeZoom:14,maxNativeZoom:14,errorTileUrl:blank}).addTo(map);
+  COURSES.forEach(c=>{
+    const ll=c.D.track.map(p=>[p[0],p[1]]),grp=L.layerGroup();
+    const wide=c.id==="sdt";
+    L.polyline(ll,{color:"#ffffff",weight:wide?8:6,opacity:.9}).addTo(grp);
+    const line=L.polyline(ll,{color:cvar(c),weight:wide?5:3}).addTo(grp);
+    if(c.id==="sdt")for(let k=10;k<138;k+=10)if(!c.aid.some(x=>x.s&&Math.abs(x.km-k)<1.5))L.marker(posAt(c,k),{icon:L.divIcon({className:"",html:`<div class="kmlab">${k}</div>`,iconSize:[26,16],iconAnchor:[13,8]}),interactive:false,keyboard:false}).addTo(grp);
+    line.on("mousemove",ev=>{let best=0,bd=Infinity;c.D.track.forEach((p,i)=>{const d=(p[0]-ev.latlng.lat)**2+((p[1]-ev.latlng.lng)*.77)**2;if(d<bd){bd=d;best=i}});
+      const km=c.D.track[best][2],tt=timeAt(c,km),s=segAt(c,km);showMapPos({[c.id]:km});
+      line.bindTooltip(`<span class="cpill" style="background:${cvar(c)}">${c.short}</span> <b>km ${kmf(km)}</b><br>${c.hasLive?(km<=c.lastKm+1e-6?t("actual"):t("forecast")):t("tipPlan")}: <b>${dayclock(tt)}</b>${c.hasLive?` · ${t("origPlan")}: ${dayclock(planTimeAt(c,km))}`:""}<br>${t("tipPace",Math.floor(s.km0)+1)}: <b>${pace(s.pace)}</b> min/km`,{sticky:true,className:"aid"}).openTooltip(ev.latlng)});
+    line.on("mouseout",()=>{showMapPos({});line.closeTooltip()});
+    mapLayers[c.id]=grp;
+    mapDots[c.id]=L.circleMarker([0,0],{radius:7,color:"#ffffff",weight:2,fillColor:cvar(c),fillOpacity:1,interactive:false});
+  });
+  // Verpflegungspunkte, gemeinsame Orte zusammengefasst
+  const supC=SUPC;
+  const byName={};COURSES.forEach(c=>c.aid.forEach(a=>{(byName[a.n]=byName[a.n]||{n:a.n,items:[]}).items.push({c,a})}));
+  aidPts=Object.values(byName).map(p=>{const f=p.items[0],sup=p.items.some(i=>i.a.s);
+    const mk=L.circleMarker(posAt(f.c,Math.min(f.a.km,f.c.len-.01)),sup?{radius:10,color:"#ffffff",weight:3,fillColor:supC,fillOpacity:1}:{radius:6,color:"#1d2b22",weight:2,fillColor:"#ffffff",fillOpacity:1}).bindTooltip("",{className:"aid",direction:"top",offset:[0,-6]});
+    const lab=sup?L.marker(posAt(f.c,f.a.km),{icon:L.divIcon({className:"",html:`<div class="maplab ${p.n==="Lluc"?"tl":"r"}" style="background:${supC}">${p.n} · Support</div>`,iconSize:[0,0],iconAnchor:[0,0]}),interactive:false,keyboard:false}):null;
+    return {p,mk,lab}});
+  updateMapVisibility(true);
+}
+function updateMapVisibility(fit){
+  if(!map)return;const on=COURSES.filter(c=>c.on);
+  COURSES.forEach(c=>{if(c.on)mapLayers[c.id].addTo(map);else mapLayers[c.id].remove()});
+  aidPts.forEach(({p,mk,lab})=>{const vis=p.items.some(i=>i.c.on),sup=p.items.some(i=>i.c.on&&i.a.s);
+    mk.setStyle(sup?{color:"#ffffff",weight:3,fillColor:SUPC}:{color:"#1d2b22",weight:2,fillColor:"#ffffff"});mk.setRadius(sup?10:6);
+    if(vis){mk.addTo(map);lab&&p.items.some(i=>i.c.on&&i.a.s)?lab.addTo(map):lab&&lab.remove()}else{mk.remove();lab&&lab.remove()}});
+  if(fit&&on.length)map.fitBounds(L.latLngBounds(on.flatMap(c=>c.D.track.map(p=>[p[0],p[1]]))),{padding:[16,16]});
+}
+function updateMapTips(){
+  aidPts.forEach(({p,mk})=>{const rows=p.items.filter(i=>i.c.on).map(({c,a})=>`<span class="cpill" style="background:${cvar(c)}">${c.short}</span> km ${kmf(a.km)} · ${t("tipPlan")}: <b>${dayclock(timeAt(c,a.km))}</b>${a.c?` · ${t("cutoff")}: <b>${dayclock(a.c)}</b>`:""}${a.s?`<br><b>${t("supAllowed")}</b>`:""}`);
+    mk.setTooltipContent(`<b>${p.n}</b><br>`+rows.join("<br>"))});
+}
+function showMapPos(pos){if(!map)return;COURSES.forEach(c=>{if(pos[c.id]!=null&&c.on)mapDots[c.id].setLatLng(posAt(c,pos[c.id])).addTo(map);else mapDots[c.id].remove()})}
+
+// ---------- Sprache anwenden
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i]").forEach(e=>e.textContent=t(e.dataset.i));
+  $("langSw").setAttribute("aria-checked",lang==="nl");$("lDE").classList.toggle("on",lang==="de");$("lNL").classList.toggle("on",lang==="nl");
+  buildControls();render();
+}
+$("langSw").addEventListener("click",()=>{lang=lang==="de"?"nl":"de";try{localStorage.setItem("pr-lang",lang)}catch(e){}applyLang()});
+
+// ---------- Livedaten: Eingabe, Speicherung, Anzeige
+// Gemeinsame Speicherung: Firebase Realtime Database über REST und Server-Sent Events (kein SDK nötig).
+// Leer lassen = Eingaben werden nur im eigenen Browser gespeichert. Einrichtung: siehe README.md
+const DB_URL="https://pacerechner-default-rtdb.europe-west1.firebasedatabase.app";
+const DB_ROOT=DB_URL?DB_URL.replace(/\/+$/,"")+"/pacerechner":"";
+// SHA-256 des Passworts; nur für die Freischaltung ohne Datenbank – mit Datenbank prüfen die Sicherheitsregeln des Servers
+const PW_HASH="904b832f9e253c0b6be909f62d7b0a96635c53203584bfa1c39900fbb5a94d72";
+const DB=!!DB_ROOT,DOCS=["sdt","etm","model"];
+// Eingaben sind standardmäßig gesperrt; die Freischaltung wird im Browser gespeichert und gilt, bis jemand aktiv sperrt
+let LOCKED=true,RO=true,PW=null,LIVE_MODE="load";
+try{const p=localStorage.getItem("pr-pw");if(p){PW=p;LOCKED=RO=false}}catch(e){}
+// Uhrzeit ohne Datum: den Tag wählen, der am nächsten am ursprünglichen Plan liegt
+// Bezug ist der ursprüngliche Plan (nicht die Live-Prognose, die ein halb eingetippter Wert schon verschoben haben kann),
+// erlaubt sind nur Zeiten im Rennfenster (Start −2 h bis Cut-Off +6 h)
+function inferT(c,km,hh,mm){const ref=planTimeAt(c,Math.min(km,c.len)),lo=c.start-2*H,hi=c.start+(c.gMax+360)*M;let best=null;
+  [30,31,1].forEach(d=>{const v=U(d,hh,mm);if(v<lo||v>hi)return;if(best==null||Math.abs(v-ref)<Math.abs(best-ref))best=v});return best??U(31,hh,mm)}
+const saveQ={};
+function saveLive(c){
+  if(RO)return;
+  saveDoc(c.id,{goal:c.goal,splits:c.splits.map(x=>({km:x.km,t:x.t,aid:x.aid||null})),updatedAt:Date.now()},()=>{$("le-"+c.id)&&($("le-"+c.id).textContent=t("saveErr"))});
+}
+function saveModel(){if(RO)return;saveDoc("model",{fUp:+$("fUp").value,fDown:+$("fDown").value,fFat:+$("fFat").value,updatedAt:Date.now()})}
+// Schreiben je Dokument nacheinander; solange ein Speichern läuft, werden eingehende Stände dieses Dokuments übergangen
+const pend={};
+function saveDoc(id,body,onErr){
+  if(!DB){try{localStorage.setItem("pr-live-"+id,JSON.stringify(body))}catch(e){}return}
+  pend[id]=(pend[id]||0)+1;
+  // ein Schreibvorgang = Dokument + Passwort mit Server-Zeitstempel; die Regeln lassen pub/* nur zusammen mit einem frischen, gültigen key zu
+  saveQ[id]=(saveQ[id]||Promise.resolve()).then(()=>fetch(DB_ROOT+".json?print=silent",{method:"PATCH",body:JSON.stringify({["pub/"+id]:body,key:{pw:PW,at:{".sv":"timestamp"}}})}))
+    .then(r=>{if(r.status===401||r.status===403){setLock(true);alert(t("pwLost"))}else if(!r.ok)throw new Error(r.status)})
+    .catch(()=>{onErr&&onErr()}).finally(()=>{pend[id]--});
+}
+// Abschnittswerte zwischen zwei km (Höhenmeter anteilig)
+function legHm(c,k0,k1){let up=0,dn=0;c.segs.forEach(sg=>{const o=Math.max(0,Math.min(sg.km1,k1)-Math.max(sg.km0,k0));if(o>0){up+=sg.up*o/sg.len;dn+=sg.down*o/sg.len}});return [up,dn]}
+// Aufklappbares Verpflegungsangebot eines Postens
+// Aufklappzustand bleibt pro Browser gespeichert (auch über Neuladen), zu nur von Hand
+const NUTOPEN=(()=>{try{return JSON.parse(localStorage.getItem("pr-nutopen")||"{}")||{}}catch(e){return {}}})();
+function nutHtml(c,a,isFinish){
+  const d=NUT[c.id]&&NUT[c.id][a.n];let inner;
+  if(isFinish)inner=`<div class="nutT">${t("nutFinish")}</div>`;
+  else if(!d)inner=`<div class="nutT">${t("nutNone")}</div>`;
+  else{const P=t("nutP"),C=t("nutCat");
+    inner=`<div class="nutT">${t("nutT_"+d.t)}</div><div class="nutG">`+NUTCAT.map(([a0,a1],i)=>{const it=d.p.filter(x=>x>=a0&&x<a1);return it.length?`<div><h4>${C[i]}</h4><ul>${it.map(x=>`<li>${P[x]}</li>`).join("")}</ul></div>`:""}).join("")+`</div><div class="nutN">${t("nutByou")}</div>`}
+  return `<details class="nut" data-c="${c.id}"${NUTOPEN[c.id]?" open":""}><summary>${t("nutSum")}</summary>${inner}<div class="nutN">${t("nutSrc")}</div></details>`}
+// Fokus-Fenster: nächster Verpflegungsposten nach dem letzten Durchgang
+function renderFocus(c){
+  const box=$("fx-"+c.id);if(!box)return;
+  const k0=c.lastKm||0,t0=timeAt(c,k0),nowL=nowLocal();
+  const idx=c.aid.findIndex(a=>a.km>k0+0.05);
+  if(idx<0){box.innerHTML=`<div class="fh"><span class="fn">🏁 ${t("fFinished",dayclock(timeAt(c,c.len)))}</span></div>`;return}
+  const a=c.aid[idx],ta=timeAt(c,a.km),tp=planTimeAt(c,a.km),[up,dn]=legHm(c,k0,a.km),leg=(ta-t0)/M,L=lightAt(ta);
+  const fromTxt=c.hasLive?t("fFrom","km "+kmf(k0)+" · "+dayclock(t0)):t("fFromStart");
+  const rel=ta>=nowL?t("fIn",hm((ta-nowL)/M)):t("fAgo",hm((nowL-ta)/M));
+  const showRel=nowL>c.start-12*H&&nowL<c.start+(c.gMax+600)*M;
+  let cut=`<b>${t("fNoCut")}</b>`;if(a.c){const b=(a.c-ta)/M,cls=b<0?"out":b<60?"tight":"ok";cut=`<b>${dayclock(a.c)}</b><span><span class="pill ${cls}">${sgnHm(b)}</span></span>`}
+  const nx=c.aid[idx+1];let then="";if(nx){const tn=timeAt(c,nx.km);then=`<div class="fthen">${t("fThen")}: <b>${nx.n}</b> · km ${kmf(nx.km)} · ${dayclock(tn)}${nx.c?` · ${t("fCut")} ${dayclock(nx.c)} (${sgnHm((nx.c-tn)/M)})`:""}</div>`}
+  box.innerHTML=`<div class="fh"><span class="eyebrow">${t("fNext")}</span><span class="fn">${a.n}</span>${a.s?`<span class="pill sup" style="margin-left:0">${t("support")}</span>`:""}<span class="fsub">km ${kmf(a.km)} · ${fromTxt}</span></div>
+  <div class="fg">
+    <div class="fv"><b class="big">${dayclock(ta)}</b><span>${t("fArr")}${showRel?" · "+rel:""}</span></div>
+    <div class="fv"><b>${dayclock(tp)}</b><span>${t("fPlan")} (${sgnHm((ta-tp)/M)})</span></div>
+    <div class="fv">${cut}<span>${t("fCut")}</span></div>
+    <div class="fv"><b>${kmf(a.km-k0)} km</b><span>${t("fDist")} · ${Math.round(up)} ${t("hmUp")} / ${Math.round(dn)} ${t("hmDn")}</span></div>
+    <div class="fv"><b>${hm(leg)} h</b><span>${t("fLeg")} · ${t("fPace")} ${pace(leg/Math.max(.01,a.km-k0))} min/km</span></div>
+    <div class="fv"><b>${L[0]} ${t(L[1])}</b><span>${t("fLight")}</span></div>
+  </div>${nutHtml(c,a,a.km>=c.len-0.01)}${then}`;
+  const det=box.querySelector("details.nut");det&&det.addEventListener("toggle",()=>{if(NUTOPEN[c.id]===det.open)return;NUTOPEN[c.id]=det.open;try{localStorage.setItem("pr-nutopen",JSON.stringify(NUTOPEN))}catch(e){}});
+}
+function renderLive(c){
+  renderFocus(c);
+  const st=$("lst-"+c.id);if(!st)return;
+  st.textContent=(LIVE_MODE==="shared"?"● "+t("liveShared"):LIVE_MODE==="err"?"● "+t("liveErr"):LIVE_MODE==="local"?"● "+t("liveLocal"):t("liveLoad"))+" · "+t(RO?"liveLocked":"liveEdit")+(c.hasLive?" · "+t("factor",(c.factor*100).toFixed(0)+" %"):"");
+  st.style.color=LIVE_MODE==="shared"?"var(--ok)":LIVE_MODE==="err"?"var(--warn)":"";
+  $("lf-"+c.id).querySelectorAll("input,button").forEach(x=>x.disabled=RO);$("lf-"+c.id).hidden=RO;
+  const ch=$("ch-"+c.id);ch.replaceChildren();
+  const list=[...c.splits].sort((a,b)=>a.km-b.km);
+  if(!list.length){const h=document.createElement("span");h.className="hint";h.textContent=t(RO?"noEntriesRO":"noEntries");ch.appendChild(h);return}
+  list.forEach(x=>{const sp=document.createElement("span");sp.className="chip";sp.textContent=(x.aid?x.aid+" · ":"")+"km "+kmf(x.km)+" · "+dayclock(x.t);
+    if(!RO){const b=document.createElement("button");b.type="button";b.textContent="✕";b.setAttribute("aria-label","✕ km "+kmf(x.km));
+      b.addEventListener("click",()=>{c.splits=c.splits.filter(y=>y!==x);saveLive(c);render()});sp.appendChild(b)}
+    ch.appendChild(sp)});
+  if(!RO){const b=document.createElement("button");b.type="button";b.className="btn ghost";b.textContent=t("clearAll");
+    b.addEventListener("click",()=>{const w=document.createElement("span");w.className="chips";w.innerHTML=`<span>${t("confirmClear")}</span>`;
+      const y=document.createElement("button");y.type="button";y.className="btn warn";y.textContent=t("yes");y.addEventListener("click",()=>{c.splits=[];saveLive(c);render()});
+      const n=document.createElement("button");n.type="button";n.className="btn ghost";n.textContent=t("no");n.addEventListener("click",()=>renderLive(c));
+      w.append(y,n);b.replaceWith(w);y.focus()});ch.appendChild(b)}
+}
+// gespeicherten Stand übernehmen (Firebase liefert Listen evtl. als Objekt, fehlende Felder als undefined)
+function applyDoc(id,d){
+  if(!d)return;
+  if(id==="model"){[["fUp",d.fUp],["fDown",d.fDown],["fFat",d.fFat]].forEach(([k,v])=>{if(v!=null&&document.activeElement!==$(k))$(k).value=v});return}
+  const c=COURSES.find(x=>x.id===id);if(!c)return;
+  c.splits=d.splits?Object.values(d.splits).map(x=>({km:+x.km,t:+x.t,aid:x.aid||null})):[];if(d.goal)c.goal=+d.goal;
+}
+function initLive(){
+  if(!DB){LIVE_MODE="local";DOCS.forEach(id=>{try{applyDoc(id,JSON.parse(localStorage.getItem("pr-live-"+id)||"null"))}catch(e){}});render();return}
+  // eine einzige Streaming-Verbindung auf pacerechner/pub; put/patch-Ereignisse werden in eine lokale Kopie eingespielt
+  let PUB={};
+  const es=new EventSource(DB_ROOT+"/pub.json");
+  const onEv=e=>{let m;try{m=JSON.parse(e.data)}catch(x){return}if(!m||typeof m.path!=="string")return;
+    const ks=m.path.split("/").filter(Boolean),obj=v=>v&&typeof v==="object"?v:{};
+    if(!ks.length)PUB=e.type==="put"?obj(m.data):{...PUB,...obj(m.data)};
+    else{let o=PUB;ks.slice(0,-1).forEach(k=>{o=o[k]=obj(o[k])});const k=ks[ks.length-1];o[k]=e.type==="put"?m.data:{...obj(o[k]),...obj(m.data)}}
+    LIVE_MODE="shared";DOCS.forEach(id=>{if(!pend[id])applyDoc(id,PUB[id])});render()};
+  es.addEventListener("put",onEv);es.addEventListener("patch",onEv);
+  es.addEventListener("cancel",()=>{LIVE_MODE="err";render()});
+  es.onerror=()=>{if(LIVE_MODE!=="err"){LIVE_MODE="err";render()}}; // EventSource verbindet sich selbst neu
+  render();
+}
+// ---------- Bearbeitungssperre mit Passwort
+async function checkPw(pw){
+  if(DB){const r=await fetch(DB_ROOT+".json?print=silent",{method:"PATCH",body:JSON.stringify({key:{pw,at:{".sv":"timestamp"}}})});
+    if(r.ok)return true;if(r.status===401||r.status===403)return false;throw new Error(r.status)}
+  const h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(pw));
+  return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,"0")).join("")===PW_HASH}
+function setLock(v){LOCKED=RO=v;if(v){PW=null;try{localStorage.removeItem("pr-pw")}catch(e){}}render()}
+function syncLock(){
+  const sw=$("lockSw");sw.setAttribute("aria-checked",!LOCKED);sw.setAttribute("aria-label",t("lockAria"));
+  $("lockLbl").textContent=t(LOCKED?"lockOff":"lockOn");$("lockIco").textContent=LOCKED?"🔒":"🔓";
+  ["fUp","fDown","fFat"].forEach(id=>$(id).disabled=RO);
+  COURSES.forEach(c=>{const s=$("ctl-"+c.id);s&&s.querySelectorAll(".goalSteps button,input[type=range],.goalIn").forEach(x=>x.disabled=RO)});
+}
+$("lockSw").addEventListener("click",()=>{if(!LOCKED){setLock(true);return}
+  $("pwIn").value="";$("pwErr").textContent="";$("pwOk").disabled=false;$("pwDlg").showModal();$("pwIn").focus()});
+$("pwCancel").addEventListener("click",()=>$("pwDlg").close());
+$("pwForm").addEventListener("submit",async e=>{e.preventDefault();const pw=$("pwIn").value,ok=$("pwOk");if(!pw)return;
+  ok.disabled=true;$("pwErr").textContent=t("pwCheck");let good=false;
+  try{good=await checkPw(pw)}catch(x){$("pwErr").textContent=t("pwNet");ok.disabled=false;return}
+  ok.disabled=false;if(!good){$("pwErr").textContent=t("pwWrong");$("pwIn").select();return}
+  PW=pw;try{localStorage.setItem("pr-pw",pw)}catch(x){}$("pwDlg").close();setLock(false)});
+// geschätzte aktuelle Position (Rennzeit MEZ)
+function kmAtTime(c,tt){const P=c.pts;if(tt<P[0].t||tt>P[P.length-1].t)return null;for(let i=1;i<P.length;i++)if(tt<=P[i].t){const a=P[i-1],b=P[i];return a.km+(tt-a.t)/((b.t-a.t)||1)*(b.km-a.km)}return null}
+let nowMarks={};
+function updateNow(){if(!map)return;const nowL=nowLocal();
+  COURSES.forEach(c=>{const k=c.on&&c.pts?kmAtTime(c,nowL):null;
+    if(k==null){nowMarks[c.id]&&nowMarks[c.id].remove();return}
+    const html=`<div class="maplab r" style="background:${cvar(c)}">${c.short} · ${t("posNow",kmf(k))}</div>`;
+    if(!nowMarks[c.id])nowMarks[c.id]=L.layerGroup([L.circleMarker([0,0],{radius:9,color:"#ffffff",weight:3,fillColor:cvar(c),fillOpacity:1,interactive:false}),L.marker([0,0],{icon:L.divIcon({className:"",html,iconSize:[0,0],iconAnchor:[0,0]}),interactive:false,keyboard:false})]);
+    const ll=posAt(c,k);nowMarks[c.id].eachLayer(l=>{l.setLatLng(ll);if(l.setIcon)l.setIcon(L.divIcon({className:"",html,iconSize:[0,0],iconAnchor:[0,0]}))});nowMarks[c.id].addTo(map)})}
+// Uhrzeitfeld der Livedaten folgt der aktuellen Zeit (Mallorca, MEZ), solange es nicht von Hand geändert wurde
+function nowHM(){return clock(nowLocal())}
+setInterval(()=>{COURSES.forEach(c=>{const ti=$("lt-"+c.id);if(ti&&!ti.dataset.edited&&document.activeElement!==ti)ti.value=nowHM()})},20000);
+setInterval(()=>{COURSES.forEach(c=>c.on&&c.pts&&renderFocus(c))},60000);
+setInterval(()=>{const nowL=nowLocal();if(document.hidden||nowL<T0-H||nowL>T1+H)return;drawChart();updateNow()},60000);
+
+// ---------- Gesamtablauf
+function render(){
+  const fUp=Math.max(20,+$("fUp").value||100),fDown=Math.max(50,+$("fDown").value||500),fat=Math.max(0,+$("fFat").value||0)/100;
+  const on=COURSES.filter(c=>c.on);on.forEach(c=>compute(c,fUp,fDown,fat));
+  const all=on.flatMap(c=>c.segs.filter(s=>s.len>=.9).map(s=>s.pace)).sort((a,b)=>a-b);
+  if(all.length){pLo=all[Math.floor(all.length*.05)];pHi=all[Math.floor(all.length*.95)]}
+  COURSES.forEach(c=>{const s=$("ctl-"+c.id);if(s)s.hidden=!c.on;updateStats(c)});
+  drawChart();buildLegends();buildTables();updateMapTips();updateNow();COURSES.forEach(c=>c.on&&renderLive(c));if(PIN==null)$("tip").hidden=true;else showPinned();
+  syncLock();
+}
+COURSES.forEach(c=>{const cb=$("on-"+c.id);cb.checked=c.on;cb.addEventListener("change",()=>{c.on=cb.checked;
+  try{localStorage.setItem("pr-on",JSON.stringify(Object.fromEntries(COURSES.map(x=>[x.id,x.on]))))}catch(e){}
+  render();updateMapVisibility(true)})});
+["fUp","fDown","fFat"].forEach(id=>{$(id).addEventListener("input",render);$(id).addEventListener("change",saveModel)});
+initMap();
+applyLang();
+initLive();
+// km des Infofensters pro Browser merken
+try{const v=localStorage.getItem("pr-pin");if(v!=null&&v!==""&&!isNaN(+v))setPin(+v)}catch(e){}
+</script>
+</body>
+</html>
